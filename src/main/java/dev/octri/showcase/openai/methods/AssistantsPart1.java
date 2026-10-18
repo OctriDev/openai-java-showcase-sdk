@@ -12,7 +12,6 @@ import dev.octri.showcase.openai.models.assistants_assistants.AssistantsApiRespo
 import dev.octri.showcase.openai.models.assistants_assistants.AssistantsApiToolChoiceOption;
 import dev.octri.showcase.openai.models.assistants_create.CreateAssistantRequestToolsItem;
 import dev.octri.showcase.openai.models.assistants_create.CreateMessageRequest;
-import dev.octri.showcase.openai.models.assistants_create.CreateRunRequestToolsItem;
 import dev.octri.showcase.openai.models.assistants_create.CreateThreadAndRunRequestToolsItem;
 import dev.octri.showcase.openai.models.assistants_create.CreateThreadRequest;
 import dev.octri.showcase.openai.models.assistants_delete.DeleteAssistantResponse;
@@ -494,6 +493,70 @@ public class AssistantsPart1 {
     }
 
     /**
+     * Lists messages belonging to a thread. Use `run_id` to filter by the run that generated the messages and `order` to control their creation-time order. Use `after` or `before` cursors to navigate the results.
+     *
+     * Returns a list of messages for a given thread.
+     */
+    public static void listMessagesPaginated(SdkConfig.ClientConfig clientConfig, Assistants.ListMessagesRequest request, java.util.function.Predicate<MessageObject> yield) {
+        listMessagesPaginated(clientConfig, request, null, yield);
+    }
+
+    /**
+     * Lists messages belonging to a thread. Use `run_id` to filter by the run that generated the messages and `order` to control their creation-time order. Use `after` or `before` cursors to navigate the results.
+     *
+     * Returns a list of messages for a given thread.
+     */
+    public static void listMessagesPaginated(SdkConfig.ClientConfig clientConfig, Assistants.ListMessagesRequest request, SdkConfig.RequestOptions options, java.util.function.Predicate<MessageObject> yield) {
+        String _cursor = request.getAfter();
+        while (true) {
+            Assistants.ListMessagesRequest.Builder __b = Assistants.ListMessagesRequest.builder();
+            __b.threadId(request.getThreadId());
+            __b.limit(request.getLimit());
+            __b.order(request.getOrder());
+            __b.after(_cursor);
+            __b.before(request.getBefore());
+            __b.runId(request.getRunId());
+            Assistants.ListMessagesRequest __req = __b.build();
+            ListMessagesResponse _page = listMessages(clientConfig, __req, options);
+            List<MessageObject> _items = _page.data;
+            if (_items == null || _items.isEmpty()) { return; }
+            for (MessageObject _item : _items) {
+                if (!yield.test(_item)) { return; }
+            }
+            if (!_page.hasMore) { return; }
+            Object _next = _page.lastId;
+            if (_next == null) { return; }
+            _cursor = (String) _next;
+        }
+    }
+
+    public static void listMessagesPages(SdkConfig.ClientConfig clientConfig, Assistants.ListMessagesRequest request, java.util.function.Predicate<Assistants.ListMessagesPage> yieldPage) {
+        listMessagesPages(clientConfig, request, null, yieldPage);
+    }
+
+    public static void listMessagesPages(SdkConfig.ClientConfig clientConfig, Assistants.ListMessagesRequest request, SdkConfig.RequestOptions options, java.util.function.Predicate<Assistants.ListMessagesPage> yieldPage) {
+        String _cursor = request.getAfter();
+        while (true) {
+            Assistants.ListMessagesRequest.Builder __b = Assistants.ListMessagesRequest.builder();
+            __b.threadId(request.getThreadId());
+            __b.limit(request.getLimit());
+            __b.order(request.getOrder());
+            __b.after(_cursor);
+            __b.before(request.getBefore());
+            __b.runId(request.getRunId());
+            Assistants.ListMessagesRequest __req = __b.build();
+            ListMessagesResponse _page = listMessages(clientConfig, __req, options);
+            List<MessageObject> _items = _page.data;
+            if (_items == null || _items.isEmpty()) { return; }
+            Object _next = _page.lastId;
+            boolean _hasMore = _page.hasMore && _next != null;
+            if (!yieldPage.test(new Assistants.ListMessagesPage(_page, _items, _hasMore))) { return; }
+            if (!_hasMore) { return; }
+            _cursor = (String) _next;
+        }
+    }
+
+    /**
      * Creates a message in a thread. Provide the message `role` and `content`, and optionally include file attachments or metadata. Use this operation to add a user or assistant message to an existing conversation thread.
      *
      * Create a message.
@@ -665,63 +728,5 @@ public class AssistantsPart1 {
             if (!_hasMore) { return; }
             _cursor = (String) _next;
         }
-    }
-
-    /**
-     * Creates a run on a thread using the specified assistant. Supply `assistant_id` and optionally override the assistant’s model, instructions, tools, or generation settings for this run. If the run requires tool outputs, submit them with POST /threads/{thread_id}/runs/{run_id}/submit_tool_outputs.
-     *
-     * Create a run.
-     */
-    public static RunObject createRun(SdkConfig.ClientConfig clientConfig, Assistants.CreateRunParams request) {
-        return createRun(clientConfig, request, null);
-    }
-
-    /**
-     * Creates a run on a thread using the specified assistant. Supply `assistant_id` and optionally override the assistant’s model, instructions, tools, or generation settings for this run. If the run requires tool outputs, submit them with POST /threads/{thread_id}/runs/{run_id}/submit_tool_outputs.
-     *
-     * Create a run.
-     */
-    public static RunObject createRun(SdkConfig.ClientConfig clientConfig, Assistants.CreateRunParams request, SdkConfig.RequestOptions options) {
-        String threadId = request.getThreadId();
-        String assistantId = request.getAssistantId();
-        List<Assistants.CreateRunIncludeItem> include = request.getInclude();
-        SdkClient.OptionalValue<AssistantSupportedModels> model = request.getModel();
-        SdkClient.OptionalValue<ReasoningEffort> reasoningEffort = request.getReasoningEffort();
-        SdkClient.OptionalValue<String> instructions = request.getInstructions();
-        SdkClient.OptionalValue<String> additionalInstructions = request.getAdditionalInstructions();
-        SdkClient.OptionalValue<List<CreateMessageRequest>> additionalMessages = request.getAdditionalMessages();
-        SdkClient.OptionalValue<List<CreateRunRequestToolsItem>> tools = request.getTools();
-        SdkClient.OptionalValue<Metadata> metadata = request.getMetadata();
-        SdkClient.OptionalValue<Double> temperature = request.getTemperature();
-        SdkClient.OptionalValue<Double> topP = request.getTopP();
-        SdkClient.OptionalValue<Boolean> stream = request.getStream();
-        SdkClient.OptionalValue<Long> maxPromptTokens = request.getMaxPromptTokens();
-        SdkClient.OptionalValue<Long> maxCompletionTokens = request.getMaxCompletionTokens();
-        TruncationObject truncationStrategy = request.getTruncationStrategy();
-        AssistantsApiToolChoiceOption toolChoice = request.getToolChoice();
-        ParallelToolCalls parallelToolCalls = request.getParallelToolCalls();
-        SdkClient.OptionalValue<AssistantsApiResponseFormatOption> responseFormat = request.getResponseFormat();
-
-        if (tools != null && tools.isPresent() && tools.value() != null) {
-            { Validation.LengthOpts __i = new Validation.LengthOpts(); __i.max = 20; Validation.validateItems("tools", tools.value(), __i); }
-        }
-
-        if (temperature != null && temperature.isPresent() && temperature.value() != null) {
-            { Validation.RangeOpts __r = new Validation.RangeOpts(); __r.min = 0d; __r.max = 2d; Validation.validateRange("temperature", temperature.value(), __r); }
-        }
-
-        if (topP != null && topP.isPresent() && topP.value() != null) {
-            { Validation.RangeOpts __r = new Validation.RangeOpts(); __r.min = 0d; __r.max = 1d; Validation.validateRange("top_p", topP.value(), __r); }
-        }
-
-        if (maxPromptTokens != null && maxPromptTokens.isPresent() && maxPromptTokens.value() != null) {
-            { Validation.RangeOpts __r = new Validation.RangeOpts(); __r.min = 256d; Validation.validateRange("max_prompt_tokens", maxPromptTokens.value(), __r); }
-        }
-
-        if (maxCompletionTokens != null && maxCompletionTokens.isPresent() && maxCompletionTokens.value() != null) {
-            { Validation.RangeOpts __r = new Validation.RangeOpts(); __r.min = 256d; Validation.validateRange("max_completion_tokens", maxCompletionTokens.value(), __r); }
-        }
-
-        return SdkClient.request(clientConfig, "POST", "/threads/" + SdkClient.encodePathSegment(threadId) + "/runs", SdkClient.q("include[]", SdkClient.queryValue(include, "form", true)), SdkClient.q("assistant_id", assistantId, "model", model, "reasoning_effort", reasoningEffort, "instructions", instructions, "additional_instructions", additionalInstructions, "additional_messages", additionalMessages, "tools", tools, "metadata", metadata, "temperature", temperature, "top_p", topP, "stream", stream, "max_prompt_tokens", maxPromptTokens, "max_completion_tokens", maxCompletionTokens, "truncation_strategy", SdkClient.omitIfNull(truncationStrategy), "tool_choice", SdkClient.omitIfNull(toolChoice), "parallel_tool_calls", SdkClient.omitIfNull(parallelToolCalls), "response_format", responseFormat), null, new TypeReference<RunObject>(){}, "createRun", null, SdkClient.ResponseDecoder.JSON, options, java.util.Map.of("429", ErrorResponse.class)).data;
     }
 }

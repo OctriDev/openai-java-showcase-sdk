@@ -5,6 +5,8 @@ package dev.octri.showcase.openai.models.live_live_specific;
 
 import dev.octri.showcase.openai.Validation;
 import dev.octri.showcase.openai.models.live_live_allowed.LiveAllowedToolsChoiceParamToolsItem;
+import dev.octri.showcase.openai.models.live_live_responses.LiveResponsesDelegationSettingsInputParamToolChoice;
+import dev.octri.showcase.openai.models.live_live_responses.LiveResponsesDelegationSettingsUpdateInputParamToolChoice;
 
 /**
  * LiveSpecificApplyPatchParam.
@@ -12,7 +14,7 @@ import dev.octri.showcase.openai.models.live_live_allowed.LiveAllowedToolsChoice
  */
 
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.databind.JsonDeserializer.None.class) @com.fasterxml.jackson.annotation.JsonTypeInfo(use = com.fasterxml.jackson.annotation.JsonTypeInfo.Id.NONE)
-public final class LiveSpecificApplyPatchParam implements LiveAllowedToolsChoiceParamToolsItem {
+public final class LiveSpecificApplyPatchParam implements LiveAllowedToolsChoiceParamToolsItem, LiveResponsesDelegationSettingsInputParamToolChoice, LiveResponsesDelegationSettingsUpdateInputParamToolChoice {
     /**
      * The tool to call. Always `apply_patch`.
      */

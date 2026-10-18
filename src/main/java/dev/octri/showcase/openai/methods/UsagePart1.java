@@ -5,8 +5,8 @@ package dev.octri.showcase.openai.methods;
 
 import dev.octri.showcase.openai.models.decisions_decisions.DecisionsUsageBucketWidth;
 import dev.octri.showcase.openai.models.decisions_decisions.DecisionsUsageGroupBy;
-import dev.octri.showcase.openai.models.shared.PermissionErrorResponse;
 import dev.octri.showcase.openai.models.shared_error.ErrorResponse;
+import dev.octri.showcase.openai.models.shared_permission.PermissionErrorResponse;
 import dev.octri.showcase.openai.models.usage.UsageResponse;
 import dev.octri.showcase.openai.models.usage.UsageTimeBucket;
 import dev.octri.showcase.openai.SdkConfig;

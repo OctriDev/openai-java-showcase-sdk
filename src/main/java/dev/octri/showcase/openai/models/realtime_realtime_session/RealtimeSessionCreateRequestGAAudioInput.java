@@ -26,7 +26,7 @@ public final class RealtimeSessionCreateRequestGAAudioInput {
     /**
      * Configuration for input audio noise reduction. This can be set to `null` to turn off. Noise reduction filters audio added to the input audio buffer before it is sent to VAD and the model. Filtering the audio can improve VAD and turn detection accuracy (reducing false positives) and model performance by improving perception of the input audio.
      */
-    @Nullable @JsonProperty("noise_reduction") public Object noiseReduction;
+    @Nullable @JsonProperty("noise_reduction") public RealtimeSessionCreateRequestGAAudioInputNoiseReduction noiseReduction;
     /**
      * Configuration for turn detection, ether Server VAD or Semantic VAD. This can be set to `null` to turn off, in which case the client must manually trigger model response. Server VAD means that the model will detect the start and end of speech based on audio volume and respond at the end of user speech. Semantic VAD is more advanced and uses a turn detection model (in conjunction with VAD) to semantically estimate whether the user has finished speaking, then dynamically sets a timeout based on this probability. For example, if user audio trails off with "uhhm", the model will score a low probability of turn end and wait longer for the user to continue speaking. This can be useful for more natural conversations, but may have a higher latency. For `gpt-realtime-whisper` transcription sessions, turn detection must be set to `null`; VAD is not supported.
      */
@@ -36,11 +36,11 @@ public final class RealtimeSessionCreateRequestGAAudioInput {
     public static final class Builder {
         private RealtimeAudioFormats format;
         private AudioTranscription transcription;
-        private Object noiseReduction;
+        private RealtimeSessionCreateRequestGAAudioInputNoiseReduction noiseReduction;
         private RealtimeTurnDetection turnDetection;
         public Builder format(RealtimeAudioFormats value) { this.format = value; return this; }
         public Builder transcription(AudioTranscription value) { this.transcription = value; return this; }
-        public Builder noiseReduction(Object value) { this.noiseReduction = value; return this; }
+        public Builder noiseReduction(RealtimeSessionCreateRequestGAAudioInputNoiseReduction value) { this.noiseReduction = value; return this; }
         public Builder turnDetection(RealtimeTurnDetection value) { this.turnDetection = value; return this; }
         public RealtimeSessionCreateRequestGAAudioInput build() {
             RealtimeSessionCreateRequestGAAudioInput result = new RealtimeSessionCreateRequestGAAudioInput();

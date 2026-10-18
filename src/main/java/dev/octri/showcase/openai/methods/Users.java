@@ -3,8 +3,8 @@
 
 package dev.octri.showcase.openai.methods;
 
-import dev.octri.showcase.openai.models.shared.PermissionErrorResponse;
 import dev.octri.showcase.openai.models.shared_error.ErrorResponse;
+import dev.octri.showcase.openai.models.shared_permission.PermissionErrorResponse;
 import dev.octri.showcase.openai.models.shared_user.User;
 import dev.octri.showcase.openai.models.users.UserDeleteResponse;
 import dev.octri.showcase.openai.models.users.UserListResponse;

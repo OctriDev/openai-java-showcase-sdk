@@ -60,9 +60,13 @@ import dev.octri.showcase.openai.models.assistants_thread.ThreadObject;
 import dev.octri.showcase.openai.models.audio.AudioResponseFormat;
 import dev.octri.showcase.openai.models.audio.CreateSpeechRequestResponseFormatEnum;
 import dev.octri.showcase.openai.models.audio.CreateSpeechRequestStreamFormatEnum;
+import dev.octri.showcase.openai.models.audio.CreateSpeechRequestVoice;
 import dev.octri.showcase.openai.models.audio.CreateSpeechResponseStreamEvent;
+import dev.octri.showcase.openai.models.audio.CreateTranscriptionRequestChunkingStrategy;
 import dev.octri.showcase.openai.models.audio.CreateTranscriptionRequestTimestampGranularitiesItemEnum;
+import dev.octri.showcase.openai.models.audio.CreateTranscriptionResponse;
 import dev.octri.showcase.openai.models.audio.CreateTranscriptionResponseStreamEvent;
+import dev.octri.showcase.openai.models.audio.CreateTranslationResponse;
 import dev.octri.showcase.openai.models.audio.TranscriptionInclude;
 import dev.octri.showcase.openai.models.audio.VoiceConsentDeletedResource;
 import dev.octri.showcase.openai.models.audio.VoiceConsentListResource;
@@ -732,6 +736,24 @@ public class OpenAI {
         }
 
         /**
+         * Lists messages belonging to a thread. Use `run_id` to filter by the run that generated the messages and `order` to control their creation-time order. Use `after` or `before` cursors to navigate the results.
+         *
+         * Returns a list of messages for a given thread.
+         */
+        public void listMessagesPaginated(Assistants.ListMessagesRequest request, java.util.function.Predicate<MessageObject> yield) {
+            Assistants.listMessagesPaginated(this.clientConfig, request, yield);
+        }
+
+        /**
+         * Lists messages belonging to a thread. Use `run_id` to filter by the run that generated the messages and `order` to control their creation-time order. Use `after` or `before` cursors to navigate the results.
+         *
+         * Returns a list of messages for a given thread.
+         */
+        public void listMessagesPaginated(Assistants.ListMessagesRequest request, SdkConfig.RequestOptions options, java.util.function.Predicate<MessageObject> yield) {
+            Assistants.listMessagesPaginated(this.clientConfig, request, options, yield);
+        }
+
+        /**
          * Creates a message in a thread. Provide the message `role` and `content`, and optionally include file attachments or metadata. Use this operation to add a user or assistant message to an existing conversation thread.
          *
          * Create a message.
@@ -948,6 +970,24 @@ public class OpenAI {
         }
 
         /**
+         * Lists the steps belonging to a run on a thread. Use cursor parameters to page through the steps, and set `order` to control their order by creation time.
+         *
+         * Returns a list of run steps belonging to a run.
+         */
+        public void listRunStepsPaginated(Assistants.ListRunStepsRequest request, java.util.function.Predicate<RunStepObject> yield) {
+            Assistants.listRunStepsPaginated(this.clientConfig, request, yield);
+        }
+
+        /**
+         * Lists the steps belonging to a run on a thread. Use cursor parameters to page through the steps, and set `order` to control their order by creation time.
+         *
+         * Returns a list of run steps belonging to a run.
+         */
+        public void listRunStepsPaginated(Assistants.ListRunStepsRequest request, SdkConfig.RequestOptions options, java.util.function.Predicate<RunStepObject> yield) {
+            Assistants.listRunStepsPaginated(this.clientConfig, request, options, yield);
+        }
+
+        /**
          * Retrieves a specific step from a run on a thread. Use `include[]` to request file search result content when the step contains file search tool calls.
          *
          * Retrieves a run step.
@@ -1030,7 +1070,7 @@ public class OpenAI {
          *
          * Generates audio from the input text. Returns the audio file content, or a stream of audio events.
          */
-        public java.util.stream.Stream<CreateSpeechResponseStreamEvent> createSpeechStream(String model, String input, Map<String, Object> voice, String instructions, CreateSpeechRequestResponseFormatEnum responseFormat, Double speed, CreateSpeechRequestStreamFormatEnum streamFormat) {
+        public java.util.stream.Stream<CreateSpeechResponseStreamEvent> createSpeechStream(String model, String input, CreateSpeechRequestVoice voice, String instructions, CreateSpeechRequestResponseFormatEnum responseFormat, Double speed, CreateSpeechRequestStreamFormatEnum streamFormat) {
             return Audio.createSpeechStream(this.clientConfig, model, input, voice, instructions, responseFormat, speed, streamFormat);
         }
 
@@ -1039,7 +1079,7 @@ public class OpenAI {
          *
          * Generates audio from the input text. Returns the audio file content, or a stream of audio events.
          */
-        public java.util.stream.Stream<CreateSpeechResponseStreamEvent> createSpeechStream(String model, String input, Map<String, Object> voice, String instructions, CreateSpeechRequestResponseFormatEnum responseFormat, Double speed, CreateSpeechRequestStreamFormatEnum streamFormat, SdkConfig.RequestOptions options) {
+        public java.util.stream.Stream<CreateSpeechResponseStreamEvent> createSpeechStream(String model, String input, CreateSpeechRequestVoice voice, String instructions, CreateSpeechRequestResponseFormatEnum responseFormat, Double speed, CreateSpeechRequestStreamFormatEnum streamFormat, SdkConfig.RequestOptions options) {
             return Audio.createSpeechStream(this.clientConfig, model, input, voice, instructions, responseFormat, speed, streamFormat, options);
         }
 
@@ -1048,7 +1088,7 @@ public class OpenAI {
          *
          * Transcribes audio into the input language. Returns a transcription object in `json`, `diarized_json`, or `verbose_json` format, plain text in `text`, `srt`, or `vtt` format, or a stream of transcript events. Supported formats depend on the model.
          */
-        public Object createTranscription(Audio.CreateTranscriptionParams request) {
+        public CreateTranscriptionResponse createTranscription(Audio.CreateTranscriptionParams request) {
             return Audio.createTranscription(this.clientConfig, request);
         }
 
@@ -1057,7 +1097,7 @@ public class OpenAI {
          *
          * Transcribes audio into the input language. Returns a transcription object in `json`, `diarized_json`, or `verbose_json` format, plain text in `text`, `srt`, or `vtt` format, or a stream of transcript events. Supported formats depend on the model.
          */
-        public Object createTranscription(Audio.CreateTranscriptionParams request, SdkConfig.RequestOptions options) {
+        public CreateTranscriptionResponse createTranscription(Audio.CreateTranscriptionParams request, SdkConfig.RequestOptions options) {
             return Audio.createTranscription(this.clientConfig, request, options);
         }
 
@@ -1066,7 +1106,7 @@ public class OpenAI {
          *
          * Transcribes audio into the input language. Returns a transcription object in `json`, `diarized_json`, or `verbose_json` format, plain text in `text`, `srt`, or `vtt` format, or a stream of transcript events. Supported formats depend on the model.
          */
-        public java.util.stream.Stream<CreateTranscriptionResponseStreamEvent> createTranscriptionStream(SdkClient.UploadFile file, String model, Boolean stream, String language, List<String> languages, List<String> keywords, String prompt, AudioResponseFormat responseFormat, Double temperature, List<TranscriptionInclude> include, List<CreateTranscriptionRequestTimestampGranularitiesItemEnum> timestampGranularities, SdkClient.OptionalValue<Object> chunkingStrategy, List<String> knownSpeakerNames, List<String> knownSpeakerReferences) {
+        public java.util.stream.Stream<CreateTranscriptionResponseStreamEvent> createTranscriptionStream(SdkClient.UploadFile file, String model, Boolean stream, String language, List<String> languages, List<String> keywords, String prompt, AudioResponseFormat responseFormat, Double temperature, List<TranscriptionInclude> include, List<CreateTranscriptionRequestTimestampGranularitiesItemEnum> timestampGranularities, SdkClient.OptionalValue<CreateTranscriptionRequestChunkingStrategy> chunkingStrategy, List<String> knownSpeakerNames, List<String> knownSpeakerReferences) {
             return Audio.createTranscriptionStream(this.clientConfig, file, model, stream, language, languages, keywords, prompt, responseFormat, temperature, include, timestampGranularities, chunkingStrategy, knownSpeakerNames, knownSpeakerReferences);
         }
 
@@ -1075,7 +1115,7 @@ public class OpenAI {
          *
          * Transcribes audio into the input language. Returns a transcription object in `json`, `diarized_json`, or `verbose_json` format, plain text in `text`, `srt`, or `vtt` format, or a stream of transcript events. Supported formats depend on the model.
          */
-        public java.util.stream.Stream<CreateTranscriptionResponseStreamEvent> createTranscriptionStream(SdkClient.UploadFile file, String model, Boolean stream, String language, List<String> languages, List<String> keywords, String prompt, AudioResponseFormat responseFormat, Double temperature, List<TranscriptionInclude> include, List<CreateTranscriptionRequestTimestampGranularitiesItemEnum> timestampGranularities, SdkClient.OptionalValue<Object> chunkingStrategy, List<String> knownSpeakerNames, List<String> knownSpeakerReferences, SdkConfig.RequestOptions options) {
+        public java.util.stream.Stream<CreateTranscriptionResponseStreamEvent> createTranscriptionStream(SdkClient.UploadFile file, String model, Boolean stream, String language, List<String> languages, List<String> keywords, String prompt, AudioResponseFormat responseFormat, Double temperature, List<TranscriptionInclude> include, List<CreateTranscriptionRequestTimestampGranularitiesItemEnum> timestampGranularities, SdkClient.OptionalValue<CreateTranscriptionRequestChunkingStrategy> chunkingStrategy, List<String> knownSpeakerNames, List<String> knownSpeakerReferences, SdkConfig.RequestOptions options) {
             return Audio.createTranscriptionStream(this.clientConfig, file, model, stream, language, languages, keywords, prompt, responseFormat, temperature, include, timestampGranularities, chunkingStrategy, knownSpeakerNames, knownSpeakerReferences, options);
         }
 
@@ -1084,7 +1124,7 @@ public class OpenAI {
          *
          * Translates audio into English.
          */
-        public Object createTranslation(Audio.CreateTranslationParams request) {
+        public CreateTranslationResponse createTranslation(Audio.CreateTranslationParams request) {
             return Audio.createTranslation(this.clientConfig, request);
         }
 
@@ -1093,7 +1133,7 @@ public class OpenAI {
          *
          * Translates audio into English.
          */
-        public Object createTranslation(Audio.CreateTranslationParams request, SdkConfig.RequestOptions options) {
+        public CreateTranslationResponse createTranslation(Audio.CreateTranslationParams request, SdkConfig.RequestOptions options) {
             return Audio.createTranslation(this.clientConfig, request, options);
         }
 
@@ -6038,6 +6078,24 @@ public class OpenAI {
         }
 
         /**
+         * Lists vector stores, which are collections of processed files that you can use with the `file_search` tool. Use the cursor parameters to move forward or backward through the results, and set `order` to control sorting by creation time.
+         *
+         * Returns a list of vector stores.
+         */
+        public void listPaginated(VectorStores.ListVectorStoresRequest request, java.util.function.Predicate<VectorStoreObject> yield) {
+            VectorStores.listVectorStoresPaginated(this.clientConfig, request, yield);
+        }
+
+        /**
+         * Lists vector stores, which are collections of processed files that you can use with the `file_search` tool. Use the cursor parameters to move forward or backward through the results, and set `order` to control sorting by creation time.
+         *
+         * Returns a list of vector stores.
+         */
+        public void listPaginated(VectorStores.ListVectorStoresRequest request, SdkConfig.RequestOptions options, java.util.function.Predicate<VectorStoreObject> yield) {
+            VectorStores.listVectorStoresPaginated(this.clientConfig, request, options, yield);
+        }
+
+        /**
          * Creates a vector store to collect processed files for use with the `file_search` tool. Supply `file_ids` to add files at creation, and optionally set a name, description, expiration policy, chunking strategy, or metadata.
          *
          * Create a vector store.
@@ -6182,6 +6240,24 @@ public class OpenAI {
         }
 
         /**
+         * Lists the files in a vector store file batch. Use `filter` to limit results by processing status and the cursor parameters to navigate through the batch's files.
+         *
+         * Returns a list of vector store files in a batch.
+         */
+        public void listFilesInBatchPaginated(VectorStores.ListFilesInVectorStoreBatchRequest request, java.util.function.Predicate<VectorStoreFileObject> yield) {
+            VectorStores.listFilesInVectorStoreBatchPaginated(this.clientConfig, request, yield);
+        }
+
+        /**
+         * Lists the files in a vector store file batch. Use `filter` to limit results by processing status and the cursor parameters to navigate through the batch's files.
+         *
+         * Returns a list of vector store files in a batch.
+         */
+        public void listFilesInBatchPaginated(VectorStores.ListFilesInVectorStoreBatchRequest request, SdkConfig.RequestOptions options, java.util.function.Predicate<VectorStoreFileObject> yield) {
+            VectorStores.listFilesInVectorStoreBatchPaginated(this.clientConfig, request, options, yield);
+        }
+
+        /**
          * Lists files attached to a vector store, with pagination and an optional status filter. Use `after` or `before` to navigate the list, and `filter` to select files by processing status.
          *
          * Returns a list of vector store files.
@@ -6197,6 +6273,24 @@ public class OpenAI {
          */
         public ListVectorStoreFilesResponse listFiles(VectorStores.ListVectorStoreFilesRequest request, SdkConfig.RequestOptions options) {
             return VectorStores.listVectorStoreFiles(this.clientConfig, request, options);
+        }
+
+        /**
+         * Lists files attached to a vector store, with pagination and an optional status filter. Use `after` or `before` to navigate the list, and `filter` to select files by processing status.
+         *
+         * Returns a list of vector store files.
+         */
+        public void listFilesPaginated(VectorStores.ListVectorStoreFilesRequest request, java.util.function.Predicate<VectorStoreFileObject> yield) {
+            VectorStores.listVectorStoreFilesPaginated(this.clientConfig, request, yield);
+        }
+
+        /**
+         * Lists files attached to a vector store, with pagination and an optional status filter. Use `after` or `before` to navigate the list, and `filter` to select files by processing status.
+         *
+         * Returns a list of vector store files.
+         */
+        public void listFilesPaginated(VectorStores.ListVectorStoreFilesRequest request, SdkConfig.RequestOptions options, java.util.function.Predicate<VectorStoreFileObject> yield) {
+            VectorStores.listVectorStoreFilesPaginated(this.clientConfig, request, options, yield);
         }
 
         /**

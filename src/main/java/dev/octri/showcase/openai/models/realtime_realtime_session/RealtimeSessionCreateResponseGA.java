@@ -60,7 +60,7 @@ public final class RealtimeSessionCreateResponseGA implements RealtimeCreateClie
     /**
      * Realtime API can write session traces to the [Traces Dashboard](https://platform.openai.com/logs?api=traces). Set to null to disable tracing. Once tracing is enabled for a session, the configuration cannot be modified. `auto` will create a trace for the session with default values for the workflow name, group id, and metadata.
      */
-    @Nullable public Object tracing;
+    @Nullable public RealtimeSessionCreateResponseGATracing tracing;
     /**
      * Tools available to the model.
      */
@@ -97,7 +97,7 @@ public final class RealtimeSessionCreateResponseGA implements RealtimeCreateClie
         private String instructions;
         private RealtimeSessionCreateResponseGAAudio audio;
         private List<RealtimeSessionCreateResponseGAIncludeItemEnum> include;
-        private Object tracing;
+        private RealtimeSessionCreateResponseGATracing tracing;
         private List<RealtimeSessionCreateResponseGAToolsItem> tools;
         private RealtimeSessionCreateResponseGAToolChoice toolChoice;
         private RealtimeReasoning reasoning;
@@ -113,7 +113,7 @@ public final class RealtimeSessionCreateResponseGA implements RealtimeCreateClie
         public Builder instructions(String value) { this.instructions = value; return this; }
         public Builder audio(RealtimeSessionCreateResponseGAAudio value) { this.audio = value; return this; }
         public Builder include(List<RealtimeSessionCreateResponseGAIncludeItemEnum> value) { this.include = value; return this; }
-        public Builder tracing(Object value) { this.tracing = value; return this; }
+        public Builder tracing(RealtimeSessionCreateResponseGATracing value) { this.tracing = value; return this; }
         public Builder tools(List<RealtimeSessionCreateResponseGAToolsItem> value) { this.tools = value; return this; }
         public Builder toolChoice(RealtimeSessionCreateResponseGAToolChoice value) { this.toolChoice = value; return this; }
         public Builder reasoning(RealtimeReasoning value) { this.reasoning = value; return this; }

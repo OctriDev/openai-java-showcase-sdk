@@ -26,6 +26,18 @@ public interface BetaContent {
             com.fasterxml.jackson.databind.JsonNode node = parser.readValueAsTree();
             try {
                 BetaInputContent branch = mapper.convertValue(node, BetaInputContent.class);
+                if (keepsEveryKey(mapper, node, branch)) return new BetaContentBetaInputContentValue(branch);
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                BetaOutputContent branch = mapper.convertValue(node, BetaOutputContent.class);
+                if (keepsEveryKey(mapper, node, branch)) return new BetaContentBetaOutputContentValue(branch);
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                BetaInputContent branch = mapper.convertValue(node, BetaInputContent.class);
                 return new BetaContentBetaInputContentValue(branch);
             } catch (IllegalArgumentException | SdkValidationError ignored) {
                 // Not this branch.
@@ -38,6 +50,17 @@ public interface BetaContent {
             }
             throw com.fasterxml.jackson.databind.exc.MismatchedInputException.from(
                 parser, BetaContent.class, "no BetaContent branch accepts this payload");
+        }
+
+        private static boolean keepsEveryKey(
+            com.fasterxml.jackson.databind.ObjectMapper mapper,
+            com.fasterxml.jackson.databind.JsonNode node,
+            Object branch) {
+            com.fasterxml.jackson.databind.JsonNode kept = mapper.valueToTree(branch);
+            for (java.util.Iterator<String> names = node.fieldNames(); names.hasNext(); ) {
+                if (!kept.has(names.next())) return false;
+            }
+            return true;
         }
     }
 }

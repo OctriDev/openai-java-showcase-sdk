@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
  */
 
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.databind.JsonDeserializer.None.class) @com.fasterxml.jackson.annotation.JsonTypeInfo(use = com.fasterxml.jackson.annotation.JsonTypeInfo.Id.NONE)
-public final class VadConfig implements TranscriptionChunkingStrategy {
+public final class VadConfig implements CreateTranscriptionRequestChunkingStrategy, TranscriptionChunkingStrategy {
     /**
      * Must be set to `server_vad` to enable manual chunking using server side VAD.
      */

@@ -12,7 +12,8 @@ import javax.annotation.Nullable;
  * Represents a diarized transcription response returned by the model, including the combined transcript and speaker-segment annotations.
  */
 
-public final class CreateTranscriptionResponseDiarizedJson {
+@com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.databind.JsonDeserializer.None.class) @com.fasterxml.jackson.annotation.JsonTypeInfo(use = com.fasterxml.jackson.annotation.JsonTypeInfo.Id.NONE)
+public final class CreateTranscriptionResponseDiarizedJson implements CreateTranscriptionResponse {
     /**
      * The type of task that was run. Always `transcribe`.
      */

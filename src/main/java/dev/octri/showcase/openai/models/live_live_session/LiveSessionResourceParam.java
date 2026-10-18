@@ -91,6 +91,7 @@ public final class LiveSessionResourceParam {
         public LiveSessionResourceParam build() {
             LiveSessionResourceParam result = new LiveSessionResourceParam();
             Validation.validateRequired("model", this.model);
+            { Validation.LengthOpts __length = new Validation.LengthOpts(); __length.min = 1; Validation.validateLength("model", this.model, __length); }
             result.model = this.model;
             Validation.validateRequired("id", this.id);
             result.id = this.id;

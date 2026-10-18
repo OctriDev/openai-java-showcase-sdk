@@ -53,6 +53,24 @@ public interface AssistantsApiResponseFormatOption {
             }
             try {
                 ResponseFormatText branch = mapper.convertValue(node, ResponseFormatText.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                ResponseFormatJsonObject branch = mapper.convertValue(node, ResponseFormatJsonObject.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                ResponseFormatJsonSchema branch = mapper.convertValue(node, ResponseFormatJsonSchema.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                ResponseFormatText branch = mapper.convertValue(node, ResponseFormatText.class);
                 return branch;
             } catch (IllegalArgumentException | SdkValidationError ignored) {
                 // Not this branch.
@@ -70,6 +88,17 @@ public interface AssistantsApiResponseFormatOption {
                 // Not this branch.
             }
             return new AssistantsApiResponseFormatOptionStringValue(mapper.convertValue(node, new com.fasterxml.jackson.core.type.TypeReference<String>() {}));
+        }
+
+        private static boolean keepsEveryKey(
+            com.fasterxml.jackson.databind.ObjectMapper mapper,
+            com.fasterxml.jackson.databind.JsonNode node,
+            Object branch) {
+            com.fasterxml.jackson.databind.JsonNode kept = mapper.valueToTree(branch);
+            for (java.util.Iterator<String> names = node.fieldNames(); names.hasNext(); ) {
+                if (!kept.has(names.next())) return false;
+            }
+            return true;
         }
     }
 }

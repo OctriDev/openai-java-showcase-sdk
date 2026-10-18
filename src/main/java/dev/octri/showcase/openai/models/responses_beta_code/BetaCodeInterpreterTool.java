@@ -6,7 +6,6 @@ package dev.octri.showcase.openai.models.responses_beta_code;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import dev.octri.showcase.openai.Validation;
 import dev.octri.showcase.openai.models.responses_beta.BetaCallableToolAllowedCaller;
-import dev.octri.showcase.openai.models.responses_beta_auto.BetaAutoCodeInterpreterToolParam;
 import dev.octri.showcase.openai.models.responses_beta_tool.BetaTool;
 import dev.octri.showcase.openai.models.responses_beta_tool.BetaToolSearchOutputTool;
 import java.util.List;
@@ -26,7 +25,7 @@ public final class BetaCodeInterpreterTool implements BetaTool, BetaToolSearchOu
     /**
      * The code interpreter container. Can be a container ID or an object that specifies uploaded file IDs to make available to your code, along with an optional `memory_limit` setting.
      */
-    @com.fasterxml.jackson.annotation.JsonSubTypes({@com.fasterxml.jackson.annotation.JsonSubTypes.Type(BetaAutoCodeInterpreterToolParam.class)}) public Object container;
+    public BetaCodeInterpreterToolContainer container;
     /**
      * The tool invocation context(s).
      */
@@ -35,10 +34,10 @@ public final class BetaCodeInterpreterTool implements BetaTool, BetaToolSearchOu
     public static Builder builder() { return new Builder(); }
     public static final class Builder {
         private BetaCodeInterpreterToolTypeEnum type;
-        private Object container;
+        private BetaCodeInterpreterToolContainer container;
         private List<BetaCallableToolAllowedCaller> allowedCallers;
         public Builder type(BetaCodeInterpreterToolTypeEnum value) { this.type = value; return this; }
-        public Builder container(Object value) { this.container = value; return this; }
+        public Builder container(BetaCodeInterpreterToolContainer value) { this.container = value; return this; }
         public Builder allowedCallers(List<BetaCallableToolAllowedCaller> value) { this.allowedCallers = value; return this; }
         public BetaCodeInterpreterTool build() {
             BetaCodeInterpreterTool result = new BetaCodeInterpreterTool();

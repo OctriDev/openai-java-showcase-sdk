@@ -49,7 +49,7 @@ public final class RealtimeSessionCreateResponse {
     /**
      * Configuration options for tracing. Set to null to disable tracing. Once tracing is enabled for a session, the configuration cannot be modified. `auto` will create a trace for the session with default values for the workflow name, group id, and metadata.
      */
-    @Nullable public Object tracing;
+    @Nullable public RealtimeSessionCreateResponseTracing tracing;
     /**
      * Configuration for turn detection. Can be set to `null` to turn off. Server VAD means that the model will detect the start and end of speech based on audio volume and respond at the end of user speech.
      */
@@ -77,7 +77,7 @@ public final class RealtimeSessionCreateResponse {
         private List<RealtimeSessionCreateResponseOutputModalitiesItemEnum> outputModalities;
         private String instructions;
         private RealtimeSessionCreateResponseAudio audio;
-        private Object tracing;
+        private RealtimeSessionCreateResponseTracing tracing;
         private RealtimeSessionCreateResponseTurnDetection turnDetection;
         private List<RealtimeFunctionTool> tools;
         private String toolChoice;
@@ -90,7 +90,7 @@ public final class RealtimeSessionCreateResponse {
         public Builder outputModalities(List<RealtimeSessionCreateResponseOutputModalitiesItemEnum> value) { this.outputModalities = value; return this; }
         public Builder instructions(String value) { this.instructions = value; return this; }
         public Builder audio(RealtimeSessionCreateResponseAudio value) { this.audio = value; return this; }
-        public Builder tracing(Object value) { this.tracing = value; return this; }
+        public Builder tracing(RealtimeSessionCreateResponseTracing value) { this.tracing = value; return this; }
         public Builder turnDetection(RealtimeSessionCreateResponseTurnDetection value) { this.turnDetection = value; return this; }
         public Builder tools(List<RealtimeFunctionTool> value) { this.tools = value; return this; }
         public Builder toolChoice(String value) { this.toolChoice = value; return this; }

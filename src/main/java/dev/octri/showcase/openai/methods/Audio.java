@@ -6,10 +6,14 @@ package dev.octri.showcase.openai.methods;
 import dev.octri.showcase.openai.models.audio.AudioResponseFormat;
 import dev.octri.showcase.openai.models.audio.CreateSpeechRequestResponseFormatEnum;
 import dev.octri.showcase.openai.models.audio.CreateSpeechRequestStreamFormatEnum;
+import dev.octri.showcase.openai.models.audio.CreateSpeechRequestVoice;
 import dev.octri.showcase.openai.models.audio.CreateSpeechResponseStreamEvent;
+import dev.octri.showcase.openai.models.audio.CreateTranscriptionRequestChunkingStrategy;
 import dev.octri.showcase.openai.models.audio.CreateTranscriptionRequestTimestampGranularitiesItemEnum;
+import dev.octri.showcase.openai.models.audio.CreateTranscriptionResponse;
 import dev.octri.showcase.openai.models.audio.CreateTranscriptionResponseStreamEvent;
 import dev.octri.showcase.openai.models.audio.CreateTranslationRequestResponseFormatEnum;
+import dev.octri.showcase.openai.models.audio.CreateTranslationResponse;
 import dev.octri.showcase.openai.models.audio.CreateVoiceRequest;
 import dev.octri.showcase.openai.models.audio.TranscriptionInclude;
 import dev.octri.showcase.openai.models.audio.VoiceConsentDeletedResource;
@@ -22,7 +26,6 @@ import dev.octri.showcase.openai.SdkClient;
 import dev.octri.showcase.openai.Validation;
 import com.fasterxml.jackson.core.type.TypeReference;
 import java.util.List;
-import java.util.Map;
 
 public class Audio {
 
@@ -30,7 +33,7 @@ public class Audio {
 
         private String model;
         private String input;
-        private Map<String, Object> voice;
+        private CreateSpeechRequestVoice voice;
         private String instructions;
         private CreateSpeechRequestResponseFormatEnum responseFormat;
         private Double speed;
@@ -44,7 +47,7 @@ public class Audio {
             private final CreateSpeechParams request = new CreateSpeechParams();
             public Builder model(String val) { request.model = val; return this; }
             public Builder input(String val) { request.input = val; return this; }
-            public Builder voice(Map<String, Object> val) { request.voice = val; return this; }
+            public Builder voice(CreateSpeechRequestVoice val) { request.voice = val; return this; }
             public Builder instructions(String val) { request.instructions = val; return this; }
             public Builder responseFormat(CreateSpeechRequestResponseFormatEnum val) { request.responseFormat = val; return this; }
             public Builder speed(Double val) { request.speed = val; return this; }
@@ -53,7 +56,7 @@ public class Audio {
         }
         public String getModel() { return model; }
         public String getInput() { return input; }
-        public Map<String, Object> getVoice() { return voice; }
+        public CreateSpeechRequestVoice getVoice() { return voice; }
         public String getInstructions() { return instructions; }
         public CreateSpeechRequestResponseFormatEnum getResponseFormat() { return responseFormat; }
         public Double getSpeed() { return speed; }
@@ -77,7 +80,7 @@ public class Audio {
     public static byte[] createSpeech(SdkConfig.ClientConfig clientConfig, CreateSpeechParams request, SdkConfig.RequestOptions options) {
         String model = request.getModel();
         String input = request.getInput();
-        Map<String, Object> voice = request.getVoice();
+        CreateSpeechRequestVoice voice = request.getVoice();
         String instructions = request.getInstructions();
         CreateSpeechRequestResponseFormatEnum responseFormat = request.getResponseFormat();
         Double speed = request.getSpeed();
@@ -98,11 +101,11 @@ public class Audio {
 
 
 
-    public static java.util.stream.Stream<CreateSpeechResponseStreamEvent> createSpeechStream(SdkConfig.ClientConfig clientConfig, String model, String input, Map<String, Object> voice, String instructions, CreateSpeechRequestResponseFormatEnum responseFormat, Double speed, CreateSpeechRequestStreamFormatEnum streamFormat) {
+    public static java.util.stream.Stream<CreateSpeechResponseStreamEvent> createSpeechStream(SdkConfig.ClientConfig clientConfig, String model, String input, CreateSpeechRequestVoice voice, String instructions, CreateSpeechRequestResponseFormatEnum responseFormat, Double speed, CreateSpeechRequestStreamFormatEnum streamFormat) {
         return createSpeechStream(clientConfig, model, input, voice, instructions, responseFormat, speed, streamFormat, null);
     }
 
-    public static java.util.stream.Stream<CreateSpeechResponseStreamEvent> createSpeechStream(SdkConfig.ClientConfig clientConfig, String model, String input, Map<String, Object> voice, String instructions, CreateSpeechRequestResponseFormatEnum responseFormat, Double speed, CreateSpeechRequestStreamFormatEnum streamFormat, SdkConfig.RequestOptions options) {
+    public static java.util.stream.Stream<CreateSpeechResponseStreamEvent> createSpeechStream(SdkConfig.ClientConfig clientConfig, String model, String input, CreateSpeechRequestVoice voice, String instructions, CreateSpeechRequestResponseFormatEnum responseFormat, Double speed, CreateSpeechRequestStreamFormatEnum streamFormat, SdkConfig.RequestOptions options) {
         java.util.Iterator<SdkClient.SdkStreamEvent> _it = SdkClient.stream(
             clientConfig,
             "POST",
@@ -162,7 +165,7 @@ public class Audio {
         private List<TranscriptionInclude> include;
         private List<CreateTranscriptionRequestTimestampGranularitiesItemEnum> timestampGranularities;
         private SdkClient.OptionalValue<Boolean> stream;
-        private SdkClient.OptionalValue<Object> chunkingStrategy;
+        private SdkClient.OptionalValue<CreateTranscriptionRequestChunkingStrategy> chunkingStrategy;
         private List<String> knownSpeakerNames;
         private List<String> knownSpeakerReferences;
 
@@ -183,7 +186,7 @@ public class Audio {
             public Builder include(List<TranscriptionInclude> val) { request.include = val; return this; }
             public Builder timestampGranularities(List<CreateTranscriptionRequestTimestampGranularitiesItemEnum> val) { request.timestampGranularities = val; return this; }
             public Builder stream(SdkClient.OptionalValue<Boolean> val) { request.stream = val; return this; }
-            public Builder chunkingStrategy(SdkClient.OptionalValue<Object> val) { request.chunkingStrategy = val; return this; }
+            public Builder chunkingStrategy(SdkClient.OptionalValue<CreateTranscriptionRequestChunkingStrategy> val) { request.chunkingStrategy = val; return this; }
             public Builder knownSpeakerNames(List<String> val) { request.knownSpeakerNames = val; return this; }
             public Builder knownSpeakerReferences(List<String> val) { request.knownSpeakerReferences = val; return this; }
             public CreateTranscriptionParams build() { return request; }
@@ -199,7 +202,7 @@ public class Audio {
         public List<TranscriptionInclude> getInclude() { return include; }
         public List<CreateTranscriptionRequestTimestampGranularitiesItemEnum> getTimestampGranularities() { return timestampGranularities; }
         public SdkClient.OptionalValue<Boolean> getStream() { return stream; }
-        public SdkClient.OptionalValue<Object> getChunkingStrategy() { return chunkingStrategy; }
+        public SdkClient.OptionalValue<CreateTranscriptionRequestChunkingStrategy> getChunkingStrategy() { return chunkingStrategy; }
         public List<String> getKnownSpeakerNames() { return knownSpeakerNames; }
         public List<String> getKnownSpeakerReferences() { return knownSpeakerReferences; }
     }
@@ -209,7 +212,7 @@ public class Audio {
      *
      * Transcribes audio into the input language. Returns a transcription object in `json`, `diarized_json`, or `verbose_json` format, plain text in `text`, `srt`, or `vtt` format, or a stream of transcript events. Supported formats depend on the model.
      */
-    public static Object createTranscription(SdkConfig.ClientConfig clientConfig, CreateTranscriptionParams request) {
+    public static CreateTranscriptionResponse createTranscription(SdkConfig.ClientConfig clientConfig, CreateTranscriptionParams request) {
         return createTranscription(clientConfig, request, null);
     }
 
@@ -218,7 +221,7 @@ public class Audio {
      *
      * Transcribes audio into the input language. Returns a transcription object in `json`, `diarized_json`, or `verbose_json` format, plain text in `text`, `srt`, or `vtt` format, or a stream of transcript events. Supported formats depend on the model.
      */
-    public static Object createTranscription(SdkConfig.ClientConfig clientConfig, CreateTranscriptionParams request, SdkConfig.RequestOptions options) {
+    public static CreateTranscriptionResponse createTranscription(SdkConfig.ClientConfig clientConfig, CreateTranscriptionParams request, SdkConfig.RequestOptions options) {
         SdkClient.UploadFile file = request.getFile();
         String model = request.getModel();
         String language = request.getLanguage();
@@ -230,7 +233,7 @@ public class Audio {
         List<TranscriptionInclude> include = request.getInclude();
         List<CreateTranscriptionRequestTimestampGranularitiesItemEnum> timestampGranularities = request.getTimestampGranularities();
         SdkClient.OptionalValue<Boolean> stream = request.getStream();
-        SdkClient.OptionalValue<Object> chunkingStrategy = request.getChunkingStrategy();
+        SdkClient.OptionalValue<CreateTranscriptionRequestChunkingStrategy> chunkingStrategy = request.getChunkingStrategy();
         List<String> knownSpeakerNames = request.getKnownSpeakerNames();
         List<String> knownSpeakerReferences = request.getKnownSpeakerReferences();
 
@@ -246,16 +249,16 @@ public class Audio {
             { Validation.LengthOpts __i = new Validation.LengthOpts(); __i.max = 4; Validation.validateItems("known_speaker_references", knownSpeakerReferences, __i); }
         }
 
-        return SdkClient.request(clientConfig, "POST", "/audio/transcriptions", null, SdkClient.q("file", file, "model", model, "language", SdkClient.omitIfNull(language), "languages", SdkClient.omitIfNull(languages), "keywords", SdkClient.omitIfNull(keywords), "prompt", SdkClient.omitIfNull(prompt), "response_format", SdkClient.omitIfNull(responseFormat), "temperature", SdkClient.omitIfNull(temperature), "include", SdkClient.omitIfNull(include), "timestamp_granularities", SdkClient.omitIfNull(timestampGranularities), "stream", stream, "chunking_strategy", SdkClient.multipartJson(chunkingStrategy, "application/json"), "known_speaker_names", SdkClient.omitIfNull(knownSpeakerNames), "known_speaker_references", SdkClient.omitIfNull(knownSpeakerReferences)), "multipart/form-data", new TypeReference<Object>(){}, "createTranscription", null, SdkClient.ResponseDecoder.JSON, options, java.util.Map.of("400", ErrorResponse.class, "401", ErrorResponse.class, "413", ErrorResponse.class, "429", ErrorResponse.class, "500", ErrorResponse.class, "502", ErrorResponse.class, "503", ErrorResponse.class)).data;
+        return SdkClient.request(clientConfig, "POST", "/audio/transcriptions", null, SdkClient.q("file", file, "model", model, "language", SdkClient.omitIfNull(language), "languages", SdkClient.omitIfNull(languages), "keywords", SdkClient.omitIfNull(keywords), "prompt", SdkClient.omitIfNull(prompt), "response_format", SdkClient.omitIfNull(responseFormat), "temperature", SdkClient.omitIfNull(temperature), "include", SdkClient.omitIfNull(include), "timestamp_granularities", SdkClient.omitIfNull(timestampGranularities), "stream", stream, "chunking_strategy", SdkClient.multipartJson(chunkingStrategy, "application/json"), "known_speaker_names", SdkClient.omitIfNull(knownSpeakerNames), "known_speaker_references", SdkClient.omitIfNull(knownSpeakerReferences)), "multipart/form-data", new TypeReference<CreateTranscriptionResponse>(){}, "createTranscription", null, SdkClient.ResponseDecoder.JSON, options, java.util.Map.of("400", ErrorResponse.class, "401", ErrorResponse.class, "413", ErrorResponse.class, "429", ErrorResponse.class, "500", ErrorResponse.class, "502", ErrorResponse.class, "503", ErrorResponse.class)).data;
     }
 
 
 
-    public static java.util.stream.Stream<CreateTranscriptionResponseStreamEvent> createTranscriptionStream(SdkConfig.ClientConfig clientConfig, SdkClient.UploadFile file, String model, Boolean stream, String language, List<String> languages, List<String> keywords, String prompt, AudioResponseFormat responseFormat, Double temperature, List<TranscriptionInclude> include, List<CreateTranscriptionRequestTimestampGranularitiesItemEnum> timestampGranularities, SdkClient.OptionalValue<Object> chunkingStrategy, List<String> knownSpeakerNames, List<String> knownSpeakerReferences) {
+    public static java.util.stream.Stream<CreateTranscriptionResponseStreamEvent> createTranscriptionStream(SdkConfig.ClientConfig clientConfig, SdkClient.UploadFile file, String model, Boolean stream, String language, List<String> languages, List<String> keywords, String prompt, AudioResponseFormat responseFormat, Double temperature, List<TranscriptionInclude> include, List<CreateTranscriptionRequestTimestampGranularitiesItemEnum> timestampGranularities, SdkClient.OptionalValue<CreateTranscriptionRequestChunkingStrategy> chunkingStrategy, List<String> knownSpeakerNames, List<String> knownSpeakerReferences) {
         return createTranscriptionStream(clientConfig, file, model, stream, language, languages, keywords, prompt, responseFormat, temperature, include, timestampGranularities, chunkingStrategy, knownSpeakerNames, knownSpeakerReferences, null);
     }
 
-    public static java.util.stream.Stream<CreateTranscriptionResponseStreamEvent> createTranscriptionStream(SdkConfig.ClientConfig clientConfig, SdkClient.UploadFile file, String model, Boolean stream, String language, List<String> languages, List<String> keywords, String prompt, AudioResponseFormat responseFormat, Double temperature, List<TranscriptionInclude> include, List<CreateTranscriptionRequestTimestampGranularitiesItemEnum> timestampGranularities, SdkClient.OptionalValue<Object> chunkingStrategy, List<String> knownSpeakerNames, List<String> knownSpeakerReferences, SdkConfig.RequestOptions options) {
+    public static java.util.stream.Stream<CreateTranscriptionResponseStreamEvent> createTranscriptionStream(SdkConfig.ClientConfig clientConfig, SdkClient.UploadFile file, String model, Boolean stream, String language, List<String> languages, List<String> keywords, String prompt, AudioResponseFormat responseFormat, Double temperature, List<TranscriptionInclude> include, List<CreateTranscriptionRequestTimestampGranularitiesItemEnum> timestampGranularities, SdkClient.OptionalValue<CreateTranscriptionRequestChunkingStrategy> chunkingStrategy, List<String> knownSpeakerNames, List<String> knownSpeakerReferences, SdkConfig.RequestOptions options) {
         java.util.Iterator<SdkClient.SdkStreamEvent> _it = SdkClient.stream(
             clientConfig,
             "POST",
@@ -335,7 +338,7 @@ public class Audio {
      *
      * Translates audio into English.
      */
-    public static Object createTranslation(SdkConfig.ClientConfig clientConfig, CreateTranslationParams request) {
+    public static CreateTranslationResponse createTranslation(SdkConfig.ClientConfig clientConfig, CreateTranslationParams request) {
         return createTranslation(clientConfig, request, null);
     }
 
@@ -344,14 +347,14 @@ public class Audio {
      *
      * Translates audio into English.
      */
-    public static Object createTranslation(SdkConfig.ClientConfig clientConfig, CreateTranslationParams request, SdkConfig.RequestOptions options) {
+    public static CreateTranslationResponse createTranslation(SdkConfig.ClientConfig clientConfig, CreateTranslationParams request, SdkConfig.RequestOptions options) {
         SdkClient.UploadFile file = request.getFile();
         String model = request.getModel();
         String prompt = request.getPrompt();
         CreateTranslationRequestResponseFormatEnum responseFormat = request.getResponseFormat();
         Double temperature = request.getTemperature();
 
-        return SdkClient.request(clientConfig, "POST", "/audio/translations", null, SdkClient.q("file", file, "model", model, "prompt", SdkClient.omitIfNull(prompt), "response_format", SdkClient.omitIfNull(responseFormat), "temperature", SdkClient.omitIfNull(temperature)), "multipart/form-data", new TypeReference<Object>(){}, "createTranslation", null, SdkClient.ResponseDecoder.JSON, options, java.util.Map.of("400", ErrorResponse.class, "401", ErrorResponse.class, "413", ErrorResponse.class, "429", ErrorResponse.class, "500", ErrorResponse.class, "502", ErrorResponse.class, "503", ErrorResponse.class)).data;
+        return SdkClient.request(clientConfig, "POST", "/audio/translations", null, SdkClient.q("file", file, "model", model, "prompt", SdkClient.omitIfNull(prompt), "response_format", SdkClient.omitIfNull(responseFormat), "temperature", SdkClient.omitIfNull(temperature)), "multipart/form-data", new TypeReference<CreateTranslationResponse>(){}, "createTranslation", null, SdkClient.ResponseDecoder.JSON, options, java.util.Map.of("400", ErrorResponse.class, "401", ErrorResponse.class, "413", ErrorResponse.class, "429", ErrorResponse.class, "500", ErrorResponse.class, "502", ErrorResponse.class, "503", ErrorResponse.class)).data;
     }
 
 

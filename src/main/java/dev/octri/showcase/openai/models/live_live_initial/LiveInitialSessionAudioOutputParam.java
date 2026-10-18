@@ -3,7 +3,6 @@
 
 package dev.octri.showcase.openai.models.live_live_initial;
 
-import dev.octri.showcase.openai.models.live_live_custom.LiveCustomVoiceParam;
 import javax.annotation.Nullable;
 
 /**
@@ -15,12 +14,12 @@ public final class LiveInitialSessionAudioOutputParam {
     /**
      * The voice used for Live speech, as a built-in voice name or a custom voice object containing its ID. Defaults to `marin` and cannot change after startup.
      */
-    @Nullable @com.fasterxml.jackson.annotation.JsonSubTypes({@com.fasterxml.jackson.annotation.JsonSubTypes.Type(LiveCustomVoiceParam.class)}) public Object voice;
+    @Nullable public LiveInitialSessionAudioOutputParamVoice voice;
     private LiveInitialSessionAudioOutputParam() {}
     public static Builder builder() { return new Builder(); }
     public static final class Builder {
-        private Object voice;
-        public Builder voice(Object value) { this.voice = value; return this; }
+        private LiveInitialSessionAudioOutputParamVoice voice;
+        public Builder voice(LiveInitialSessionAudioOutputParamVoice value) { this.voice = value; return this; }
         public LiveInitialSessionAudioOutputParam build() {
             LiveInitialSessionAudioOutputParam result = new LiveInitialSessionAudioOutputParam();
             result.voice = this.voice;

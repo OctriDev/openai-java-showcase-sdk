@@ -21,7 +21,7 @@ public final class RealtimeTranscriptionSessionCreateRequest {
     /**
      * Configuration for input audio noise reduction. This can be set to `null` to turn off. Noise reduction filters audio added to the input audio buffer before it is sent to VAD and the model. Filtering the audio can improve VAD and turn detection accuracy (reducing false positives) and model performance by improving perception of the input audio.
      */
-    @Nullable @JsonProperty("input_audio_noise_reduction") public Object inputAudioNoiseReduction;
+    @Nullable @JsonProperty("input_audio_noise_reduction") public RealtimeTranscriptionSessionCreateRequestInputAudioNoiseReduction inputAudioNoiseReduction;
     /**
      * The format of input audio. Options are `pcm16`, `g711_ulaw`, or `g711_alaw`. For `pcm16`, input audio must be 16-bit PCM at a 24kHz sample rate, single channel (mono), and little-endian byte order.
      */
@@ -38,12 +38,12 @@ public final class RealtimeTranscriptionSessionCreateRequest {
     public static Builder builder() { return new Builder(); }
     public static final class Builder {
         private RealtimeTranscriptionSessionCreateRequestTurnDetection turnDetection;
-        private Object inputAudioNoiseReduction;
+        private RealtimeTranscriptionSessionCreateRequestInputAudioNoiseReduction inputAudioNoiseReduction;
         private RealtimeTranscriptionSessionCreateRequestInputAudioFormatEnum inputAudioFormat;
         private AudioTranscription inputAudioTranscription;
         private List<RealtimeTranscriptionSessionCreateRequestIncludeItemEnum> include;
         public Builder turnDetection(RealtimeTranscriptionSessionCreateRequestTurnDetection value) { this.turnDetection = value; return this; }
-        public Builder inputAudioNoiseReduction(Object value) { this.inputAudioNoiseReduction = value; return this; }
+        public Builder inputAudioNoiseReduction(RealtimeTranscriptionSessionCreateRequestInputAudioNoiseReduction value) { this.inputAudioNoiseReduction = value; return this; }
         public Builder inputAudioFormat(RealtimeTranscriptionSessionCreateRequestInputAudioFormatEnum value) { this.inputAudioFormat = value; return this; }
         public Builder inputAudioTranscription(AudioTranscription value) { this.inputAudioTranscription = value; return this; }
         public Builder include(List<RealtimeTranscriptionSessionCreateRequestIncludeItemEnum> value) { this.include = value; return this; }

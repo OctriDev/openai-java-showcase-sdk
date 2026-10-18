@@ -8,20 +8,10 @@ package dev.octri.showcase.openai.models.live;
  * The Live model. Required in the session configuration for every transport; do not pass it as a URL query parameter.
  */
 
-@com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = ModelIdsLive.Deserializer.class)
-public interface ModelIdsLive {
-    /** Chooses the branch this payload is shaped like. */
-    final class Deserializer extends com.fasterxml.jackson.databind.JsonDeserializer<ModelIdsLive> {
-        @java.lang.Override
-        public ModelIdsLive deserialize(
-            com.fasterxml.jackson.core.JsonParser parser,
-            com.fasterxml.jackson.databind.DeserializationContext context)
-            throws java.io.IOException {
-            com.fasterxml.jackson.databind.ObjectMapper mapper =
-                (com.fasterxml.jackson.databind.ObjectMapper) parser.getCodec();
-            com.fasterxml.jackson.databind.JsonNode node = parser.readValueAsTree();
-            if (node.isTextual()) return new ModelIdsLiveStringValue(mapper.convertValue(node, new com.fasterxml.jackson.core.type.TypeReference<String>() {}));
-            return new ModelIdsLiveStringValue(mapper.convertValue(node, new com.fasterxml.jackson.core.type.TypeReference<String>() {}));
-        }
-    }
+public class ModelIdsLive {
+    @com.fasterxml.jackson.annotation.JsonValue public String value;
+    public ModelIdsLive() {}
+    @com.fasterxml.jackson.annotation.JsonCreator(mode = com.fasterxml.jackson.annotation.JsonCreator.Mode.DELEGATING)
+    public ModelIdsLive(String value) { this.value = value; }
+    @java.lang.Override public String toString() { return String.valueOf(value); }
 }

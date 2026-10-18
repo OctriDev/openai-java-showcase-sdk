@@ -3,15 +3,55 @@
 
 package dev.octri.showcase.openai.models.assistants_thread;
 
+import dev.octri.showcase.openai.Validation;
 import dev.octri.showcase.openai.models.assistants_assistant.AssistantStreamEvent;
+import javax.annotation.Nullable;
 
 /**
  * ThreadStreamEvent.
- * Typed representation of the `ThreadStreamEvent` API schema.
+ * Occurs when a new [thread](https://developers.openai.com/api/docs/assistants/migration) is created.
  */
 
-@com.fasterxml.jackson.annotation.JsonTypeInfo(use = com.fasterxml.jackson.annotation.JsonTypeInfo.Id.DEDUCTION)
-@com.fasterxml.jackson.annotation.JsonSubTypes({
-    @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = ThreadStreamEventThreadCreated.class)
-})
-public interface ThreadStreamEvent extends AssistantStreamEvent {}
+@com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.databind.JsonDeserializer.None.class) @com.fasterxml.jackson.annotation.JsonTypeInfo(use = com.fasterxml.jackson.annotation.JsonTypeInfo.Id.NONE)
+public final class ThreadStreamEvent implements AssistantStreamEvent {
+    /**
+     * Required enumerated value serialized in the `event` wire field.
+     */
+    public ThreadStreamEventEventEnum event;
+    /**
+     * Represents a thread that contains [messages](https://developers.openai.com/api/docs/assistants/migration).
+     */
+    public ThreadObject data;
+    /**
+     * Whether to enable input audio transcription.
+     */
+    @Nullable public Boolean enabled;
+    private ThreadStreamEvent() {}
+    public static Builder builder() { return new Builder(); }
+    public static final class Builder {
+        private ThreadStreamEventEventEnum event;
+        private ThreadObject data;
+        private Boolean enabled;
+        public Builder event(ThreadStreamEventEventEnum value) { this.event = value; return this; }
+        public Builder data(ThreadObject value) { this.data = value; return this; }
+        public Builder enabled(Boolean value) { this.enabled = value; return this; }
+        public ThreadStreamEvent build() {
+            ThreadStreamEvent result = new ThreadStreamEvent();
+            Validation.validateRequired("event", this.event);
+            Validation.validateEnum("event", this.event, java.util.Arrays.asList("thread.created"));
+            result.event = this.event;
+            Validation.validateRequired("data", this.data);
+            result.data = this.data;
+            result.enabled = this.enabled;
+            return result;
+        }
+    }
+    @java.lang.Override
+    public String toString() {
+        return "ThreadStreamEvent{"
+            + "event=" + event
+            + ", data=" + data
+            + ", enabled=" + enabled
+            + "}";
+    }
+}

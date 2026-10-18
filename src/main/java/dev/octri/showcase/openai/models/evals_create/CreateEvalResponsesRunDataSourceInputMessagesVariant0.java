@@ -4,7 +4,6 @@
 package dev.octri.showcase.openai.models.evals_create;
 
 import dev.octri.showcase.openai.Validation;
-import dev.octri.showcase.openai.models.evals_template.TemplateItem2;
 import java.util.List;
 
 /**
@@ -21,14 +20,14 @@ public final class CreateEvalResponsesRunDataSourceInputMessagesVariant0 impleme
     /**
      * A list of chat messages forming the prompt or context. May include variable references to the `item` namespace, ie {{item.name}}.
      */
-    public List<TemplateItem2> template;
+    public List<CreateEvalResponsesRunDataSourceInputMessagesVariant0TemplateItem> template;
     private CreateEvalResponsesRunDataSourceInputMessagesVariant0() {}
     public static Builder builder() { return new Builder(); }
     public static final class Builder {
         private CreateEvalResponsesRunDataSourceInputMessagesVariant0TypeEnum type;
-        private List<TemplateItem2> template;
+        private List<CreateEvalResponsesRunDataSourceInputMessagesVariant0TemplateItem> template;
         public Builder type(CreateEvalResponsesRunDataSourceInputMessagesVariant0TypeEnum value) { this.type = value; return this; }
-        public Builder template(List<TemplateItem2> value) { this.template = value; return this; }
+        public Builder template(List<CreateEvalResponsesRunDataSourceInputMessagesVariant0TemplateItem> value) { this.template = value; return this; }
         public CreateEvalResponsesRunDataSourceInputMessagesVariant0 build() {
             CreateEvalResponsesRunDataSourceInputMessagesVariant0 result = new CreateEvalResponsesRunDataSourceInputMessagesVariant0();
             Validation.validateRequired("type", this.type);

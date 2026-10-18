@@ -6,14 +6,12 @@ package dev.octri.showcase.openai.models.chat_create;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import dev.octri.showcase.openai.Validation;
 import dev.octri.showcase.openai.models.chat.PredictionContent;
+import dev.octri.showcase.openai.models.chat.ResponseModalities;
 import dev.octri.showcase.openai.models.chat.ServiceTier;
-import dev.octri.showcase.openai.models.chat.ToolsItem;
 import dev.octri.showcase.openai.models.chat_chat_completion.ChatCompletionFunctionCallOption;
 import dev.octri.showcase.openai.models.chat_chat_completion.ChatCompletionFunctions;
 import dev.octri.showcase.openai.models.chat_chat_completion.ChatCompletionToolChoiceOption;
 import dev.octri.showcase.openai.models.chat_chat_completion_request.ChatCompletionRequestMessage;
-import dev.octri.showcase.openai.models.chat_response.ResponseFormat;
-import dev.octri.showcase.openai.models.chat_response.ResponseModalities;
 import dev.octri.showcase.openai.models.shared.Metadata;
 import dev.octri.showcase.openai.models.shared.ParallelToolCalls;
 import dev.octri.showcase.openai.models.shared.StopConfiguration;
@@ -103,7 +101,7 @@ public final class CreateChatCompletionRequest {
     /**
      * An object specifying the format that the model must output. Setting to `{ "type": "json_schema", "json_schema": {...} }` enables Structured Outputs which ensures the model will match your supplied JSON schema. Learn more in the [Structured Outputs guide](https://developers.openai.com/api/docs/guides/structured-outputs). Setting to `{ "type": "json_object" }` enables the older JSON mode, which ensures the message the model generates is valid JSON. Using `json_schema` is preferred for models that support it.
      */
-    @Nullable @JsonProperty("response_format") public ResponseFormat responseFormat;
+    @Nullable @JsonProperty("response_format") public CreateChatCompletionRequestVariant1ResponseFormat responseFormat;
     /**
      * Parameters for audio output. Required when audio output is requested with `modalities: ["audio"]`. [Learn more](https://developers.openai.com/api/docs/guides/audio).
      */
@@ -152,7 +150,7 @@ public final class CreateChatCompletionRequest {
     /**
      * A list of tools the model may call. You can provide either [custom tools](https://developers.openai.com/api/docs/guides/function-calling#custom-tools) or [function tools](https://developers.openai.com/api/docs/guides/function-calling).
      */
-    @Nullable public List<ToolsItem> tools;
+    @Nullable public List<CreateChatCompletionRequestVariant1ToolsItem> tools;
     /**
      * Controls which (if any) tool is called by the model. `none` means the model will not call any tool and instead generates a message. `auto` means the model can pick between generating a message or calling one or more tools. `required` means the model must call one or more tools. Specifying a particular tool via `{"type": "function", "function": {"name": "my_function"}}` forces the model to call that tool. `none` is the default when no tools are present. `auto` is the default if tools are present.
      */
@@ -191,7 +189,7 @@ public final class CreateChatCompletionRequest {
         private Double frequencyPenalty;
         private Double presencePenalty;
         private CreateChatCompletionRequestVariant1WebSearchOptions webSearchOptions;
-        private ResponseFormat responseFormat;
+        private CreateChatCompletionRequestVariant1ResponseFormat responseFormat;
         private CreateChatCompletionRequestVariant1Audio audio;
         private Boolean store;
         private ModerationParam moderation;
@@ -204,7 +202,7 @@ public final class CreateChatCompletionRequest {
         private PredictionContent prediction;
         private Long seed;
         private ChatCompletionStreamOptions streamOptions;
-        private List<ToolsItem> tools;
+        private List<CreateChatCompletionRequestVariant1ToolsItem> tools;
         private ChatCompletionToolChoiceOption toolChoice;
         private ParallelToolCalls parallelToolCalls;
         private Object functionCall;
@@ -228,7 +226,7 @@ public final class CreateChatCompletionRequest {
         public Builder frequencyPenalty(Double value) { this.frequencyPenalty = value; return this; }
         public Builder presencePenalty(Double value) { this.presencePenalty = value; return this; }
         public Builder webSearchOptions(CreateChatCompletionRequestVariant1WebSearchOptions value) { this.webSearchOptions = value; return this; }
-        public Builder responseFormat(ResponseFormat value) { this.responseFormat = value; return this; }
+        public Builder responseFormat(CreateChatCompletionRequestVariant1ResponseFormat value) { this.responseFormat = value; return this; }
         public Builder audio(CreateChatCompletionRequestVariant1Audio value) { this.audio = value; return this; }
         public Builder store(Boolean value) { this.store = value; return this; }
         public Builder moderation(ModerationParam value) { this.moderation = value; return this; }
@@ -241,7 +239,7 @@ public final class CreateChatCompletionRequest {
         public Builder prediction(PredictionContent value) { this.prediction = value; return this; }
         public Builder seed(Long value) { this.seed = value; return this; }
         public Builder streamOptions(ChatCompletionStreamOptions value) { this.streamOptions = value; return this; }
-        public Builder tools(List<ToolsItem> value) { this.tools = value; return this; }
+        public Builder tools(List<CreateChatCompletionRequestVariant1ToolsItem> value) { this.tools = value; return this; }
         public Builder toolChoice(ChatCompletionToolChoiceOption value) { this.toolChoice = value; return this; }
         public Builder parallelToolCalls(ParallelToolCalls value) { this.parallelToolCalls = value; return this; }
         public Builder functionCall(Object value) { this.functionCall = value; return this; }

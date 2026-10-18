@@ -3,6 +3,7 @@
 
 package dev.octri.showcase.openai.methods;
 
+import dev.octri.showcase.openai.models.realtime.NoiseReductionType;
 import dev.octri.showcase.openai.models.realtime_audio.AudioTranscription;
 import dev.octri.showcase.openai.models.realtime_realtime.RealtimeAudioFormats;
 import dev.octri.showcase.openai.models.realtime_realtime.RealtimeTruncation;
@@ -16,6 +17,7 @@ import dev.octri.showcase.openai.models.realtime_realtime_reasoning.RealtimeReas
 import dev.octri.showcase.openai.models.realtime_realtime_session.RealtimeSessionCreateRequestGAToolChoice;
 import dev.octri.showcase.openai.models.realtime_realtime_session.RealtimeSessionCreateRequestGAToolsItem;
 import dev.octri.showcase.openai.models.realtime_realtime_session.RealtimeSessionCreateRequestGATypeEnum;
+import dev.octri.showcase.openai.models.realtime_realtime_session.RealtimeSessionCreateRequestTracing;
 import dev.octri.showcase.openai.models.realtime_realtime_session.RealtimeSessionCreateResponse;
 import dev.octri.showcase.openai.models.realtime_realtime_session.RealtimeSessionIncludeItemEnum;
 import dev.octri.showcase.openai.models.realtime_realtime_transcription.RealtimeTranscriptionSessionCreateResponse;
@@ -36,6 +38,26 @@ import javax.annotation.Nullable;
 public class Realtime {
 
     /**
+     * RealtimeSessionCreateRequestGAAudioInputNoiseReduction.
+     * Configuration for input audio noise reduction. This can be set to `null` to turn off.
+     * Noise reduction filters audio added to the input audio buffer before it is sent to VAD and the model.
+     * Filtering the audio can improve VAD and turn detection accuracy (reducing false positives) and model performance by improving perception of the input audio.
+     */
+
+    public static class RealtimeSessionCreateRequestGAAudioInputNoiseReduction {
+        /**
+         * Type of noise reduction. `near_field` is for close-talking microphones such as headphones, `far_field` is for far-field microphones such as laptop or conference room microphones.
+         */
+        @Nullable public NoiseReductionType type;
+        @java.lang.Override
+        public String toString() {
+            return "RealtimeSessionCreateRequestGAAudioInputNoiseReduction{"
+                + "type=" + type
+                + "}";
+        }
+    }
+
+    /**
      * RealtimeSessionCreateRequestGAAudioInput.
      * Optional object value serialized in the `input` wire field.
      */
@@ -52,7 +74,7 @@ public class Realtime {
         /**
          * Configuration for input audio noise reduction. This can be set to `null` to turn off. Noise reduction filters audio added to the input audio buffer before it is sent to VAD and the model. Filtering the audio can improve VAD and turn detection accuracy (reducing false positives) and model performance by improving perception of the input audio.
          */
-        @Nullable @JsonProperty("noise_reduction") public Object noiseReduction;
+        @Nullable @JsonProperty("noise_reduction") public RealtimeSessionCreateRequestGAAudioInputNoiseReduction noiseReduction;
         /**
          * Configuration for turn detection, ether Server VAD or Semantic VAD. This can be set to `null` to turn off, in which case the client must manually trigger model response. Server VAD means that the model will detect the start and end of speech based on audio volume and respond at the end of user speech. Semantic VAD is more advanced and uses a turn detection model (in conjunction with VAD) to semantically estimate whether the user has finished speaking, then dynamically sets a timeout based on this probability. For example, if user audio trails off with "uhhm", the model will score a low probability of turn end and wait longer for the user to continue speaking. This can be useful for more natural conversations, but may have a higher latency. For `gpt-realtime-whisper` transcription sessions, turn detection must be set to `null`; VAD is not supported.
          */
@@ -347,6 +369,26 @@ public class Realtime {
                 + ", threshold=" + threshold
                 + ", prefixPaddingMs=" + prefixPaddingMs
                 + ", silenceDurationMs=" + silenceDurationMs
+                + "}";
+        }
+    }
+
+    /**
+     * RealtimeTranscriptionSessionCreateRequestInputAudioNoiseReduction.
+     * Configuration for input audio noise reduction. This can be set to `null` to turn off.
+     * Noise reduction filters audio added to the input audio buffer before it is sent to VAD and the model.
+     * Filtering the audio can improve VAD and turn detection accuracy (reducing false positives) and model performance by improving perception of the input audio.
+     */
+
+    public static class RealtimeTranscriptionSessionCreateRequestInputAudioNoiseReduction {
+        /**
+         * Type of noise reduction. `near_field` is for close-talking microphones such as headphones, `far_field` is for far-field microphones such as laptop or conference room microphones.
+         */
+        @Nullable public NoiseReductionType type;
+        @java.lang.Override
+        public String toString() {
+            return "RealtimeTranscriptionSessionCreateRequestInputAudioNoiseReduction{"
+                + "type=" + type
                 + "}";
         }
     }
@@ -714,7 +756,7 @@ public class Realtime {
         private String outputAudioFormat;
         private RealtimeSessionCreateRequestInputAudioTranscription inputAudioTranscription;
         private Double speed;
-        private Object tracing;
+        private RealtimeSessionCreateRequestTracing tracing;
         private RealtimeSessionCreateRequestTurnDetection turnDetection;
         private List<RealtimeSessionCreateRequestToolsItem> tools;
         private String toolChoice;
@@ -737,7 +779,7 @@ public class Realtime {
             public Builder outputAudioFormat(String val) { request.outputAudioFormat = val; return this; }
             public Builder inputAudioTranscription(RealtimeSessionCreateRequestInputAudioTranscription val) { request.inputAudioTranscription = val; return this; }
             public Builder speed(Double val) { request.speed = val; return this; }
-            public Builder tracing(Object val) { request.tracing = val; return this; }
+            public Builder tracing(RealtimeSessionCreateRequestTracing val) { request.tracing = val; return this; }
             public Builder turnDetection(RealtimeSessionCreateRequestTurnDetection val) { request.turnDetection = val; return this; }
             public Builder tools(List<RealtimeSessionCreateRequestToolsItem> val) { request.tools = val; return this; }
             public Builder toolChoice(String val) { request.toolChoice = val; return this; }
@@ -755,7 +797,7 @@ public class Realtime {
         public String getOutputAudioFormat() { return outputAudioFormat; }
         public RealtimeSessionCreateRequestInputAudioTranscription getInputAudioTranscription() { return inputAudioTranscription; }
         public Double getSpeed() { return speed; }
-        public Object getTracing() { return tracing; }
+        public RealtimeSessionCreateRequestTracing getTracing() { return tracing; }
         public RealtimeSessionCreateRequestTurnDetection getTurnDetection() { return turnDetection; }
         public List<RealtimeSessionCreateRequestToolsItem> getTools() { return tools; }
         public String getToolChoice() { return toolChoice; }
@@ -788,7 +830,7 @@ public class Realtime {
         String outputAudioFormat = request.getOutputAudioFormat();
         RealtimeSessionCreateRequestInputAudioTranscription inputAudioTranscription = request.getInputAudioTranscription();
         Double speed = request.getSpeed();
-        Object tracing = request.getTracing();
+        RealtimeSessionCreateRequestTracing tracing = request.getTracing();
         RealtimeSessionCreateRequestTurnDetection turnDetection = request.getTurnDetection();
         List<RealtimeSessionCreateRequestToolsItem> tools = request.getTools();
         String toolChoice = request.getToolChoice();
@@ -809,7 +851,7 @@ public class Realtime {
     public static class CreateRealtimeTranscriptionSessionRequest {
 
         private RealtimeTranscriptionSessionCreateRequestTurnDetection turnDetection;
-        private Object inputAudioNoiseReduction;
+        private RealtimeTranscriptionSessionCreateRequestInputAudioNoiseReduction inputAudioNoiseReduction;
         private RealtimeBetaResponseOutputAudioFormatEnum inputAudioFormat;
         private AudioTranscription inputAudioTranscription;
         private List<RealtimeSessionIncludeItemEnum> include;
@@ -821,14 +863,14 @@ public class Realtime {
         public static class Builder {
             private final CreateRealtimeTranscriptionSessionRequest request = new CreateRealtimeTranscriptionSessionRequest();
             public Builder turnDetection(RealtimeTranscriptionSessionCreateRequestTurnDetection val) { request.turnDetection = val; return this; }
-            public Builder inputAudioNoiseReduction(Object val) { request.inputAudioNoiseReduction = val; return this; }
+            public Builder inputAudioNoiseReduction(RealtimeTranscriptionSessionCreateRequestInputAudioNoiseReduction val) { request.inputAudioNoiseReduction = val; return this; }
             public Builder inputAudioFormat(RealtimeBetaResponseOutputAudioFormatEnum val) { request.inputAudioFormat = val; return this; }
             public Builder inputAudioTranscription(AudioTranscription val) { request.inputAudioTranscription = val; return this; }
             public Builder include(List<RealtimeSessionIncludeItemEnum> val) { request.include = val; return this; }
             public CreateRealtimeTranscriptionSessionRequest build() { return request; }
         }
         public RealtimeTranscriptionSessionCreateRequestTurnDetection getTurnDetection() { return turnDetection; }
-        public Object getInputAudioNoiseReduction() { return inputAudioNoiseReduction; }
+        public RealtimeTranscriptionSessionCreateRequestInputAudioNoiseReduction getInputAudioNoiseReduction() { return inputAudioNoiseReduction; }
         public RealtimeBetaResponseOutputAudioFormatEnum getInputAudioFormat() { return inputAudioFormat; }
         public AudioTranscription getInputAudioTranscription() { return inputAudioTranscription; }
         public List<RealtimeSessionIncludeItemEnum> getInclude() { return include; }
@@ -846,7 +888,7 @@ public class Realtime {
      */
     public static RealtimeTranscriptionSessionCreateResponse createRealtimeTranscriptionSession(SdkConfig.ClientConfig clientConfig, CreateRealtimeTranscriptionSessionRequest request, SdkConfig.RequestOptions options) {
         RealtimeTranscriptionSessionCreateRequestTurnDetection turnDetection = request.getTurnDetection();
-        Object inputAudioNoiseReduction = request.getInputAudioNoiseReduction();
+        RealtimeTranscriptionSessionCreateRequestInputAudioNoiseReduction inputAudioNoiseReduction = request.getInputAudioNoiseReduction();
         RealtimeBetaResponseOutputAudioFormatEnum inputAudioFormat = request.getInputAudioFormat();
         AudioTranscription inputAudioTranscription = request.getInputAudioTranscription();
         List<RealtimeSessionIncludeItemEnum> include = request.getInclude();

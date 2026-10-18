@@ -14,12 +14,12 @@ public final class DecisionsUsagePermissionErrorResponse implements dev.octri.sh
     /**
      * Details about the permission error.
      */
-    @com.fasterxml.jackson.annotation.JsonSubTypes({@com.fasterxml.jackson.annotation.JsonSubTypes.Type(DecisionsUsageErrorDetails.class)}) public Object error;
+    public DecisionsUsagePermissionErrorResponseError error;
     private DecisionsUsagePermissionErrorResponse() {}
     public static Builder builder() { return new Builder(); }
     public static final class Builder {
-        private Object error;
-        public Builder error(Object value) { this.error = value; return this; }
+        private DecisionsUsagePermissionErrorResponseError error;
+        public Builder error(DecisionsUsagePermissionErrorResponseError value) { this.error = value; return this; }
         public DecisionsUsagePermissionErrorResponse build() {
             DecisionsUsagePermissionErrorResponse result = new DecisionsUsagePermissionErrorResponse();
             Validation.validateRequired("error", this.error);

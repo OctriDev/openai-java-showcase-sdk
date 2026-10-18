@@ -18,9 +18,13 @@ import dev.octri.showcase.openai.models.assistants_create.CreateThreadAndRunRequ
 import dev.octri.showcase.openai.models.assistants_create.CreateThreadRequest;
 import dev.octri.showcase.openai.models.assistants_create.CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategy;
 import dev.octri.showcase.openai.models.assistants_list.ListAssistantsResponse;
+import dev.octri.showcase.openai.models.assistants_list.ListMessagesResponse;
+import dev.octri.showcase.openai.models.assistants_list.ListRunStepsResponse;
 import dev.octri.showcase.openai.models.assistants_list.ListRunsResponse;
+import dev.octri.showcase.openai.models.assistants_message.MessageObject;
 import dev.octri.showcase.openai.models.assistants_modify.ModifyAssistantRequestToolsItem;
 import dev.octri.showcase.openai.models.assistants_run.RunObject;
+import dev.octri.showcase.openai.models.assistants_run.RunStepObject;
 import dev.octri.showcase.openai.models.external_storage.ExternalStorageOrder;
 import dev.octri.showcase.openai.models.shared.Metadata;
 import dev.octri.showcase.openai.models.shared.ParallelToolCalls;
@@ -730,6 +734,18 @@ public class Assistants extends AssistantsPart2 {
         public String getRunId() { return runId; }
     }
 
+    public static final class ListMessagesPage {
+        public final ListMessagesResponse data;
+        public final List<MessageObject> items;
+        public final boolean hasMore;
+
+        public ListMessagesPage(ListMessagesResponse data, List<MessageObject> items, boolean hasMore) {
+            this.data = data;
+            this.items = items;
+            this.hasMore = hasMore;
+        }
+    }
+
     public static class CreateMessageParams {
 
         private String threadId;
@@ -1020,6 +1036,18 @@ public class Assistants extends AssistantsPart2 {
         public String getAfter() { return after; }
         public String getBefore() { return before; }
         public List<CreateRunIncludeItem> getInclude() { return include; }
+    }
+
+    public static final class ListRunStepsPage {
+        public final ListRunStepsResponse data;
+        public final List<RunStepObject> items;
+        public final boolean hasMore;
+
+        public ListRunStepsPage(ListRunStepsResponse data, List<RunStepObject> items, boolean hasMore) {
+            this.data = data;
+            this.items = items;
+            this.hasMore = hasMore;
+        }
     }
 
     public static class GetRunStepRequest {

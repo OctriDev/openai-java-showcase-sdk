@@ -4,7 +4,7 @@
 package dev.octri.showcase.openai.models.shared;
 
 import dev.octri.showcase.openai.Validation;
-import dev.octri.showcase.openai.models.evals_template.TemplateItem;
+import dev.octri.showcase.openai.models.evals_create.CreateEvalCompletionsRunDataSourceInputMessagesVariant0TemplateItem;
 import dev.octri.showcase.openai.models.shared_input.InputItem;
 import dev.octri.showcase.openai.models.shared_message.MessagePhase;
 import javax.annotation.Nullable;
@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
  */
 
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.databind.JsonDeserializer.None.class) @com.fasterxml.jackson.annotation.JsonTypeInfo(use = com.fasterxml.jackson.annotation.JsonTypeInfo.Id.NONE)
-public final class EasyInputMessage implements InputItem, TemplateItem {
+public final class EasyInputMessage implements CreateEvalCompletionsRunDataSourceInputMessagesVariant0TemplateItem, InputItem {
     /**
      * The role of the message input. One of `user`, `assistant`, `system`, or `developer`.
      */

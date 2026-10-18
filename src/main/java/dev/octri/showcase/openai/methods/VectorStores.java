@@ -129,6 +129,79 @@ public class VectorStores {
 
 
 
+    /**
+     * Lists vector stores, which are collections of processed files that you can use with the `file_search` tool. Use the cursor parameters to move forward or backward through the results, and set `order` to control sorting by creation time.
+     *
+     * Returns a list of vector stores.
+     */
+    public static void listVectorStoresPaginated(SdkConfig.ClientConfig clientConfig, ListVectorStoresRequest request, java.util.function.Predicate<VectorStoreObject> yield) {
+        listVectorStoresPaginated(clientConfig, request, null, yield);
+    }
+
+    /**
+     * Lists vector stores, which are collections of processed files that you can use with the `file_search` tool. Use the cursor parameters to move forward or backward through the results, and set `order` to control sorting by creation time.
+     *
+     * Returns a list of vector stores.
+     */
+    public static void listVectorStoresPaginated(SdkConfig.ClientConfig clientConfig, ListVectorStoresRequest request, SdkConfig.RequestOptions options, java.util.function.Predicate<VectorStoreObject> yield) {
+        String _cursor = request.getAfter();
+        while (true) {
+            ListVectorStoresRequest.Builder __b = ListVectorStoresRequest.builder();
+            __b.limit(request.getLimit());
+            __b.order(request.getOrder());
+            __b.after(_cursor);
+            __b.before(request.getBefore());
+            ListVectorStoresRequest __req = __b.build();
+            ListVectorStoresResponse _page = listVectorStores(clientConfig, __req, options);
+            List<VectorStoreObject> _items = _page.data;
+            if (_items == null || _items.isEmpty()) { return; }
+            for (VectorStoreObject _item : _items) {
+                if (!yield.test(_item)) { return; }
+            }
+            if (!_page.hasMore) { return; }
+            Object _next = _page.lastId;
+            if (_next == null) { return; }
+            _cursor = (String) _next;
+        }
+    }
+
+    public static final class ListVectorStoresPage {
+        public final ListVectorStoresResponse data;
+        public final List<VectorStoreObject> items;
+        public final boolean hasMore;
+
+        public ListVectorStoresPage(ListVectorStoresResponse data, List<VectorStoreObject> items, boolean hasMore) {
+            this.data = data;
+            this.items = items;
+            this.hasMore = hasMore;
+        }
+    }
+
+    public static void listVectorStoresPages(SdkConfig.ClientConfig clientConfig, ListVectorStoresRequest request, java.util.function.Predicate<ListVectorStoresPage> yieldPage) {
+        listVectorStoresPages(clientConfig, request, null, yieldPage);
+    }
+
+    public static void listVectorStoresPages(SdkConfig.ClientConfig clientConfig, ListVectorStoresRequest request, SdkConfig.RequestOptions options, java.util.function.Predicate<ListVectorStoresPage> yieldPage) {
+        String _cursor = request.getAfter();
+        while (true) {
+            ListVectorStoresRequest.Builder __b = ListVectorStoresRequest.builder();
+            __b.limit(request.getLimit());
+            __b.order(request.getOrder());
+            __b.after(_cursor);
+            __b.before(request.getBefore());
+            ListVectorStoresRequest __req = __b.build();
+            ListVectorStoresResponse _page = listVectorStores(clientConfig, __req, options);
+            List<VectorStoreObject> _items = _page.data;
+            if (_items == null || _items.isEmpty()) { return; }
+            Object _next = _page.lastId;
+            boolean _hasMore = _page.hasMore && _next != null;
+            if (!yieldPage.test(new ListVectorStoresPage(_page, _items, _hasMore))) { return; }
+            if (!_hasMore) { return; }
+            _cursor = (String) _next;
+        }
+    }
+
+
     public static class CreateVectorStoreParams {
 
         private List<String> fileIds;
@@ -525,6 +598,85 @@ public class VectorStores {
 
 
 
+    /**
+     * Lists the files in a vector store file batch. Use `filter` to limit results by processing status and the cursor parameters to navigate through the batch's files.
+     *
+     * Returns a list of vector store files in a batch.
+     */
+    public static void listFilesInVectorStoreBatchPaginated(SdkConfig.ClientConfig clientConfig, ListFilesInVectorStoreBatchRequest request, java.util.function.Predicate<VectorStoreFileObject> yield) {
+        listFilesInVectorStoreBatchPaginated(clientConfig, request, null, yield);
+    }
+
+    /**
+     * Lists the files in a vector store file batch. Use `filter` to limit results by processing status and the cursor parameters to navigate through the batch's files.
+     *
+     * Returns a list of vector store files in a batch.
+     */
+    public static void listFilesInVectorStoreBatchPaginated(SdkConfig.ClientConfig clientConfig, ListFilesInVectorStoreBatchRequest request, SdkConfig.RequestOptions options, java.util.function.Predicate<VectorStoreFileObject> yield) {
+        String _cursor = request.getAfter();
+        while (true) {
+            ListFilesInVectorStoreBatchRequest.Builder __b = ListFilesInVectorStoreBatchRequest.builder();
+            __b.vectorStoreId(request.getVectorStoreId());
+            __b.batchId(request.getBatchId());
+            __b.limit(request.getLimit());
+            __b.order(request.getOrder());
+            __b.after(_cursor);
+            __b.before(request.getBefore());
+            __b.filter(request.getFilter());
+            ListFilesInVectorStoreBatchRequest __req = __b.build();
+            ListVectorStoreFilesResponse _page = listFilesInVectorStoreBatch(clientConfig, __req, options);
+            List<VectorStoreFileObject> _items = _page.data;
+            if (_items == null || _items.isEmpty()) { return; }
+            for (VectorStoreFileObject _item : _items) {
+                if (!yield.test(_item)) { return; }
+            }
+            if (!_page.hasMore) { return; }
+            Object _next = _page.lastId;
+            if (_next == null) { return; }
+            _cursor = (String) _next;
+        }
+    }
+
+    public static final class ListFilesInVectorStoreBatchPage {
+        public final ListVectorStoreFilesResponse data;
+        public final List<VectorStoreFileObject> items;
+        public final boolean hasMore;
+
+        public ListFilesInVectorStoreBatchPage(ListVectorStoreFilesResponse data, List<VectorStoreFileObject> items, boolean hasMore) {
+            this.data = data;
+            this.items = items;
+            this.hasMore = hasMore;
+        }
+    }
+
+    public static void listFilesInVectorStoreBatchPages(SdkConfig.ClientConfig clientConfig, ListFilesInVectorStoreBatchRequest request, java.util.function.Predicate<ListFilesInVectorStoreBatchPage> yieldPage) {
+        listFilesInVectorStoreBatchPages(clientConfig, request, null, yieldPage);
+    }
+
+    public static void listFilesInVectorStoreBatchPages(SdkConfig.ClientConfig clientConfig, ListFilesInVectorStoreBatchRequest request, SdkConfig.RequestOptions options, java.util.function.Predicate<ListFilesInVectorStoreBatchPage> yieldPage) {
+        String _cursor = request.getAfter();
+        while (true) {
+            ListFilesInVectorStoreBatchRequest.Builder __b = ListFilesInVectorStoreBatchRequest.builder();
+            __b.vectorStoreId(request.getVectorStoreId());
+            __b.batchId(request.getBatchId());
+            __b.limit(request.getLimit());
+            __b.order(request.getOrder());
+            __b.after(_cursor);
+            __b.before(request.getBefore());
+            __b.filter(request.getFilter());
+            ListFilesInVectorStoreBatchRequest __req = __b.build();
+            ListVectorStoreFilesResponse _page = listFilesInVectorStoreBatch(clientConfig, __req, options);
+            List<VectorStoreFileObject> _items = _page.data;
+            if (_items == null || _items.isEmpty()) { return; }
+            Object _next = _page.lastId;
+            boolean _hasMore = _page.hasMore && _next != null;
+            if (!yieldPage.test(new ListFilesInVectorStoreBatchPage(_page, _items, _hasMore))) { return; }
+            if (!_hasMore) { return; }
+            _cursor = (String) _next;
+        }
+    }
+
+
     public static class ListVectorStoreFilesRequest {
 
         private String vectorStoreId;
@@ -581,6 +733,83 @@ public class VectorStores {
         return SdkClient.request(clientConfig, "GET", "/vector_stores/" + SdkClient.encodePathSegment(vectorStoreId) + "/files", SdkClient.q("limit", SdkClient.queryValue(limit, "form", true), "order", SdkClient.queryValue(order, "form", true), "after", SdkClient.queryValue(after, "form", true), "before", SdkClient.queryValue(before, "form", true), "filter", SdkClient.queryValue(filter, "form", true)), null, null, new TypeReference<ListVectorStoreFilesResponse>(){}, "listVectorStoreFiles", null, SdkClient.ResponseDecoder.JSON, options, java.util.Map.of("400", ErrorResponse.class, "404", ErrorResponse.class, "429", ErrorResponse.class)).data;
     }
 
+
+
+    /**
+     * Lists files attached to a vector store, with pagination and an optional status filter. Use `after` or `before` to navigate the list, and `filter` to select files by processing status.
+     *
+     * Returns a list of vector store files.
+     */
+    public static void listVectorStoreFilesPaginated(SdkConfig.ClientConfig clientConfig, ListVectorStoreFilesRequest request, java.util.function.Predicate<VectorStoreFileObject> yield) {
+        listVectorStoreFilesPaginated(clientConfig, request, null, yield);
+    }
+
+    /**
+     * Lists files attached to a vector store, with pagination and an optional status filter. Use `after` or `before` to navigate the list, and `filter` to select files by processing status.
+     *
+     * Returns a list of vector store files.
+     */
+    public static void listVectorStoreFilesPaginated(SdkConfig.ClientConfig clientConfig, ListVectorStoreFilesRequest request, SdkConfig.RequestOptions options, java.util.function.Predicate<VectorStoreFileObject> yield) {
+        String _cursor = request.getAfter();
+        while (true) {
+            ListVectorStoreFilesRequest.Builder __b = ListVectorStoreFilesRequest.builder();
+            __b.vectorStoreId(request.getVectorStoreId());
+            __b.limit(request.getLimit());
+            __b.order(request.getOrder());
+            __b.after(_cursor);
+            __b.before(request.getBefore());
+            __b.filter(request.getFilter());
+            ListVectorStoreFilesRequest __req = __b.build();
+            ListVectorStoreFilesResponse _page = listVectorStoreFiles(clientConfig, __req, options);
+            List<VectorStoreFileObject> _items = _page.data;
+            if (_items == null || _items.isEmpty()) { return; }
+            for (VectorStoreFileObject _item : _items) {
+                if (!yield.test(_item)) { return; }
+            }
+            if (!_page.hasMore) { return; }
+            Object _next = _page.lastId;
+            if (_next == null) { return; }
+            _cursor = (String) _next;
+        }
+    }
+
+    public static final class ListVectorStoreFilesPage {
+        public final ListVectorStoreFilesResponse data;
+        public final List<VectorStoreFileObject> items;
+        public final boolean hasMore;
+
+        public ListVectorStoreFilesPage(ListVectorStoreFilesResponse data, List<VectorStoreFileObject> items, boolean hasMore) {
+            this.data = data;
+            this.items = items;
+            this.hasMore = hasMore;
+        }
+    }
+
+    public static void listVectorStoreFilesPages(SdkConfig.ClientConfig clientConfig, ListVectorStoreFilesRequest request, java.util.function.Predicate<ListVectorStoreFilesPage> yieldPage) {
+        listVectorStoreFilesPages(clientConfig, request, null, yieldPage);
+    }
+
+    public static void listVectorStoreFilesPages(SdkConfig.ClientConfig clientConfig, ListVectorStoreFilesRequest request, SdkConfig.RequestOptions options, java.util.function.Predicate<ListVectorStoreFilesPage> yieldPage) {
+        String _cursor = request.getAfter();
+        while (true) {
+            ListVectorStoreFilesRequest.Builder __b = ListVectorStoreFilesRequest.builder();
+            __b.vectorStoreId(request.getVectorStoreId());
+            __b.limit(request.getLimit());
+            __b.order(request.getOrder());
+            __b.after(_cursor);
+            __b.before(request.getBefore());
+            __b.filter(request.getFilter());
+            ListVectorStoreFilesRequest __req = __b.build();
+            ListVectorStoreFilesResponse _page = listVectorStoreFiles(clientConfig, __req, options);
+            List<VectorStoreFileObject> _items = _page.data;
+            if (_items == null || _items.isEmpty()) { return; }
+            Object _next = _page.lastId;
+            boolean _hasMore = _page.hasMore && _next != null;
+            if (!yieldPage.test(new ListVectorStoreFilesPage(_page, _items, _hasMore))) { return; }
+            if (!_hasMore) { return; }
+            _cursor = (String) _next;
+        }
+    }
 
 
     public static class CreateVectorStoreFileParams {

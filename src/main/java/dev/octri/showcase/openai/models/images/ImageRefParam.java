@@ -3,25 +3,48 @@
 
 package dev.octri.showcase.openai.models.images;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import dev.octri.showcase.openai.Validation;
+import javax.annotation.Nullable;
+
 /**
  * ImageRefParam.
  * Reference an input image by either URL or uploaded file ID.
  * Provide exactly one of `image_url` or `file_id`.
  */
 
-@com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = ImageRefParam.Deserializer.class)
-public interface ImageRefParam {
-    /** Chooses the branch this payload is shaped like. */
-    final class Deserializer extends com.fasterxml.jackson.databind.JsonDeserializer<ImageRefParam> {
-        @java.lang.Override
-        public ImageRefParam deserialize(
-            com.fasterxml.jackson.core.JsonParser parser,
-            com.fasterxml.jackson.databind.DeserializationContext context)
-            throws java.io.IOException {
-            com.fasterxml.jackson.databind.ObjectMapper mapper =
-                (com.fasterxml.jackson.databind.ObjectMapper) parser.getCodec();
-            com.fasterxml.jackson.databind.JsonNode node = parser.readValueAsTree();
-            return new ImageRefParamObjectValue(mapper.convertValue(node, new com.fasterxml.jackson.core.type.TypeReference<Object>() {}));
+public final class ImageRefParam {
+    /**
+     * A fully qualified URL or base64-encoded data URL.
+     */
+    @Nullable @JsonProperty("image_url") public String imageUrl;
+    /**
+     * The File API ID of an uploaded image to use as input.
+     */
+    @Nullable @JsonProperty("file_id") public String fileId;
+    private ImageRefParam() {}
+    public static Builder builder() { return new Builder(); }
+    public static final class Builder {
+        private String imageUrl;
+        private String fileId;
+        public Builder imageUrl(String value) { this.imageUrl = value; return this; }
+        public Builder fileId(String value) { this.fileId = value; return this; }
+        public ImageRefParam build() {
+            ImageRefParam result = new ImageRefParam();
+            if (this.imageUrl != null) {
+                { Validation.LengthOpts __length = new Validation.LengthOpts(); __length.max = 20971520; Validation.validateLength("image_url", this.imageUrl, __length); }
+                Validation.validateUri("image_url", this.imageUrl);
+            }
+            result.imageUrl = this.imageUrl;
+            result.fileId = this.fileId;
+            return result;
         }
+    }
+    @java.lang.Override
+    public String toString() {
+        return "ImageRefParam{"
+            + "imageUrl=" + imageUrl
+            + ", fileId=" + fileId
+            + "}";
     }
 }

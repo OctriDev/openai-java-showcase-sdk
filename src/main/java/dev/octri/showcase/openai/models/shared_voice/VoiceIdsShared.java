@@ -3,13 +3,15 @@
 
 package dev.octri.showcase.openai.models.shared_voice;
 
+import dev.octri.showcase.openai.models.audio.CreateSpeechRequestVoice;
+
 /**
  * VoiceIdsShared.
  * Typed representation of the `VoiceIdsShared` API schema.
  */
 
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.databind.JsonDeserializer.None.class) @com.fasterxml.jackson.annotation.JsonTypeInfo(use = com.fasterxml.jackson.annotation.JsonTypeInfo.Id.NONE)
-public class VoiceIdsShared implements VoiceIdsOrCustomVoice {
+public class VoiceIdsShared implements CreateSpeechRequestVoice, VoiceIdsOrCustomVoice {
     @com.fasterxml.jackson.annotation.JsonValue public String value;
     public VoiceIdsShared() {}
     @com.fasterxml.jackson.annotation.JsonCreator(mode = com.fasterxml.jackson.annotation.JsonCreator.Mode.DELEGATING)

@@ -47,7 +47,7 @@ public final class LiveResponsesDelegationSettingsInputParam {
     /**
      * Controls which tool the Responses backend uses when handling a task delegated by the Live model.
      */
-    @Nullable @JsonProperty("tool_choice") public Object toolChoice;
+    @Nullable @JsonProperty("tool_choice") public LiveResponsesDelegationSettingsInputParamToolChoice toolChoice;
     /**
      * Optional `boolean` value serialized in the `parallel_tool_calls` wire field.
      */
@@ -62,7 +62,7 @@ public final class LiveResponsesDelegationSettingsInputParam {
         private LiveDelegationReasoningInputParam reasoning;
         private LiveDelegationTextInputParam text;
         private List<LiveResponsesDelegationSettingsInputParamToolsItem> tools;
-        private Object toolChoice;
+        private LiveResponsesDelegationSettingsInputParamToolChoice toolChoice;
         private Boolean parallelToolCalls;
         public Builder model(String value) { this.model = value; return this; }
         public Builder instructions(String value) { this.instructions = value; return this; }
@@ -71,7 +71,7 @@ public final class LiveResponsesDelegationSettingsInputParam {
         public Builder reasoning(LiveDelegationReasoningInputParam value) { this.reasoning = value; return this; }
         public Builder text(LiveDelegationTextInputParam value) { this.text = value; return this; }
         public Builder tools(List<LiveResponsesDelegationSettingsInputParamToolsItem> value) { this.tools = value; return this; }
-        public Builder toolChoice(Object value) { this.toolChoice = value; return this; }
+        public Builder toolChoice(LiveResponsesDelegationSettingsInputParamToolChoice value) { this.toolChoice = value; return this; }
         public Builder parallelToolCalls(Boolean value) { this.parallelToolCalls = value; return this; }
         public LiveResponsesDelegationSettingsInputParam build() {
             LiveResponsesDelegationSettingsInputParam result = new LiveResponsesDelegationSettingsInputParam();

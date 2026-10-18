@@ -20,10 +20,69 @@ import dev.octri.showcase.openai.models.shared_error.ErrorResponse;
 import dev.octri.showcase.openai.models.shared_reasoning.ReasoningEffort;
 import dev.octri.showcase.openai.SdkConfig;
 import dev.octri.showcase.openai.SdkClient;
+import dev.octri.showcase.openai.Validation;
 import com.fasterxml.jackson.core.type.TypeReference;
 import java.util.List;
 
 public class AssistantsPart2 extends AssistantsPart1 {
+    /**
+     * Creates a run on a thread using the specified assistant. Supply `assistant_id` and optionally override the assistant’s model, instructions, tools, or generation settings for this run. If the run requires tool outputs, submit them with POST /threads/{thread_id}/runs/{run_id}/submit_tool_outputs.
+     *
+     * Create a run.
+     */
+    public static RunObject createRun(SdkConfig.ClientConfig clientConfig, Assistants.CreateRunParams request) {
+        return createRun(clientConfig, request, null);
+    }
+
+    /**
+     * Creates a run on a thread using the specified assistant. Supply `assistant_id` and optionally override the assistant’s model, instructions, tools, or generation settings for this run. If the run requires tool outputs, submit them with POST /threads/{thread_id}/runs/{run_id}/submit_tool_outputs.
+     *
+     * Create a run.
+     */
+    public static RunObject createRun(SdkConfig.ClientConfig clientConfig, Assistants.CreateRunParams request, SdkConfig.RequestOptions options) {
+        String threadId = request.getThreadId();
+        String assistantId = request.getAssistantId();
+        List<Assistants.CreateRunIncludeItem> include = request.getInclude();
+        SdkClient.OptionalValue<AssistantSupportedModels> model = request.getModel();
+        SdkClient.OptionalValue<ReasoningEffort> reasoningEffort = request.getReasoningEffort();
+        SdkClient.OptionalValue<String> instructions = request.getInstructions();
+        SdkClient.OptionalValue<String> additionalInstructions = request.getAdditionalInstructions();
+        SdkClient.OptionalValue<List<CreateMessageRequest>> additionalMessages = request.getAdditionalMessages();
+        SdkClient.OptionalValue<List<CreateRunRequestToolsItem>> tools = request.getTools();
+        SdkClient.OptionalValue<Metadata> metadata = request.getMetadata();
+        SdkClient.OptionalValue<Double> temperature = request.getTemperature();
+        SdkClient.OptionalValue<Double> topP = request.getTopP();
+        SdkClient.OptionalValue<Boolean> stream = request.getStream();
+        SdkClient.OptionalValue<Long> maxPromptTokens = request.getMaxPromptTokens();
+        SdkClient.OptionalValue<Long> maxCompletionTokens = request.getMaxCompletionTokens();
+        TruncationObject truncationStrategy = request.getTruncationStrategy();
+        AssistantsApiToolChoiceOption toolChoice = request.getToolChoice();
+        ParallelToolCalls parallelToolCalls = request.getParallelToolCalls();
+        SdkClient.OptionalValue<AssistantsApiResponseFormatOption> responseFormat = request.getResponseFormat();
+
+        if (tools != null && tools.isPresent() && tools.value() != null) {
+            { Validation.LengthOpts __i = new Validation.LengthOpts(); __i.max = 20; Validation.validateItems("tools", tools.value(), __i); }
+        }
+
+        if (temperature != null && temperature.isPresent() && temperature.value() != null) {
+            { Validation.RangeOpts __r = new Validation.RangeOpts(); __r.min = 0d; __r.max = 2d; Validation.validateRange("temperature", temperature.value(), __r); }
+        }
+
+        if (topP != null && topP.isPresent() && topP.value() != null) {
+            { Validation.RangeOpts __r = new Validation.RangeOpts(); __r.min = 0d; __r.max = 1d; Validation.validateRange("top_p", topP.value(), __r); }
+        }
+
+        if (maxPromptTokens != null && maxPromptTokens.isPresent() && maxPromptTokens.value() != null) {
+            { Validation.RangeOpts __r = new Validation.RangeOpts(); __r.min = 256d; Validation.validateRange("max_prompt_tokens", maxPromptTokens.value(), __r); }
+        }
+
+        if (maxCompletionTokens != null && maxCompletionTokens.isPresent() && maxCompletionTokens.value() != null) {
+            { Validation.RangeOpts __r = new Validation.RangeOpts(); __r.min = 256d; Validation.validateRange("max_completion_tokens", maxCompletionTokens.value(), __r); }
+        }
+
+        return SdkClient.request(clientConfig, "POST", "/threads/" + SdkClient.encodePathSegment(threadId) + "/runs", SdkClient.q("include[]", SdkClient.queryValue(include, "form", true)), SdkClient.q("assistant_id", assistantId, "model", model, "reasoning_effort", reasoningEffort, "instructions", instructions, "additional_instructions", additionalInstructions, "additional_messages", additionalMessages, "tools", tools, "metadata", metadata, "temperature", temperature, "top_p", topP, "stream", stream, "max_prompt_tokens", maxPromptTokens, "max_completion_tokens", maxCompletionTokens, "truncation_strategy", SdkClient.omitIfNull(truncationStrategy), "tool_choice", SdkClient.omitIfNull(toolChoice), "parallel_tool_calls", SdkClient.omitIfNull(parallelToolCalls), "response_format", responseFormat), null, new TypeReference<RunObject>(){}, "createRun", null, SdkClient.ResponseDecoder.JSON, options, java.util.Map.of("429", ErrorResponse.class)).data;
+    }
+
     public static java.util.stream.Stream<AssistantStreamEvent> createRunStream(SdkConfig.ClientConfig clientConfig, String threadId, String assistantId, Boolean stream, List<Assistants.CreateRunIncludeItem> include, SdkClient.OptionalValue<AssistantSupportedModels> model, SdkClient.OptionalValue<ReasoningEffort> reasoningEffort, SdkClient.OptionalValue<String> instructions, SdkClient.OptionalValue<String> additionalInstructions, SdkClient.OptionalValue<List<CreateMessageRequest>> additionalMessages, SdkClient.OptionalValue<List<CreateRunRequestToolsItem>> tools, SdkClient.OptionalValue<Metadata> metadata, SdkClient.OptionalValue<Double> temperature, SdkClient.OptionalValue<Double> topP, SdkClient.OptionalValue<Long> maxPromptTokens, SdkClient.OptionalValue<Long> maxCompletionTokens, TruncationObject truncationStrategy, AssistantsApiToolChoiceOption toolChoice, ParallelToolCalls parallelToolCalls, SdkClient.OptionalValue<AssistantsApiResponseFormatOption> responseFormat) {
         return createRunStream(clientConfig, threadId, assistantId, stream, include, model, reasoningEffort, instructions, additionalInstructions, additionalMessages, tools, metadata, temperature, topP, maxPromptTokens, maxCompletionTokens, truncationStrategy, toolChoice, parallelToolCalls, responseFormat, null);
     }
@@ -163,6 +222,72 @@ public class AssistantsPart2 extends AssistantsPart1 {
         List<Assistants.CreateRunIncludeItem> include = request.getInclude();
 
         return SdkClient.request(clientConfig, "GET", "/threads/" + SdkClient.encodePathSegment(threadId) + "/runs/" + SdkClient.encodePathSegment(runId) + "/steps", SdkClient.q("limit", SdkClient.queryValue(limit, "form", true), "order", SdkClient.queryValue(order, "form", true), "after", SdkClient.queryValue(after, "form", true), "before", SdkClient.queryValue(before, "form", true), "include[]", SdkClient.queryValue(include, "form", true)), null, null, new TypeReference<ListRunStepsResponse>(){}, "listRunSteps", null, SdkClient.ResponseDecoder.JSON, options, java.util.Map.of("429", ErrorResponse.class)).data;
+    }
+
+    /**
+     * Lists the steps belonging to a run on a thread. Use cursor parameters to page through the steps, and set `order` to control their order by creation time.
+     *
+     * Returns a list of run steps belonging to a run.
+     */
+    public static void listRunStepsPaginated(SdkConfig.ClientConfig clientConfig, Assistants.ListRunStepsRequest request, java.util.function.Predicate<RunStepObject> yield) {
+        listRunStepsPaginated(clientConfig, request, null, yield);
+    }
+
+    /**
+     * Lists the steps belonging to a run on a thread. Use cursor parameters to page through the steps, and set `order` to control their order by creation time.
+     *
+     * Returns a list of run steps belonging to a run.
+     */
+    public static void listRunStepsPaginated(SdkConfig.ClientConfig clientConfig, Assistants.ListRunStepsRequest request, SdkConfig.RequestOptions options, java.util.function.Predicate<RunStepObject> yield) {
+        String _cursor = request.getAfter();
+        while (true) {
+            Assistants.ListRunStepsRequest.Builder __b = Assistants.ListRunStepsRequest.builder();
+            __b.threadId(request.getThreadId());
+            __b.runId(request.getRunId());
+            __b.limit(request.getLimit());
+            __b.order(request.getOrder());
+            __b.after(_cursor);
+            __b.before(request.getBefore());
+            __b.include(request.getInclude());
+            Assistants.ListRunStepsRequest __req = __b.build();
+            ListRunStepsResponse _page = listRunSteps(clientConfig, __req, options);
+            List<RunStepObject> _items = _page.data;
+            if (_items == null || _items.isEmpty()) { return; }
+            for (RunStepObject _item : _items) {
+                if (!yield.test(_item)) { return; }
+            }
+            if (!_page.hasMore) { return; }
+            Object _next = _page.lastId;
+            if (_next == null) { return; }
+            _cursor = (String) _next;
+        }
+    }
+
+    public static void listRunStepsPages(SdkConfig.ClientConfig clientConfig, Assistants.ListRunStepsRequest request, java.util.function.Predicate<Assistants.ListRunStepsPage> yieldPage) {
+        listRunStepsPages(clientConfig, request, null, yieldPage);
+    }
+
+    public static void listRunStepsPages(SdkConfig.ClientConfig clientConfig, Assistants.ListRunStepsRequest request, SdkConfig.RequestOptions options, java.util.function.Predicate<Assistants.ListRunStepsPage> yieldPage) {
+        String _cursor = request.getAfter();
+        while (true) {
+            Assistants.ListRunStepsRequest.Builder __b = Assistants.ListRunStepsRequest.builder();
+            __b.threadId(request.getThreadId());
+            __b.runId(request.getRunId());
+            __b.limit(request.getLimit());
+            __b.order(request.getOrder());
+            __b.after(_cursor);
+            __b.before(request.getBefore());
+            __b.include(request.getInclude());
+            Assistants.ListRunStepsRequest __req = __b.build();
+            ListRunStepsResponse _page = listRunSteps(clientConfig, __req, options);
+            List<RunStepObject> _items = _page.data;
+            if (_items == null || _items.isEmpty()) { return; }
+            Object _next = _page.lastId;
+            boolean _hasMore = _page.hasMore && _next != null;
+            if (!yieldPage.test(new Assistants.ListRunStepsPage(_page, _items, _hasMore))) { return; }
+            if (!_hasMore) { return; }
+            _cursor = (String) _next;
+        }
     }
 
     /**

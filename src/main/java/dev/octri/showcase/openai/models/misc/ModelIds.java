@@ -26,6 +26,18 @@ public interface ModelIds {
             com.fasterxml.jackson.databind.JsonNode node = parser.readValueAsTree();
             try {
                 ModelIdsShared branch = mapper.convertValue(node, ModelIdsShared.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                ModelIdsResponses branch = mapper.convertValue(node, ModelIdsResponses.class);
+                if (keepsEveryKey(mapper, node, branch)) return new ModelIdsModelIdsResponsesValue(branch);
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                ModelIdsShared branch = mapper.convertValue(node, ModelIdsShared.class);
                 return branch;
             } catch (IllegalArgumentException | SdkValidationError ignored) {
                 // Not this branch.
@@ -38,6 +50,17 @@ public interface ModelIds {
             }
             throw com.fasterxml.jackson.databind.exc.MismatchedInputException.from(
                 parser, ModelIds.class, "no ModelIds branch accepts this payload");
+        }
+
+        private static boolean keepsEveryKey(
+            com.fasterxml.jackson.databind.ObjectMapper mapper,
+            com.fasterxml.jackson.databind.JsonNode node,
+            Object branch) {
+            com.fasterxml.jackson.databind.JsonNode kept = mapper.valueToTree(branch);
+            for (java.util.Iterator<String> names = node.fieldNames(); names.hasNext(); ) {
+                if (!kept.has(names.next())) return false;
+            }
+            return true;
         }
     }
 }

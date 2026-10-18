@@ -3,10 +3,14 @@
 
 package dev.octri.showcase.openai.models.live_live_tool;
 
+import dev.octri.showcase.openai.models.live_live_responses.LiveResponsesDelegationSettingsInputParamToolChoice;
+import dev.octri.showcase.openai.models.live_live_responses.LiveResponsesDelegationSettingsUpdateInputParamToolChoice;
+
 /**
  * Typed representation of the `LiveToolChoiceEnum` API schema.
  */
-public final class LiveToolChoiceEnum {
+@com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.databind.JsonDeserializer.None.class)
+public final class LiveToolChoiceEnum implements LiveResponsesDelegationSettingsInputParamToolChoice, LiveResponsesDelegationSettingsUpdateInputParamToolChoice {
     public static final LiveToolChoiceEnum AUTO = new LiveToolChoiceEnum("auto");
     public static final LiveToolChoiceEnum NONE = new LiveToolChoiceEnum("none");
     public static final LiveToolChoiceEnum REQUIRED = new LiveToolChoiceEnum("required");

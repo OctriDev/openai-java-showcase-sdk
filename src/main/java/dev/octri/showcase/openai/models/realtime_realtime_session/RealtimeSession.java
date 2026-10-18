@@ -62,7 +62,7 @@ public final class RealtimeSession {
     /**
      * Configuration for input audio noise reduction. This can be set to `null` to turn off. Noise reduction filters audio added to the input audio buffer before it is sent to VAD and the model. Filtering the audio can improve VAD and turn detection accuracy (reducing false positives) and model performance by improving perception of the input audio.
      */
-    @Nullable @JsonProperty("input_audio_noise_reduction") public Object inputAudioNoiseReduction;
+    @Nullable @JsonProperty("input_audio_noise_reduction") public RealtimeSessionInputAudioNoiseReduction inputAudioNoiseReduction;
     /**
      * The speed of the model's spoken response. 1.0 is the default speed. 0.25 is the minimum speed. 1.5 is the maximum speed. This value can only be changed in between model turns, not while a response is in progress.
      */
@@ -70,7 +70,7 @@ public final class RealtimeSession {
     /**
      * Configuration options for tracing. Set to null to disable tracing. Once tracing is enabled for a session, the configuration cannot be modified. `auto` will create a trace for the session with default values for the workflow name, group id, and metadata.
      */
-    @Nullable public Object tracing;
+    @Nullable public RealtimeSessionTracing tracing;
     /**
      * Tools (functions) available to the model.
      */
@@ -112,9 +112,9 @@ public final class RealtimeSession {
         private RealtimeSessionOutputAudioFormatEnum outputAudioFormat;
         private AudioTranscriptionResponse inputAudioTranscription;
         private RealtimeTurnDetection turnDetection;
-        private Object inputAudioNoiseReduction;
+        private RealtimeSessionInputAudioNoiseReduction inputAudioNoiseReduction;
         private Double speed;
-        private Object tracing;
+        private RealtimeSessionTracing tracing;
         private List<RealtimeFunctionTool> tools;
         private String toolChoice;
         private Double temperature;
@@ -132,9 +132,9 @@ public final class RealtimeSession {
         public Builder outputAudioFormat(RealtimeSessionOutputAudioFormatEnum value) { this.outputAudioFormat = value; return this; }
         public Builder inputAudioTranscription(AudioTranscriptionResponse value) { this.inputAudioTranscription = value; return this; }
         public Builder turnDetection(RealtimeTurnDetection value) { this.turnDetection = value; return this; }
-        public Builder inputAudioNoiseReduction(Object value) { this.inputAudioNoiseReduction = value; return this; }
+        public Builder inputAudioNoiseReduction(RealtimeSessionInputAudioNoiseReduction value) { this.inputAudioNoiseReduction = value; return this; }
         public Builder speed(Double value) { this.speed = value; return this; }
-        public Builder tracing(Object value) { this.tracing = value; return this; }
+        public Builder tracing(RealtimeSessionTracing value) { this.tracing = value; return this; }
         public Builder tools(List<RealtimeFunctionTool> value) { this.tools = value; return this; }
         public Builder toolChoice(String value) { this.toolChoice = value; return this; }
         public Builder temperature(Double value) { this.temperature = value; return this; }

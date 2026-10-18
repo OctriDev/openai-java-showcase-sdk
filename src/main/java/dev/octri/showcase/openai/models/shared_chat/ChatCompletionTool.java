@@ -4,7 +4,7 @@
 package dev.octri.showcase.openai.models.shared_chat;
 
 import dev.octri.showcase.openai.Validation;
-import dev.octri.showcase.openai.models.chat.ToolsItem;
+import dev.octri.showcase.openai.models.chat_create.CreateChatCompletionRequestVariant1ToolsItem;
 import dev.octri.showcase.openai.models.shared_function.FunctionObject;
 
 /**
@@ -13,7 +13,7 @@ import dev.octri.showcase.openai.models.shared_function.FunctionObject;
  */
 
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.databind.JsonDeserializer.None.class) @com.fasterxml.jackson.annotation.JsonTypeInfo(use = com.fasterxml.jackson.annotation.JsonTypeInfo.Id.NONE)
-public final class ChatCompletionTool implements ToolsItem {
+public final class ChatCompletionTool implements CreateChatCompletionRequestVariant1ToolsItem {
     /**
      * The type of the tool. Currently, only `function` is supported.
      */

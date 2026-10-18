@@ -46,7 +46,7 @@ public final class LiveResponsesDelegationSettingsUpdateInputParam {
     /**
      * Controls which tool the Responses backend uses when handling a task delegated by the Live model.
      */
-    @Nullable @JsonProperty("tool_choice") public Object toolChoice;
+    @Nullable @JsonProperty("tool_choice") public LiveResponsesDelegationSettingsUpdateInputParamToolChoice toolChoice;
     /**
      * Optional `boolean` value serialized in the `parallel_tool_calls` wire field.
      */
@@ -61,7 +61,7 @@ public final class LiveResponsesDelegationSettingsUpdateInputParam {
         private LiveDelegationReasoningInputParam reasoning;
         private LiveDelegationTextInputParam text;
         private List<LiveResponsesDelegationSettingsUpdateInputParamToolsItem> tools;
-        private Object toolChoice;
+        private LiveResponsesDelegationSettingsUpdateInputParamToolChoice toolChoice;
         private Boolean parallelToolCalls;
         public Builder model(String value) { this.model = value; return this; }
         public Builder instructions(String value) { this.instructions = value; return this; }
@@ -70,7 +70,7 @@ public final class LiveResponsesDelegationSettingsUpdateInputParam {
         public Builder reasoning(LiveDelegationReasoningInputParam value) { this.reasoning = value; return this; }
         public Builder text(LiveDelegationTextInputParam value) { this.text = value; return this; }
         public Builder tools(List<LiveResponsesDelegationSettingsUpdateInputParamToolsItem> value) { this.tools = value; return this; }
-        public Builder toolChoice(Object value) { this.toolChoice = value; return this; }
+        public Builder toolChoice(LiveResponsesDelegationSettingsUpdateInputParamToolChoice value) { this.toolChoice = value; return this; }
         public Builder parallelToolCalls(Boolean value) { this.parallelToolCalls = value; return this; }
         public LiveResponsesDelegationSettingsUpdateInputParam build() {
             LiveResponsesDelegationSettingsUpdateInputParam result = new LiveResponsesDelegationSettingsUpdateInputParam();

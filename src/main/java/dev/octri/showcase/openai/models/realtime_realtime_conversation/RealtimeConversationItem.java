@@ -60,6 +60,60 @@ public interface RealtimeConversationItem {
             }
             try {
                 RealtimeConversationItemMessageSystem branch = mapper.convertValue(node, RealtimeConversationItemMessageSystem.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                RealtimeConversationItemMessageUser branch = mapper.convertValue(node, RealtimeConversationItemMessageUser.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                RealtimeConversationItemMessageAssistant branch = mapper.convertValue(node, RealtimeConversationItemMessageAssistant.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                RealtimeConversationItemFunctionCall branch = mapper.convertValue(node, RealtimeConversationItemFunctionCall.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                RealtimeConversationItemFunctionCallOutput branch = mapper.convertValue(node, RealtimeConversationItemFunctionCallOutput.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                RealtimeMCPApprovalResponse branch = mapper.convertValue(node, RealtimeMCPApprovalResponse.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                RealtimeMCPListTools branch = mapper.convertValue(node, RealtimeMCPListTools.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                RealtimeMCPToolCall branch = mapper.convertValue(node, RealtimeMCPToolCall.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                RealtimeMCPApprovalRequest branch = mapper.convertValue(node, RealtimeMCPApprovalRequest.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                RealtimeConversationItemMessageSystem branch = mapper.convertValue(node, RealtimeConversationItemMessageSystem.class);
                 return branch;
             } catch (IllegalArgumentException | SdkValidationError ignored) {
                 // Not this branch.
@@ -113,6 +167,17 @@ public interface RealtimeConversationItem {
                 // Not this branch.
             }
             return new UnknownRealtimeConversationItem(node);
+        }
+
+        private static boolean keepsEveryKey(
+            com.fasterxml.jackson.databind.ObjectMapper mapper,
+            com.fasterxml.jackson.databind.JsonNode node,
+            Object branch) {
+            com.fasterxml.jackson.databind.JsonNode kept = mapper.valueToTree(branch);
+            for (java.util.Iterator<String> names = node.fieldNames(); names.hasNext(); ) {
+                if (!kept.has(names.next())) return false;
+            }
+            return true;
         }
     }
 }
