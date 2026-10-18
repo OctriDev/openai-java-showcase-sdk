@@ -46,6 +46,7 @@ public final class ComputerUseApprovalResponseParamBrowserAuthenticationSubmitPa
         public ComputerUseApprovalResponseParamBrowserAuthenticationSubmitParam build() {
             ComputerUseApprovalResponseParamBrowserAuthenticationSubmitParam result = new ComputerUseApprovalResponseParamBrowserAuthenticationSubmitParam();
             Validation.validateRequired("type", this.type);
+            Validation.validateEnum("type", this.type, java.util.Arrays.asList("browser_authentication"));
             result.type = this.type;
             Validation.validateRequired("action", this.action);
             Validation.validateEnum("action", this.action, java.util.Arrays.asList("submit"));

@@ -5,8 +5,8 @@ package dev.octri.showcase.openai.methods;
 
 import dev.octri.showcase.openai.models.hosted_tools.HostedToolPermissionUpdate;
 import dev.octri.showcase.openai.models.hosted_tools.ProjectHostedToolPermissions;
-import dev.octri.showcase.openai.models.shared.PermissionErrorResponse;
 import dev.octri.showcase.openai.models.shared_error.ErrorResponse;
+import dev.octri.showcase.openai.models.shared_permission.PermissionErrorResponse;
 import dev.octri.showcase.openai.SdkConfig;
 import dev.octri.showcase.openai.SdkClient;
 import com.fasterxml.jackson.core.type.TypeReference;

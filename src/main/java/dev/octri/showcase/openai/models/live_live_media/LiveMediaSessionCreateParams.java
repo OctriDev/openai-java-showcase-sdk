@@ -73,6 +73,7 @@ public final class LiveMediaSessionCreateParams {
         public LiveMediaSessionCreateParams build() {
             LiveMediaSessionCreateParams result = new LiveMediaSessionCreateParams();
             Validation.validateRequired("model", this.model);
+            { Validation.LengthOpts __length = new Validation.LengthOpts(); __length.min = 1; Validation.validateLength("model", this.model, __length); }
             result.model = this.model;
             result.instructions = this.instructions;
             result.audio = this.audio;

@@ -63,6 +63,48 @@ public interface AssistantStreamEvent {
                 }
             }
             try {
+                ThreadStreamEvent branch = mapper.convertValue(node, ThreadStreamEvent.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                ErrorEvent branch = mapper.convertValue(node, ErrorEvent.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                DoneEvent branch = mapper.convertValue(node, DoneEvent.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                RunStreamEvent branch = mapper.convertValue(node, RunStreamEvent.class);
+                if (keepsEveryKey(mapper, node, branch)) return new AssistantStreamEventRunStreamEventValue(branch);
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                RunStepStreamEvent branch = mapper.convertValue(node, RunStepStreamEvent.class);
+                if (keepsEveryKey(mapper, node, branch)) return new AssistantStreamEventRunStepStreamEventValue(branch);
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                MessageStreamEvent branch = mapper.convertValue(node, MessageStreamEvent.class);
+                if (keepsEveryKey(mapper, node, branch)) return new AssistantStreamEventMessageStreamEventValue(branch);
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                ThreadStreamEvent branch = mapper.convertValue(node, ThreadStreamEvent.class);
+                return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
                 ErrorEvent branch = mapper.convertValue(node, ErrorEvent.class);
                 return branch;
             } catch (IllegalArgumentException | SdkValidationError ignored) {
@@ -71,12 +113,6 @@ public interface AssistantStreamEvent {
             try {
                 DoneEvent branch = mapper.convertValue(node, DoneEvent.class);
                 return branch;
-            } catch (IllegalArgumentException | SdkValidationError ignored) {
-                // Not this branch.
-            }
-            try {
-                ThreadStreamEvent branch = mapper.convertValue(node, ThreadStreamEvent.class);
-                return new AssistantStreamEventThreadStreamEventValue(branch);
             } catch (IllegalArgumentException | SdkValidationError ignored) {
                 // Not this branch.
             }
@@ -99,6 +135,17 @@ public interface AssistantStreamEvent {
                 // Not this branch.
             }
             return new UnknownAssistantStreamEvent(node);
+        }
+
+        private static boolean keepsEveryKey(
+            com.fasterxml.jackson.databind.ObjectMapper mapper,
+            com.fasterxml.jackson.databind.JsonNode node,
+            Object branch) {
+            com.fasterxml.jackson.databind.JsonNode kept = mapper.valueToTree(branch);
+            for (java.util.Iterator<String> names = node.fieldNames(); names.hasNext(); ) {
+                if (!kept.has(names.next())) return false;
+            }
+            return true;
         }
     }
 }

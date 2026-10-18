@@ -5,6 +5,7 @@ package dev.octri.showcase.openai.models.shared_auto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import dev.octri.showcase.openai.Validation;
+import dev.octri.showcase.openai.models.shared_code.CodeInterpreterToolContainer;
 import dev.octri.showcase.openai.models.shared_container.ContainerMemoryLimit;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -14,7 +15,8 @@ import javax.annotation.Nullable;
  * Configuration for a code interpreter container. Optionally specify the IDs of the files to run the code on.
  */
 
-public final class AutoCodeInterpreterToolParam {
+@com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.databind.JsonDeserializer.None.class) @com.fasterxml.jackson.annotation.JsonTypeInfo(use = com.fasterxml.jackson.annotation.JsonTypeInfo.Id.NONE)
+public final class AutoCodeInterpreterToolParam implements CodeInterpreterToolContainer {
     /**
      * Always `auto`.
      */

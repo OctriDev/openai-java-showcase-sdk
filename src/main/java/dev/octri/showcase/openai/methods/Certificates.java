@@ -15,8 +15,8 @@ import dev.octri.showcase.openai.models.certificates.OrganizationProjectCertific
 import dev.octri.showcase.openai.models.certificates.OrganizationProjectCertificateDeactivationResponse;
 import dev.octri.showcase.openai.models.chat.PredictionContentTypeEnum;
 import dev.octri.showcase.openai.models.external_storage.ExternalStorageOrder;
-import dev.octri.showcase.openai.models.shared.PermissionErrorResponse;
 import dev.octri.showcase.openai.models.shared_error.ErrorResponse;
+import dev.octri.showcase.openai.models.shared_permission.PermissionErrorResponse;
 import dev.octri.showcase.openai.SdkConfig;
 import dev.octri.showcase.openai.SdkClient;
 import dev.octri.showcase.openai.Validation;

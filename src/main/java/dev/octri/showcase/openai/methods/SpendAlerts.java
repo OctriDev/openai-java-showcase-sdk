@@ -4,8 +4,8 @@
 package dev.octri.showcase.openai.methods;
 
 import dev.octri.showcase.openai.models.external_storage.ExternalStorageOrder;
-import dev.octri.showcase.openai.models.shared.PermissionErrorResponse;
 import dev.octri.showcase.openai.models.shared_error.ErrorResponse;
+import dev.octri.showcase.openai.models.shared_permission.PermissionErrorResponse;
 import dev.octri.showcase.openai.models.spend_alerts.CreateSpendAlertBodyCurrencyEnum;
 import dev.octri.showcase.openai.models.spend_alerts.CreateSpendAlertBodyIntervalEnum;
 import dev.octri.showcase.openai.models.spend_alerts.OrganizationSpendAlert;

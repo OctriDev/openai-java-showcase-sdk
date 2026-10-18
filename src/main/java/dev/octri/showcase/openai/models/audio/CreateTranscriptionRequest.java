@@ -61,7 +61,7 @@ public final class CreateTranscriptionRequest {
     /**
      * Controls how the audio is cut into chunks. When set to `"auto"`, the server first normalizes loudness and then uses voice activity detection (VAD) to choose boundaries. `server_vad` object can be provided to tweak VAD detection parameters manually. If unset, the audio is transcribed as a single block. Required when using `gpt-4o-transcribe-diarize` for inputs longer than 30 seconds.
      */
-    @Nullable @JsonProperty("chunking_strategy") @com.fasterxml.jackson.annotation.JsonSubTypes({@com.fasterxml.jackson.annotation.JsonSubTypes.Type(VadConfig.class)}) public Object chunkingStrategy;
+    @Nullable @JsonProperty("chunking_strategy") public CreateTranscriptionRequestChunkingStrategy chunkingStrategy;
     /**
      * Optional list of speaker names that correspond to the audio samples provided in `known_speaker_references[]`. Each entry should be a short identifier (for example `customer` or `agent`). Up to 4 speakers are supported.
      */
@@ -84,7 +84,7 @@ public final class CreateTranscriptionRequest {
         private List<TranscriptionInclude> include;
         private List<CreateTranscriptionRequestTimestampGranularitiesItemEnum> timestampGranularities;
         private Boolean stream;
-        private Object chunkingStrategy;
+        private CreateTranscriptionRequestChunkingStrategy chunkingStrategy;
         private List<String> knownSpeakerNames;
         private List<String> knownSpeakerReferences;
         public Builder file(byte[] value) { this.file = value; return this; }
@@ -98,7 +98,7 @@ public final class CreateTranscriptionRequest {
         public Builder include(List<TranscriptionInclude> value) { this.include = value; return this; }
         public Builder timestampGranularities(List<CreateTranscriptionRequestTimestampGranularitiesItemEnum> value) { this.timestampGranularities = value; return this; }
         public Builder stream(Boolean value) { this.stream = value; return this; }
-        public Builder chunkingStrategy(Object value) { this.chunkingStrategy = value; return this; }
+        public Builder chunkingStrategy(CreateTranscriptionRequestChunkingStrategy value) { this.chunkingStrategy = value; return this; }
         public Builder knownSpeakerNames(List<String> value) { this.knownSpeakerNames = value; return this; }
         public Builder knownSpeakerReferences(List<String> value) { this.knownSpeakerReferences = value; return this; }
         public CreateTranscriptionRequest build() {

@@ -3,22 +3,27 @@
 
 package dev.octri.showcase.openai.models.agents_computer;
 
+import dev.octri.showcase.openai.SdkValidationError;
+
 /**
  * Required enumerated value serialized in the `type` wire field.
  */
-public final class ComputerUseApprovalResponseParamBrowserAuthenticationCancelParamTypeEnum {
-    public static final ComputerUseApprovalResponseParamBrowserAuthenticationCancelParamTypeEnum BROWSER_AUTHENTICATION = new ComputerUseApprovalResponseParamBrowserAuthenticationCancelParamTypeEnum("browser_authentication");
+public enum ComputerUseApprovalResponseParamBrowserAuthenticationCancelParamTypeEnum {
+    BROWSER_AUTHENTICATION("browser_authentication");
     private final String value;
-    private ComputerUseApprovalResponseParamBrowserAuthenticationCancelParamTypeEnum(String value) { this.value = java.util.Objects.requireNonNull(value, "value"); }
-    @com.fasterxml.jackson.annotation.JsonCreator(mode = com.fasterxml.jackson.annotation.JsonCreator.Mode.DELEGATING)
-    public static ComputerUseApprovalResponseParamBrowserAuthenticationCancelParamTypeEnum fromValue(String value) {
-        if ("browser_authentication".equals(value)) return BROWSER_AUTHENTICATION;
-        return new ComputerUseApprovalResponseParamBrowserAuthenticationCancelParamTypeEnum(value);
-    }
+    ComputerUseApprovalResponseParamBrowserAuthenticationCancelParamTypeEnum(String value) { this.value = value; }
     @com.fasterxml.jackson.annotation.JsonValue public String getValue() { return value; }
     @java.lang.Override public String toString() { return value; }
-    @java.lang.Override public boolean equals(Object other) {
-        return this == other || (other instanceof ComputerUseApprovalResponseParamBrowserAuthenticationCancelParamTypeEnum o && value.equals(o.value));
+    @com.fasterxml.jackson.annotation.JsonCreator public static ComputerUseApprovalResponseParamBrowserAuthenticationCancelParamTypeEnum fromValue(String v) {
+        for (ComputerUseApprovalResponseParamBrowserAuthenticationCancelParamTypeEnum e : values()) { if (e.value.equals(v)) return e; }
+        throw new SdkValidationError(
+            "",
+            "enum",
+            "Unknown ComputerUseApprovalResponseParamBrowserAuthenticationCancelParamTypeEnum: " + v,
+            java.util.Collections.singletonMap(
+                "allowed",
+                java.util.Arrays.asList("browser_authentication")
+            )
+        );
     }
-    @java.lang.Override public int hashCode() { return value.hashCode(); }
 }

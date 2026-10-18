@@ -5,7 +5,7 @@ package dev.octri.showcase.openai.models.shared_response;
 
 import dev.octri.showcase.openai.Validation;
 import dev.octri.showcase.openai.models.assistants_assistants.AssistantsApiResponseFormatOption;
-import dev.octri.showcase.openai.models.chat_response.ResponseFormat;
+import dev.octri.showcase.openai.models.chat_create.CreateChatCompletionRequestVariant1ResponseFormat;
 import dev.octri.showcase.openai.models.evals_create.CreateEvalCompletionsRunDataSourceSamplingParamsResponseFormat;
 import dev.octri.showcase.openai.models.shared_text.TextResponseFormatConfiguration;
 
@@ -18,7 +18,7 @@ import dev.octri.showcase.openai.models.shared_text.TextResponseFormatConfigurat
  */
 
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.databind.JsonDeserializer.None.class) @com.fasterxml.jackson.annotation.JsonTypeInfo(use = com.fasterxml.jackson.annotation.JsonTypeInfo.Id.NONE)
-public final class ResponseFormatJsonObject implements AssistantsApiResponseFormatOption, CreateEvalCompletionsRunDataSourceSamplingParamsResponseFormat, ResponseFormat, TextResponseFormatConfiguration {
+public final class ResponseFormatJsonObject implements AssistantsApiResponseFormatOption, CreateChatCompletionRequestVariant1ResponseFormat, CreateEvalCompletionsRunDataSourceSamplingParamsResponseFormat, TextResponseFormatConfiguration {
     /**
      * The type of response format being defined. Always `json_object`.
      */

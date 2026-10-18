@@ -40,6 +40,18 @@ public interface ComputerUseApprovalResponseParam {
             }
             try {
                 ComputerUseApprovalResponseParamBrowserOriginAccessParam branch = mapper.convertValue(node, ComputerUseApprovalResponseParamBrowserOriginAccessParam.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                ComputerUseApprovalResponseParamBrowserAuthentication branch = mapper.convertValue(node, ComputerUseApprovalResponseParamBrowserAuthentication.class);
+                if (keepsEveryKey(mapper, node, branch)) return new ComputerUseApprovalResponseParamComputerUseApprovalResponseParamBrowserAuthenticationValue(branch);
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                ComputerUseApprovalResponseParamBrowserOriginAccessParam branch = mapper.convertValue(node, ComputerUseApprovalResponseParamBrowserOriginAccessParam.class);
                 return branch;
             } catch (IllegalArgumentException | SdkValidationError ignored) {
                 // Not this branch.
@@ -51,6 +63,17 @@ public interface ComputerUseApprovalResponseParam {
                 // Not this branch.
             }
             return new UnknownComputerUseApprovalResponseParam(node);
+        }
+
+        private static boolean keepsEveryKey(
+            com.fasterxml.jackson.databind.ObjectMapper mapper,
+            com.fasterxml.jackson.databind.JsonNode node,
+            Object branch) {
+            com.fasterxml.jackson.databind.JsonNode kept = mapper.valueToTree(branch);
+            for (java.util.Iterator<String> names = node.fieldNames(); names.hasNext(); ) {
+                if (!kept.has(names.next())) return false;
+            }
+            return true;
         }
     }
 }

@@ -72,6 +72,7 @@ public final class LiveSessionCreateParams {
         public LiveSessionCreateParams build() {
             LiveSessionCreateParams result = new LiveSessionCreateParams();
             Validation.validateRequired("model", this.model);
+            { Validation.LengthOpts __length = new Validation.LengthOpts(); __length.min = 1; Validation.validateLength("model", this.model, __length); }
             result.model = this.model;
             result.instructions = this.instructions;
             if (this.input != null) {

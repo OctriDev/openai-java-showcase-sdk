@@ -180,6 +180,192 @@ public interface BetaItem extends BetaInputItem {
             }
             try {
                 BetaInputMessage branch = mapper.convertValue(node, BetaInputMessage.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                BetaOutputMessage branch = mapper.convertValue(node, BetaOutputMessage.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                BetaFileSearchToolCall branch = mapper.convertValue(node, BetaFileSearchToolCall.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                BetaComputerToolCall branch = mapper.convertValue(node, BetaComputerToolCall.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                BetaComputerCallOutputItemParam branch = mapper.convertValue(node, BetaComputerCallOutputItemParam.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                BetaWebSearchToolCall branch = mapper.convertValue(node, BetaWebSearchToolCall.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                BetaFunctionToolCall branch = mapper.convertValue(node, BetaFunctionToolCall.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                BetaFunctionCallOutputItemParam branch = mapper.convertValue(node, BetaFunctionCallOutputItemParam.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                BetaAgentMessageItemParam branch = mapper.convertValue(node, BetaAgentMessageItemParam.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                BetaMultiAgentCallItemParam branch = mapper.convertValue(node, BetaMultiAgentCallItemParam.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                BetaMultiAgentCallOutputItemParam branch = mapper.convertValue(node, BetaMultiAgentCallOutputItemParam.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                BetaToolSearchCallItemParam branch = mapper.convertValue(node, BetaToolSearchCallItemParam.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                BetaToolSearchOutputItemParam branch = mapper.convertValue(node, BetaToolSearchOutputItemParam.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                BetaAdditionalToolsItemParam branch = mapper.convertValue(node, BetaAdditionalToolsItemParam.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                BetaResponseConfigurationUpdateItemParam branch = mapper.convertValue(node, BetaResponseConfigurationUpdateItemParam.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                BetaReasoningItem branch = mapper.convertValue(node, BetaReasoningItem.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                BetaCompactionSummaryItemParam branch = mapper.convertValue(node, BetaCompactionSummaryItemParam.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                BetaImageGenToolCall branch = mapper.convertValue(node, BetaImageGenToolCall.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                BetaCodeInterpreterToolCall branch = mapper.convertValue(node, BetaCodeInterpreterToolCall.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                BetaLocalShellToolCall branch = mapper.convertValue(node, BetaLocalShellToolCall.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                BetaLocalShellToolCallOutput branch = mapper.convertValue(node, BetaLocalShellToolCallOutput.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                BetaFunctionShellCallItemParam branch = mapper.convertValue(node, BetaFunctionShellCallItemParam.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                BetaFunctionShellCallOutputItemParam branch = mapper.convertValue(node, BetaFunctionShellCallOutputItemParam.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                BetaApplyPatchToolCallItemParam branch = mapper.convertValue(node, BetaApplyPatchToolCallItemParam.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                BetaApplyPatchToolCallOutputItemParam branch = mapper.convertValue(node, BetaApplyPatchToolCallOutputItemParam.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                BetaMCPListTools branch = mapper.convertValue(node, BetaMCPListTools.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                BetaMCPApprovalRequest branch = mapper.convertValue(node, BetaMCPApprovalRequest.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                BetaMCPApprovalResponse branch = mapper.convertValue(node, BetaMCPApprovalResponse.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                BetaMCPToolCall branch = mapper.convertValue(node, BetaMCPToolCall.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                BetaCustomToolCallOutput branch = mapper.convertValue(node, BetaCustomToolCallOutput.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                BetaCustomToolCall branch = mapper.convertValue(node, BetaCustomToolCall.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                BetaInputMessage branch = mapper.convertValue(node, BetaInputMessage.class);
                 return branch;
             } catch (IllegalArgumentException | SdkValidationError ignored) {
                 // Not this branch.
@@ -365,6 +551,17 @@ public interface BetaItem extends BetaInputItem {
                 // Not this branch.
             }
             return new UnknownBetaItem(node);
+        }
+
+        private static boolean keepsEveryKey(
+            com.fasterxml.jackson.databind.ObjectMapper mapper,
+            com.fasterxml.jackson.databind.JsonNode node,
+            Object branch) {
+            com.fasterxml.jackson.databind.JsonNode kept = mapper.valueToTree(branch);
+            for (java.util.Iterator<String> names = node.fieldNames(); names.hasNext(); ) {
+                if (!kept.has(names.next())) return false;
+            }
+            return true;
         }
     }
 }

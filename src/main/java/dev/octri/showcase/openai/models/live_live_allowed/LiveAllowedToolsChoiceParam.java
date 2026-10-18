@@ -4,6 +4,8 @@
 package dev.octri.showcase.openai.models.live_live_allowed;
 
 import dev.octri.showcase.openai.Validation;
+import dev.octri.showcase.openai.models.live_live_responses.LiveResponsesDelegationSettingsInputParamToolChoice;
+import dev.octri.showcase.openai.models.live_live_responses.LiveResponsesDelegationSettingsUpdateInputParamToolChoice;
 import dev.octri.showcase.openai.models.live_live_tool.LiveToolChoiceValueEnum;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -13,7 +15,8 @@ import javax.annotation.Nullable;
  * Typed representation of the `LiveAllowedToolsChoiceParam` API schema.
  */
 
-public final class LiveAllowedToolsChoiceParam {
+@com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.databind.JsonDeserializer.None.class) @com.fasterxml.jackson.annotation.JsonTypeInfo(use = com.fasterxml.jackson.annotation.JsonTypeInfo.Id.NONE)
+public final class LiveAllowedToolsChoiceParam implements LiveResponsesDelegationSettingsInputParamToolChoice, LiveResponsesDelegationSettingsUpdateInputParamToolChoice {
     /**
      * The tool choice type. Always `allowed_tools`.
      */

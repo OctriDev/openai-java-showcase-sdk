@@ -24,6 +24,18 @@ public interface EvalItemContent {
             com.fasterxml.jackson.databind.JsonNode node = parser.readValueAsTree();
             try {
                 EvalItemContentArray branch = mapper.convertValue(node, EvalItemContentArray.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                EvalItemContentItem branch = mapper.convertValue(node, EvalItemContentItem.class);
+                if (keepsEveryKey(mapper, node, branch)) return new EvalItemContentEvalItemContentItemValue(branch);
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                EvalItemContentArray branch = mapper.convertValue(node, EvalItemContentArray.class);
                 return branch;
             } catch (IllegalArgumentException | SdkValidationError ignored) {
                 // Not this branch.
@@ -36,6 +48,17 @@ public interface EvalItemContent {
             }
             throw com.fasterxml.jackson.databind.exc.MismatchedInputException.from(
                 parser, EvalItemContent.class, "no EvalItemContent branch accepts this payload");
+        }
+
+        private static boolean keepsEveryKey(
+            com.fasterxml.jackson.databind.ObjectMapper mapper,
+            com.fasterxml.jackson.databind.JsonNode node,
+            Object branch) {
+            com.fasterxml.jackson.databind.JsonNode kept = mapper.valueToTree(branch);
+            for (java.util.Iterator<String> names = node.fieldNames(); names.hasNext(); ) {
+                if (!kept.has(names.next())) return false;
+            }
+            return true;
         }
     }
 }

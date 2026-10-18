@@ -4,7 +4,7 @@
 package dev.octri.showcase.openai.models.chat_custom;
 
 import dev.octri.showcase.openai.Validation;
-import dev.octri.showcase.openai.models.chat.ToolsItem;
+import dev.octri.showcase.openai.models.chat_create.CreateChatCompletionRequestVariant1ToolsItem;
 
 /**
  * CustomToolChatCompletions.
@@ -12,7 +12,7 @@ import dev.octri.showcase.openai.models.chat.ToolsItem;
  */
 
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.databind.JsonDeserializer.None.class) @com.fasterxml.jackson.annotation.JsonTypeInfo(use = com.fasterxml.jackson.annotation.JsonTypeInfo.Id.NONE)
-public final class CustomToolChatCompletions implements ToolsItem {
+public final class CustomToolChatCompletions implements CreateChatCompletionRequestVariant1ToolsItem {
     /**
      * The type of the custom tool. Always `custom`.
      */

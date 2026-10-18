@@ -6,6 +6,8 @@ package dev.octri.showcase.openai.models.live_live_mcptool;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import dev.octri.showcase.openai.Validation;
 import dev.octri.showcase.openai.models.live_live_allowed.LiveAllowedToolsChoiceParamToolsItem;
+import dev.octri.showcase.openai.models.live_live_responses.LiveResponsesDelegationSettingsInputParamToolChoice;
+import dev.octri.showcase.openai.models.live_live_responses.LiveResponsesDelegationSettingsUpdateInputParamToolChoice;
 import javax.annotation.Nullable;
 
 /**
@@ -14,7 +16,7 @@ import javax.annotation.Nullable;
  */
 
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.databind.JsonDeserializer.None.class) @com.fasterxml.jackson.annotation.JsonTypeInfo(use = com.fasterxml.jackson.annotation.JsonTypeInfo.Id.NONE)
-public final class LiveMCPToolChoiceParam implements LiveAllowedToolsChoiceParamToolsItem {
+public final class LiveMCPToolChoiceParam implements LiveAllowedToolsChoiceParamToolsItem, LiveResponsesDelegationSettingsInputParamToolChoice, LiveResponsesDelegationSettingsUpdateInputParamToolChoice {
     /**
      * The tool to call. Always `mcp`.
      */

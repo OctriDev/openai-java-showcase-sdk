@@ -10,7 +10,8 @@ import dev.octri.showcase.openai.Validation;
  * Typed representation of the `CreateTranslationResponseJson` API schema.
  */
 
-public final class CreateTranslationResponseJson {
+@com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.databind.JsonDeserializer.None.class) @com.fasterxml.jackson.annotation.JsonTypeInfo(use = com.fasterxml.jackson.annotation.JsonTypeInfo.Id.NONE)
+public final class CreateTranslationResponseJson implements CreateTranslationResponse {
     /**
      * Required `string` value serialized in the `text` wire field.
      */

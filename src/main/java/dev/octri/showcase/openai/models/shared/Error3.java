@@ -6,6 +6,7 @@ package dev.octri.showcase.openai.models.shared;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import dev.octri.showcase.openai.Validation;
 import dev.octri.showcase.openai.models.shared_misalignment.MisalignmentErrorDetailsResource;
+import dev.octri.showcase.openai.models.shared_permission.PermissionErrorResponseError;
 import javax.annotation.Nullable;
 
 /**
@@ -13,7 +14,8 @@ import javax.annotation.Nullable;
  * Typed representation of the `Error3` API schema.
  */
 
-public final class Error3 {
+@com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.databind.JsonDeserializer.None.class) @com.fasterxml.jackson.annotation.JsonTypeInfo(use = com.fasterxml.jackson.annotation.JsonTypeInfo.Id.NONE)
+public final class Error3 implements PermissionErrorResponseError {
     /**
      * Required `string` value serialized in the `code` wire field.
      */

@@ -66,7 +66,7 @@ public final class MCPTool implements RealtimeResponseCreateParamsToolsItem, Rea
     /**
      * Specify which of the MCP server's tools require approval.
      */
-    @Nullable @JsonProperty("require_approval") public Object requireApproval;
+    @Nullable @JsonProperty("require_approval") public MCPToolRequireApproval requireApproval;
     /**
      * Whether this MCP tool is deferred and discovered via tool search.
      */
@@ -84,7 +84,7 @@ public final class MCPTool implements RealtimeResponseCreateParamsToolsItem, Rea
         private Map<String, String> headers;
         private Object allowedTools;
         private List<CallableToolAllowedCaller> allowedCallers;
-        private Object requireApproval;
+        private MCPToolRequireApproval requireApproval;
         private Boolean deferLoading;
         public Builder type(MCPToolTypeEnum value) { this.type = value; return this; }
         public Builder serverLabel(String value) { this.serverLabel = value; return this; }
@@ -96,7 +96,7 @@ public final class MCPTool implements RealtimeResponseCreateParamsToolsItem, Rea
         public Builder headers(Map<String, String> value) { this.headers = value; return this; }
         public Builder allowedTools(Object value) { this.allowedTools = value; return this; }
         public Builder allowedCallers(List<CallableToolAllowedCaller> value) { this.allowedCallers = value; return this; }
-        public Builder requireApproval(Object value) { this.requireApproval = value; return this; }
+        public Builder requireApproval(MCPToolRequireApproval value) { this.requireApproval = value; return this; }
         public Builder deferLoading(Boolean value) { this.deferLoading = value; return this; }
         public MCPTool build() {
             MCPTool result = new MCPTool();

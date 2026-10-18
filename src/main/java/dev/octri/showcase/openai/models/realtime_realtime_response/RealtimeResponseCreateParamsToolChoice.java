@@ -44,6 +44,24 @@ public interface RealtimeResponseCreateParamsToolChoice {
             }
             try {
                 ToolChoiceOptions branch = mapper.convertValue(node, ToolChoiceOptions.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                ToolChoiceFunction branch = mapper.convertValue(node, ToolChoiceFunction.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                ToolChoiceMCP branch = mapper.convertValue(node, ToolChoiceMCP.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                ToolChoiceOptions branch = mapper.convertValue(node, ToolChoiceOptions.class);
                 return branch;
             } catch (IllegalArgumentException | SdkValidationError ignored) {
                 // Not this branch.
@@ -61,6 +79,17 @@ public interface RealtimeResponseCreateParamsToolChoice {
                 // Not this branch.
             }
             return new UnknownRealtimeResponseCreateParamsToolChoice(node);
+        }
+
+        private static boolean keepsEveryKey(
+            com.fasterxml.jackson.databind.ObjectMapper mapper,
+            com.fasterxml.jackson.databind.JsonNode node,
+            Object branch) {
+            com.fasterxml.jackson.databind.JsonNode kept = mapper.valueToTree(branch);
+            for (java.util.Iterator<String> names = node.fieldNames(); names.hasNext(); ) {
+                if (!kept.has(names.next())) return false;
+            }
+            return true;
         }
     }
 }

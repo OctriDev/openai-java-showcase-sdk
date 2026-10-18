@@ -53,6 +53,24 @@ public interface ChatCompletionToolChoiceOption {
             }
             try {
                 ChatCompletionAllowedToolsChoice branch = mapper.convertValue(node, ChatCompletionAllowedToolsChoice.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                ChatCompletionNamedToolChoice branch = mapper.convertValue(node, ChatCompletionNamedToolChoice.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                ChatCompletionNamedToolChoiceCustom branch = mapper.convertValue(node, ChatCompletionNamedToolChoiceCustom.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                ChatCompletionAllowedToolsChoice branch = mapper.convertValue(node, ChatCompletionAllowedToolsChoice.class);
                 return branch;
             } catch (IllegalArgumentException | SdkValidationError ignored) {
                 // Not this branch.
@@ -70,6 +88,17 @@ public interface ChatCompletionToolChoiceOption {
                 // Not this branch.
             }
             return new ChatCompletionToolChoiceOptionStringValue(mapper.convertValue(node, new com.fasterxml.jackson.core.type.TypeReference<String>() {}));
+        }
+
+        private static boolean keepsEveryKey(
+            com.fasterxml.jackson.databind.ObjectMapper mapper,
+            com.fasterxml.jackson.databind.JsonNode node,
+            Object branch) {
+            com.fasterxml.jackson.databind.JsonNode kept = mapper.valueToTree(branch);
+            for (java.util.Iterator<String> names = node.fieldNames(); names.hasNext(); ) {
+                if (!kept.has(names.next())) return false;
+            }
+            return true;
         }
     }
 }

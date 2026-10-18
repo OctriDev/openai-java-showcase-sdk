@@ -6,7 +6,6 @@ package dev.octri.showcase.openai.models.shared_code;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import dev.octri.showcase.openai.Validation;
 import dev.octri.showcase.openai.models.shared.CallableToolAllowedCaller;
-import dev.octri.showcase.openai.models.shared_auto.AutoCodeInterpreterToolParam;
 import dev.octri.showcase.openai.models.shared_tool.Tool;
 import dev.octri.showcase.openai.models.shared_tool.ToolSearchOutputTool;
 import java.util.List;
@@ -26,7 +25,7 @@ public final class CodeInterpreterTool implements Tool, ToolSearchOutputTool {
     /**
      * The code interpreter container. Can be a container ID or an object that specifies uploaded file IDs to make available to your code, along with an optional `memory_limit` setting.
      */
-    @com.fasterxml.jackson.annotation.JsonSubTypes({@com.fasterxml.jackson.annotation.JsonSubTypes.Type(AutoCodeInterpreterToolParam.class)}) public Object container;
+    public CodeInterpreterToolContainer container;
     /**
      * The tool invocation context(s).
      */
@@ -35,10 +34,10 @@ public final class CodeInterpreterTool implements Tool, ToolSearchOutputTool {
     public static Builder builder() { return new Builder(); }
     public static final class Builder {
         private CodeInterpreterToolTypeEnum type;
-        private Object container;
+        private CodeInterpreterToolContainer container;
         private List<CallableToolAllowedCaller> allowedCallers;
         public Builder type(CodeInterpreterToolTypeEnum value) { this.type = value; return this; }
-        public Builder container(Object value) { this.container = value; return this; }
+        public Builder container(CodeInterpreterToolContainer value) { this.container = value; return this; }
         public Builder allowedCallers(List<CallableToolAllowedCaller> value) { this.allowedCallers = value; return this; }
         public CodeInterpreterTool build() {
             CodeInterpreterTool result = new CodeInterpreterTool();

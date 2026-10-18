@@ -72,6 +72,60 @@ public interface ToolChoiceParam {
             }
             try {
                 ToolChoiceOptions branch = mapper.convertValue(node, ToolChoiceOptions.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                ToolChoiceAllowed branch = mapper.convertValue(node, ToolChoiceAllowed.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                ToolChoiceTypes branch = mapper.convertValue(node, ToolChoiceTypes.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                ToolChoiceFunction branch = mapper.convertValue(node, ToolChoiceFunction.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                ToolChoiceMCP branch = mapper.convertValue(node, ToolChoiceMCP.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                ToolChoiceCustom branch = mapper.convertValue(node, ToolChoiceCustom.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                SpecificProgrammaticToolCallingParam branch = mapper.convertValue(node, SpecificProgrammaticToolCallingParam.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                SpecificApplyPatchParam branch = mapper.convertValue(node, SpecificApplyPatchParam.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                SpecificFunctionShellParam branch = mapper.convertValue(node, SpecificFunctionShellParam.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                ToolChoiceOptions branch = mapper.convertValue(node, ToolChoiceOptions.class);
                 return branch;
             } catch (IllegalArgumentException | SdkValidationError ignored) {
                 // Not this branch.
@@ -125,6 +179,17 @@ public interface ToolChoiceParam {
                 // Not this branch.
             }
             return new UnknownToolChoiceParam(node);
+        }
+
+        private static boolean keepsEveryKey(
+            com.fasterxml.jackson.databind.ObjectMapper mapper,
+            com.fasterxml.jackson.databind.JsonNode node,
+            Object branch) {
+            com.fasterxml.jackson.databind.JsonNode kept = mapper.valueToTree(branch);
+            for (java.util.Iterator<String> names = node.fieldNames(); names.hasNext(); ) {
+                if (!kept.has(names.next())) return false;
+            }
+            return true;
         }
     }
 }

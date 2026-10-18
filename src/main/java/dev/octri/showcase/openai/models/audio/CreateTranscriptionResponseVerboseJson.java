@@ -12,7 +12,8 @@ import javax.annotation.Nullable;
  * Represents a verbose json transcription response returned by model, based on the provided input.
  */
 
-public final class CreateTranscriptionResponseVerboseJson {
+@com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.databind.JsonDeserializer.None.class) @com.fasterxml.jackson.annotation.JsonTypeInfo(use = com.fasterxml.jackson.annotation.JsonTypeInfo.Id.NONE)
+public final class CreateTranscriptionResponseVerboseJson implements CreateTranscriptionResponse {
     /**
      * The language of the input audio.
      */

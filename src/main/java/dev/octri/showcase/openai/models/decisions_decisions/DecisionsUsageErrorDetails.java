@@ -12,7 +12,8 @@ import javax.annotation.Nullable;
  * Typed representation of the `DecisionsUsageErrorDetails` API schema.
  */
 
-public final class DecisionsUsageErrorDetails {
+@com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.databind.JsonDeserializer.None.class) @com.fasterxml.jackson.annotation.JsonTypeInfo(use = com.fasterxml.jackson.annotation.JsonTypeInfo.Id.NONE)
+public final class DecisionsUsageErrorDetails implements DecisionsUsagePermissionErrorResponseError {
     /**
      * Required `string` value serialized in the `code` wire field.
      */

@@ -7,8 +7,8 @@ import dev.octri.showcase.openai.models.data_retention.OrganizationDataRetention
 import dev.octri.showcase.openai.models.data_retention.OrganizationDataRetentionTypeEnum;
 import dev.octri.showcase.openai.models.data_retention.ProjectDataRetention;
 import dev.octri.showcase.openai.models.data_retention.ProjectDataRetentionTypeEnum;
-import dev.octri.showcase.openai.models.shared.PermissionErrorResponse;
 import dev.octri.showcase.openai.models.shared_error.ErrorResponse;
+import dev.octri.showcase.openai.models.shared_permission.PermissionErrorResponse;
 import dev.octri.showcase.openai.SdkConfig;
 import dev.octri.showcase.openai.SdkClient;
 import com.fasterxml.jackson.core.type.TypeReference;

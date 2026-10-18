@@ -30,6 +30,42 @@ public interface InputItem {
             com.fasterxml.jackson.databind.JsonNode node = parser.readValueAsTree();
             try {
                 EasyInputMessage branch = mapper.convertValue(node, EasyInputMessage.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                CompactionTriggerItemParam branch = mapper.convertValue(node, CompactionTriggerItemParam.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                ItemReferenceParam branch = mapper.convertValue(node, ItemReferenceParam.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                ProgramItemParam branch = mapper.convertValue(node, ProgramItemParam.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                ProgramOutputItemParam branch = mapper.convertValue(node, ProgramOutputItemParam.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                Item branch = mapper.convertValue(node, Item.class);
+                if (keepsEveryKey(mapper, node, branch)) return new InputItemItemValue(branch);
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                EasyInputMessage branch = mapper.convertValue(node, EasyInputMessage.class);
                 return branch;
             } catch (IllegalArgumentException | SdkValidationError ignored) {
                 // Not this branch.
@@ -66,6 +102,17 @@ public interface InputItem {
             }
             throw com.fasterxml.jackson.databind.exc.MismatchedInputException.from(
                 parser, InputItem.class, "no InputItem branch accepts this payload");
+        }
+
+        private static boolean keepsEveryKey(
+            com.fasterxml.jackson.databind.ObjectMapper mapper,
+            com.fasterxml.jackson.databind.JsonNode node,
+            Object branch) {
+            com.fasterxml.jackson.databind.JsonNode kept = mapper.valueToTree(branch);
+            for (java.util.Iterator<String> names = node.fieldNames(); names.hasNext(); ) {
+                if (!kept.has(names.next())) return false;
+            }
+            return true;
         }
     }
 }

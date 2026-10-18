@@ -21,8 +21,8 @@ import dev.octri.showcase.openai.models.projects.ProjectServiceAccountListRespon
 import dev.octri.showcase.openai.models.projects.ProjectUser;
 import dev.octri.showcase.openai.models.projects.ProjectUserListResponse;
 import dev.octri.showcase.openai.models.projects.PublicProjectResidency;
-import dev.octri.showcase.openai.models.shared.PermissionErrorResponse;
 import dev.octri.showcase.openai.models.shared_error.ErrorResponse;
+import dev.octri.showcase.openai.models.shared_permission.PermissionErrorResponse;
 import dev.octri.showcase.openai.SdkConfig;
 import dev.octri.showcase.openai.SdkClient;
 import dev.octri.showcase.openai.Validation;

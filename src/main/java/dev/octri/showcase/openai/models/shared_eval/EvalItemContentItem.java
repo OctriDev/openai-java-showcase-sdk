@@ -50,6 +50,36 @@ public interface EvalItemContentItem extends EvalItemContent {
             }
             try {
                 EvalItemContentText branch = mapper.convertValue(node, EvalItemContentText.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                InputTextContent branch = mapper.convertValue(node, InputTextContent.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                EvalItemContentOutputText branch = mapper.convertValue(node, EvalItemContentOutputText.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                EvalItemInputImage branch = mapper.convertValue(node, EvalItemInputImage.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                InputAudio branch = mapper.convertValue(node, InputAudio.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                EvalItemContentText branch = mapper.convertValue(node, EvalItemContentText.class);
                 return branch;
             } catch (IllegalArgumentException | SdkValidationError ignored) {
                 // Not this branch.
@@ -79,6 +109,17 @@ public interface EvalItemContentItem extends EvalItemContent {
                 // Not this branch.
             }
             return new UnknownEvalItemContentItem(node);
+        }
+
+        private static boolean keepsEveryKey(
+            com.fasterxml.jackson.databind.ObjectMapper mapper,
+            com.fasterxml.jackson.databind.JsonNode node,
+            Object branch) {
+            com.fasterxml.jackson.databind.JsonNode kept = mapper.valueToTree(branch);
+            for (java.util.Iterator<String> names = node.fieldNames(); names.hasNext(); ) {
+                if (!kept.has(names.next())) return false;
+            }
+            return true;
         }
     }
 }

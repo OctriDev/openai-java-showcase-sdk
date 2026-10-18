@@ -24,7 +24,7 @@ public final class CreateSpeechRequest {
     /**
      * The voice to use when generating the audio. Supported built-in voices are `alloy`, `ash`, `ballad`, `coral`, `echo`, `fable`, `onyx`, `nova`, `sage`, `shimmer`, `verse`, `marin`, and `cedar`. You may also provide a custom voice object with an `id`, for example `{ "id": "voice_1234" }`. Previews of the voices are available in the [Text to speech guide](https://developers.openai.com/api/docs/guides/text-to-speech#voice-options). Custom voices must be created from audio samples.
      */
-    public Object voice;
+    public CreateSpeechRequestVoice voice;
     /**
      * Control the voice of your generated audio with additional instructions. Does not work with `tts-1` or `tts-1-hd`.
      */
@@ -46,14 +46,14 @@ public final class CreateSpeechRequest {
     public static final class Builder {
         private String model;
         private String input;
-        private Object voice;
+        private CreateSpeechRequestVoice voice;
         private String instructions;
         private CreateSpeechRequestResponseFormatEnum responseFormat;
         private Double speed;
         private CreateSpeechRequestStreamFormatEnum streamFormat;
         public Builder model(String value) { this.model = value; return this; }
         public Builder input(String value) { this.input = value; return this; }
-        public Builder voice(Object value) { this.voice = value; return this; }
+        public Builder voice(CreateSpeechRequestVoice value) { this.voice = value; return this; }
         public Builder instructions(String value) { this.instructions = value; return this; }
         public Builder responseFormat(CreateSpeechRequestResponseFormatEnum value) { this.responseFormat = value; return this; }
         public Builder speed(Double value) { this.speed = value; return this; }

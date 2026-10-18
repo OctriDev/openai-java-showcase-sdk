@@ -12,7 +12,8 @@ import javax.annotation.Nullable;
  * Represents a transcription response returned by model, based on the provided input.
  */
 
-public final class CreateTranscriptionResponseJson {
+@com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.databind.JsonDeserializer.None.class) @com.fasterxml.jackson.annotation.JsonTypeInfo(use = com.fasterxml.jackson.annotation.JsonTypeInfo.Id.NONE)
+public final class CreateTranscriptionResponseJson implements CreateTranscriptionResponse {
     /**
      * The transcribed text.
      */

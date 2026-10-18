@@ -12,7 +12,8 @@ import javax.annotation.Nullable;
  * Typed representation of the `CreateTranslationResponseVerboseJson` API schema.
  */
 
-public final class CreateTranslationResponseVerboseJson {
+@com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.databind.JsonDeserializer.None.class) @com.fasterxml.jackson.annotation.JsonTypeInfo(use = com.fasterxml.jackson.annotation.JsonTypeInfo.Id.NONE)
+public final class CreateTranslationResponseVerboseJson implements CreateTranslationResponse {
     /**
      * The language of the output translation (always `english`).
      */

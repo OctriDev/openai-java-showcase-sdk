@@ -4,9 +4,9 @@
 package dev.octri.showcase.openai.models.shared_eval;
 
 import dev.octri.showcase.openai.Validation;
+import dev.octri.showcase.openai.models.evals_create.CreateEvalCompletionsRunDataSourceInputMessagesVariant0TemplateItem;
 import dev.octri.showcase.openai.models.evals_create.CreateEvalItem;
-import dev.octri.showcase.openai.models.evals_template.TemplateItem2;
-import dev.octri.showcase.openai.models.evals_template.TemplateItem;
+import dev.octri.showcase.openai.models.evals_create.CreateEvalResponsesRunDataSourceInputMessagesVariant0TemplateItem;
 import javax.annotation.Nullable;
 
 /**
@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
  */
 
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.databind.JsonDeserializer.None.class) @com.fasterxml.jackson.annotation.JsonTypeInfo(use = com.fasterxml.jackson.annotation.JsonTypeInfo.Id.NONE)
-public final class EvalItem implements CreateEvalItem, TemplateItem, TemplateItem2 {
+public final class EvalItem implements CreateEvalCompletionsRunDataSourceInputMessagesVariant0TemplateItem, CreateEvalItem, CreateEvalResponsesRunDataSourceInputMessagesVariant0TemplateItem {
     /**
      * The role of the message input. One of `user`, `assistant`, `system`, or `developer`.
      */

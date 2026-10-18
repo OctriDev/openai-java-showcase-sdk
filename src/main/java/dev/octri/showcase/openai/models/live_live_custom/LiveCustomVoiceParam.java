@@ -4,13 +4,15 @@
 package dev.octri.showcase.openai.models.live_live_custom;
 
 import dev.octri.showcase.openai.Validation;
+import dev.octri.showcase.openai.models.live_live_initial.LiveInitialSessionAudioOutputParamVoice;
 
 /**
  * LiveCustomVoiceParam.
  * Typed representation of the `LiveCustomVoiceParam` API schema.
  */
 
-public final class LiveCustomVoiceParam {
+@com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.databind.JsonDeserializer.None.class) @com.fasterxml.jackson.annotation.JsonTypeInfo(use = com.fasterxml.jackson.annotation.JsonTypeInfo.Id.NONE)
+public final class LiveCustomVoiceParam implements LiveInitialSessionAudioOutputParamVoice {
     /**
      * Required `string` value serialized in the `id` wire field.
      */

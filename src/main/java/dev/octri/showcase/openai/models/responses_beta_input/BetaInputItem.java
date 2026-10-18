@@ -30,6 +30,42 @@ public interface BetaInputItem {
             com.fasterxml.jackson.databind.JsonNode node = parser.readValueAsTree();
             try {
                 BetaEasyInputMessage branch = mapper.convertValue(node, BetaEasyInputMessage.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                BetaCompactionTriggerItemParam branch = mapper.convertValue(node, BetaCompactionTriggerItemParam.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                BetaItemReferenceParam branch = mapper.convertValue(node, BetaItemReferenceParam.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                BetaProgramItemParam branch = mapper.convertValue(node, BetaProgramItemParam.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                BetaProgramOutputItemParam branch = mapper.convertValue(node, BetaProgramOutputItemParam.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                BetaItem branch = mapper.convertValue(node, BetaItem.class);
+                if (keepsEveryKey(mapper, node, branch)) return new BetaInputItemBetaItemValue(branch);
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                BetaEasyInputMessage branch = mapper.convertValue(node, BetaEasyInputMessage.class);
                 return branch;
             } catch (IllegalArgumentException | SdkValidationError ignored) {
                 // Not this branch.
@@ -66,6 +102,17 @@ public interface BetaInputItem {
             }
             throw com.fasterxml.jackson.databind.exc.MismatchedInputException.from(
                 parser, BetaInputItem.class, "no BetaInputItem branch accepts this payload");
+        }
+
+        private static boolean keepsEveryKey(
+            com.fasterxml.jackson.databind.ObjectMapper mapper,
+            com.fasterxml.jackson.databind.JsonNode node,
+            Object branch) {
+            com.fasterxml.jackson.databind.JsonNode kept = mapper.valueToTree(branch);
+            for (java.util.Iterator<String> names = node.fieldNames(); names.hasNext(); ) {
+                if (!kept.has(names.next())) return false;
+            }
+            return true;
         }
     }
 }

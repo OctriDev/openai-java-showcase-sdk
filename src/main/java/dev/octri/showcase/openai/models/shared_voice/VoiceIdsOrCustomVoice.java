@@ -31,6 +31,18 @@ public interface VoiceIdsOrCustomVoice {
             }
             try {
                 VoiceIdsShared branch = mapper.convertValue(node, VoiceIdsShared.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                VoiceIdsOrCustomVoiceVariant1 branch = mapper.convertValue(node, VoiceIdsOrCustomVoiceVariant1.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                VoiceIdsShared branch = mapper.convertValue(node, VoiceIdsShared.class);
                 return branch;
             } catch (IllegalArgumentException | SdkValidationError ignored) {
                 // Not this branch.
@@ -43,6 +55,17 @@ public interface VoiceIdsOrCustomVoice {
             }
             throw com.fasterxml.jackson.databind.exc.MismatchedInputException.from(
                 parser, VoiceIdsOrCustomVoice.class, "no VoiceIdsOrCustomVoice branch accepts this payload");
+        }
+
+        private static boolean keepsEveryKey(
+            com.fasterxml.jackson.databind.ObjectMapper mapper,
+            com.fasterxml.jackson.databind.JsonNode node,
+            Object branch) {
+            com.fasterxml.jackson.databind.JsonNode kept = mapper.valueToTree(branch);
+            for (java.util.Iterator<String> names = node.fieldNames(); names.hasNext(); ) {
+                if (!kept.has(names.next())) return false;
+            }
+            return true;
         }
     }
 }
