@@ -4,6 +4,8 @@
 package dev.octri.showcase.openai.models.live_live;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import dev.octri.showcase.openai.Validation;
+import java.util.List;
 import javax.annotation.Nullable;
 
 /**
@@ -15,7 +17,7 @@ public final class LiveDataChannelConfigParam {
     /**
      * Client event types that the frontend data channel may send. Use 'all' to allow every client event; an empty array allows none. Omission preserves the existing allow-all behavior.
      */
-    @Nullable @JsonProperty("allowed_client_events") public Object allowedClientEvents;
+    @Nullable @JsonProperty("allowed_client_events") public List<String> allowedClientEvents;
     /**
      * Server events that may be sent to the frontend data channel. Use 'all' to allow every server event; an empty array allows none. Omission preserves the existing allow-all behavior. Responses events use an object with type 'response.event' and a response_event selector.
      */
@@ -23,12 +25,15 @@ public final class LiveDataChannelConfigParam {
     private LiveDataChannelConfigParam() {}
     public static Builder builder() { return new Builder(); }
     public static final class Builder {
-        private Object allowedClientEvents;
+        private List<String> allowedClientEvents;
         private Object allowedServerEvents;
-        public Builder allowedClientEvents(Object value) { this.allowedClientEvents = value; return this; }
+        public Builder allowedClientEvents(List<String> value) { this.allowedClientEvents = value; return this; }
         public Builder allowedServerEvents(Object value) { this.allowedServerEvents = value; return this; }
         public LiveDataChannelConfigParam build() {
             LiveDataChannelConfigParam result = new LiveDataChannelConfigParam();
+            if (this.allowedClientEvents != null) {
+                { Validation.LengthOpts __items = new Validation.LengthOpts(); __items.max = 256; Validation.validateItems("allowed_client_events", this.allowedClientEvents, __items); }
+            }
             result.allowedClientEvents = this.allowedClientEvents;
             result.allowedServerEvents = this.allowedServerEvents;
             return result;
