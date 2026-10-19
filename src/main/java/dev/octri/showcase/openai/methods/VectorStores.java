@@ -1037,7 +1037,7 @@ public class VectorStores {
     public static class SearchVectorStoreRequest {
 
         private String vectorStoreId;
-        private Object query;
+        private List<String> query;
         private Boolean rewriteQuery;
         private Long maxNumResults;
         private VectorStoreSearchRequestFilters filters;
@@ -1050,7 +1050,7 @@ public class VectorStores {
         public static class Builder {
             private final SearchVectorStoreRequest request = new SearchVectorStoreRequest();
             public Builder vectorStoreId(String val) { request.vectorStoreId = val; return this; }
-            public Builder query(Object val) { request.query = val; return this; }
+            public Builder query(List<String> val) { request.query = val; return this; }
             public Builder rewriteQuery(Boolean val) { request.rewriteQuery = val; return this; }
             public Builder maxNumResults(Long val) { request.maxNumResults = val; return this; }
             public Builder filters(VectorStoreSearchRequestFilters val) { request.filters = val; return this; }
@@ -1058,7 +1058,7 @@ public class VectorStores {
             public SearchVectorStoreRequest build() { return request; }
         }
         public String getVectorStoreId() { return vectorStoreId; }
-        public Object getQuery() { return query; }
+        public List<String> getQuery() { return query; }
         public Boolean getRewriteQuery() { return rewriteQuery; }
         public Long getMaxNumResults() { return maxNumResults; }
         public VectorStoreSearchRequestFilters getFilters() { return filters; }
@@ -1081,7 +1081,7 @@ public class VectorStores {
      */
     public static VectorStoreSearchResultsPage searchVectorStore(SdkConfig.ClientConfig clientConfig, SearchVectorStoreRequest request, SdkConfig.RequestOptions options) {
         String vectorStoreId = request.getVectorStoreId();
-        Object query = request.getQuery();
+        List<String> query = request.getQuery();
         Boolean rewriteQuery = request.getRewriteQuery();
         Long maxNumResults = request.getMaxNumResults();
         VectorStoreSearchRequestFilters filters = request.getFilters();
