@@ -5,6 +5,7 @@ package dev.octri.showcase.openai.models.vector_stores;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import dev.octri.showcase.openai.Validation;
+import java.util.List;
 import javax.annotation.Nullable;
 
 /**
@@ -16,7 +17,7 @@ public final class VectorStoreSearchRequest {
     /**
      * A query string for a search
      */
-    public Object query;
+    public List<String> query;
     /**
      * Whether to rewrite the natural language query for vector search.
      */
@@ -36,12 +37,12 @@ public final class VectorStoreSearchRequest {
     private VectorStoreSearchRequest() {}
     public static Builder builder() { return new Builder(); }
     public static final class Builder {
-        private Object query;
+        private List<String> query;
         private Boolean rewriteQuery;
         private Long maxNumResults;
         private VectorStoreSearchRequestFilters filters;
         private VectorStoreSearchRequestRankingOptions rankingOptions;
-        public Builder query(Object value) { this.query = value; return this; }
+        public Builder query(List<String> value) { this.query = value; return this; }
         public Builder rewriteQuery(Boolean value) { this.rewriteQuery = value; return this; }
         public Builder maxNumResults(Long value) { this.maxNumResults = value; return this; }
         public Builder filters(VectorStoreSearchRequestFilters value) { this.filters = value; return this; }
