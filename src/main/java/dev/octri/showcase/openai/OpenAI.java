@@ -6650,8 +6650,8 @@ public class OpenAI {
          *
          * Create or replace a project's hard spend limit.
          */
-        public ProjectSpendLimitResource updateProject(SpendLimits.UpdateSpendLimitsProjectRequest request) {
-            return SpendLimits.updateSpendLimitsProject(this.clientConfig, request);
+        public ProjectSpendLimitResource update(SpendLimits.UpdateProjectSpendLimitRequest request) {
+            return SpendLimits.updateProjectSpendLimit(this.clientConfig, request);
         }
 
         /**
@@ -6659,8 +6659,8 @@ public class OpenAI {
          *
          * Create or replace a project's hard spend limit.
          */
-        public ProjectSpendLimitResource updateProject(SpendLimits.UpdateSpendLimitsProjectRequest request, SdkConfig.RequestOptions options) {
-            return SpendLimits.updateSpendLimitsProject(this.clientConfig, request, options);
+        public ProjectSpendLimitResource update(SpendLimits.UpdateProjectSpendLimitRequest request, SdkConfig.RequestOptions options) {
+            return SpendLimits.updateProjectSpendLimit(this.clientConfig, request, options);
         }
 
     }

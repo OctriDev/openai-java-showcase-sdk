@@ -47,7 +47,7 @@ import java.util.List;
 import java.util.Map;
 import javax.annotation.Nullable;
 
-public class Agents extends AgentsPart3 {
+public class Agents extends AgentsOperations {
 
     /**
      * The object type, which is always `list`.

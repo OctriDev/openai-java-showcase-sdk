@@ -35,7 +35,7 @@ import java.util.List;
 import java.util.Map;
 import javax.annotation.Nullable;
 
-public class Assistants extends AssistantsPart2 {
+public class Assistants extends AssistantsGetRunStepOperations {
 
     /**
      * CreateAssistantRequestToolResourcesCodeInterpreter.

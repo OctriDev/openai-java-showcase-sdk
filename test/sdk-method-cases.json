@@ -866,7 +866,7 @@
         "projects"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.ProjectsPart1",
+      "owner": "dev.octri.showcase.openai.methods.ProjectsArchiveOperations",
       "arguments": {
         "projectId": "project-1"
       },
@@ -899,7 +899,7 @@
         "projects"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.ProjectsPart1",
+      "owner": "dev.octri.showcase.openai.methods.ProjectsArchiveOperations",
       "arguments": {
         "projectId": "project-1"
       },
@@ -3331,7 +3331,7 @@
         "assistants"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AssistantsPart2",
+      "owner": "dev.octri.showcase.openai.methods.AssistantsThreadsOperations",
       "arguments": {
         "threadId": "thread-1",
         "runId": "run-1"
@@ -4125,7 +4125,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart1",
+      "owner": "dev.octri.showcase.openai.methods.AgentsOperations",
       "arguments": {
         "model": "model",
         "metadata": {
@@ -4233,7 +4233,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart1",
+      "owner": "dev.octri.showcase.openai.methods.AgentsOperations",
       "arguments": {
         "model": "model",
         "metadata": {
@@ -4312,7 +4312,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart1",
+      "owner": "dev.octri.showcase.openai.methods.AgentsEnvironmentsOperations",
       "arguments": {
         "environment": {
           "type": "openai_hosted",
@@ -4438,7 +4438,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart1",
+      "owner": "dev.octri.showcase.openai.methods.AgentsEnvironmentsOperations",
       "arguments": {
         "environment": {
           "type": "openai_hosted",
@@ -4542,7 +4542,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart1",
+      "owner": "dev.octri.showcase.openai.methods.AgentsEnvironmentsOperations",
       "arguments": {
         "environmentId": "environment-1",
         "body": {
@@ -4578,7 +4578,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart1",
+      "owner": "dev.octri.showcase.openai.methods.AgentsEnvironmentsOperations",
       "arguments": {
         "environmentId": "environment-1",
         "body": {
@@ -4617,7 +4617,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart2",
+      "owner": "dev.octri.showcase.openai.methods.AgentsEnvironmentsOperations",
       "arguments": {
         "packages": {
           "python": [
@@ -4770,7 +4770,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart2",
+      "owner": "dev.octri.showcase.openai.methods.AgentsEnvironmentsOperations",
       "arguments": {
         "packages": {
           "python": [
@@ -4881,7 +4881,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart2",
+      "owner": "dev.octri.showcase.openai.methods.AgentsSessionsOperations",
       "arguments": {
         "environment": {
           "type": "none"
@@ -5055,7 +5055,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart2",
+      "owner": "dev.octri.showcase.openai.methods.AgentsSessionsOperations",
       "arguments": {
         "environment": {
           "type": "none"
@@ -5145,7 +5145,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart3",
+      "owner": "dev.octri.showcase.openai.methods.AgentsRetrieveAgentSessionArtifactOperations",
       "arguments": {
         "sessionId": "session-1",
         "events": [
@@ -5191,7 +5191,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart3",
+      "owner": "dev.octri.showcase.openai.methods.AgentsRetrieveAgentSessionArtifactOperations",
       "arguments": {
         "sessionId": "session-1",
         "events": [
@@ -5245,7 +5245,7 @@
         "agents"
       ],
       "mode": "stream",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart2",
+      "owner": "dev.octri.showcase.openai.methods.AgentsSessionsOperations",
       "arguments": {
         "environment": {
           "type": "none"
@@ -5337,7 +5337,7 @@
         "assistants"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AssistantsPart1",
+      "owner": "dev.octri.showcase.openai.methods.AssistantsOperations",
       "arguments": {
         "model": "gpt-4.1",
         "name": "Example Name",
@@ -9370,7 +9370,7 @@
         "assistants"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AssistantsPart1",
+      "owner": "dev.octri.showcase.openai.methods.AssistantsThreadsOperations",
       "arguments": {
         "threadId": "thread-1",
         "role": "user",
@@ -9709,7 +9709,7 @@
         "projects"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.ProjectsPart1",
+      "owner": "dev.octri.showcase.openai.methods.ProjectsOperations",
       "arguments": {
         "name": "Example Name",
         "geography": "geography",
@@ -9751,7 +9751,7 @@
         "projects"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.ProjectsPart1",
+      "owner": "dev.octri.showcase.openai.methods.ProjectsOperations",
       "arguments": {
         "name": "Example Name",
         "geography": "geography",
@@ -9800,7 +9800,7 @@
         "projects"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.ProjectsPart1",
+      "owner": "dev.octri.showcase.openai.methods.ProjectsServiceAccountsOperations",
       "arguments": {
         "projectId": "project-1",
         "name": "Example Name",
@@ -9847,7 +9847,7 @@
         "projects"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.ProjectsPart1",
+      "owner": "dev.octri.showcase.openai.methods.ProjectsServiceAccountsOperations",
       "arguments": {
         "projectId": "project-1",
         "name": "Example Name",
@@ -10009,7 +10009,7 @@
         "projects"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.ProjectsPart2",
+      "owner": "dev.octri.showcase.openai.methods.ProjectsServiceAccountsOperations",
       "arguments": {
         "projectId": "project-1",
         "serviceAccountId": "service_account-1",
@@ -10054,7 +10054,7 @@
         "projects"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.ProjectsPart2",
+      "owner": "dev.octri.showcase.openai.methods.ProjectsServiceAccountsOperations",
       "arguments": {
         "projectId": "project-1",
         "serviceAccountId": "service_account-1",
@@ -10108,7 +10108,7 @@
         "projects"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.ProjectsPart2",
+      "owner": "dev.octri.showcase.openai.methods.ProjectsUsersOperations",
       "arguments": {
         "projectId": "project-1",
         "role": "role",
@@ -10148,7 +10148,7 @@
         "projects"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.ProjectsPart2",
+      "owner": "dev.octri.showcase.openai.methods.ProjectsUsersOperations",
       "arguments": {
         "projectId": "project-1",
         "role": "role",
@@ -11657,7 +11657,7 @@
         "assistants"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AssistantsPart2",
+      "owner": "dev.octri.showcase.openai.methods.AssistantsThreadsOperations",
       "arguments": {
         "threadId": "thread-1",
         "assistantId": "assistant-1",
@@ -11834,7 +11834,7 @@
         "assistants"
       ],
       "mode": "stream",
-      "owner": "dev.octri.showcase.openai.methods.AssistantsPart2",
+      "owner": "dev.octri.showcase.openai.methods.AssistantsThreadsOperations",
       "arguments": {
         "threadId": "thread-1",
         "assistantId": "assistant-1",
@@ -12360,7 +12360,7 @@
         "assistants"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AssistantsPart1",
+      "owner": "dev.octri.showcase.openai.methods.AssistantsThreadsOperations",
       "arguments": {
         "messages": [
           {
@@ -12449,7 +12449,7 @@
         "assistants"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AssistantsPart1",
+      "owner": "dev.octri.showcase.openai.methods.AssistantsThreadsOperations",
       "arguments": {
         "assistantId": "assistant-1",
         "thread": {
@@ -12652,7 +12652,7 @@
         "assistants"
       ],
       "mode": "stream",
-      "owner": "dev.octri.showcase.openai.methods.AssistantsPart1",
+      "owner": "dev.octri.showcase.openai.methods.AssistantsThreadsOperations",
       "arguments": {
         "assistantId": "assistant-1",
         "stream": false,
@@ -15086,7 +15086,7 @@
         "usage"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.UsagePart2",
+      "owner": "dev.octri.showcase.openai.methods.UsageDecisionsOperations",
       "arguments": {
         "startTime": 1,
         "endTime": 1,
@@ -15189,7 +15189,7 @@
         "usage"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.UsagePart2",
+      "owner": "dev.octri.showcase.openai.methods.UsageDecisionsOperations",
       "arguments": {
         "startTime": 1,
         "endTime": 1,
@@ -15329,7 +15329,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart2",
+      "owner": "dev.octri.showcase.openai.methods.AgentsOperations",
       "arguments": {
         "agentId": "agent-1"
       },
@@ -15357,7 +15357,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart2",
+      "owner": "dev.octri.showcase.openai.methods.AgentsOperations",
       "arguments": {
         "agentId": "agent-1"
       },
@@ -15389,7 +15389,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart2",
+      "owner": "dev.octri.showcase.openai.methods.AgentsEnvironmentsOperations",
       "arguments": {
         "environmentTemplateId": "environment_template-1"
       },
@@ -15417,7 +15417,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart2",
+      "owner": "dev.octri.showcase.openai.methods.AgentsEnvironmentsOperations",
       "arguments": {
         "environmentTemplateId": "environment_template-1"
       },
@@ -15449,7 +15449,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart2",
+      "owner": "dev.octri.showcase.openai.methods.AgentsSessionsOperations",
       "arguments": {
         "sessionId": "session-1"
       },
@@ -15477,7 +15477,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart2",
+      "owner": "dev.octri.showcase.openai.methods.AgentsSessionsOperations",
       "arguments": {
         "sessionId": "session-1"
       },
@@ -15509,7 +15509,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart2",
+      "owner": "dev.octri.showcase.openai.methods.AgentsRetrieveAgentSessionArtifactOperations",
       "arguments": {
         "sessionId": "session-1",
         "artifactId": "artifact-1"
@@ -15540,7 +15540,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart2",
+      "owner": "dev.octri.showcase.openai.methods.AgentsRetrieveAgentSessionArtifactOperations",
       "arguments": {
         "sessionId": "session-1",
         "artifactId": "artifact-1"
@@ -15575,7 +15575,7 @@
         "assistants"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AssistantsPart1",
+      "owner": "dev.octri.showcase.openai.methods.AssistantsOperations",
       "arguments": {
         "assistantId": "assistant-1"
       },
@@ -16581,7 +16581,7 @@
         "assistants"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AssistantsPart1",
+      "owner": "dev.octri.showcase.openai.methods.AssistantsThreadsOperations",
       "arguments": {
         "threadId": "thread-1",
         "messageId": "message-1"
@@ -16748,7 +16748,7 @@
         "projects"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.ProjectsPart1",
+      "owner": "dev.octri.showcase.openai.methods.ProjectsApiKeysOperations",
       "arguments": {
         "projectId": "project-1",
         "apiKeyId": "api_key-1"
@@ -16779,7 +16779,7 @@
         "projects"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.ProjectsPart1",
+      "owner": "dev.octri.showcase.openai.methods.ProjectsApiKeysOperations",
       "arguments": {
         "projectId": "project-1",
         "apiKeyId": "api_key-1"
@@ -16822,7 +16822,7 @@
         "projects"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.ProjectsPart1",
+      "owner": "dev.octri.showcase.openai.methods.ProjectsModelPermissionsOperations",
       "arguments": {
         "projectId": "project-1"
       },
@@ -16849,7 +16849,7 @@
         "projects"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.ProjectsPart1",
+      "owner": "dev.octri.showcase.openai.methods.ProjectsModelPermissionsOperations",
       "arguments": {
         "projectId": "project-1"
       },
@@ -16889,7 +16889,7 @@
         "projects"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.ProjectsPart1",
+      "owner": "dev.octri.showcase.openai.methods.ProjectsServiceAccountsOperations",
       "arguments": {
         "projectId": "project-1",
         "serviceAccountId": "service_account-1"
@@ -16920,7 +16920,7 @@
         "projects"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.ProjectsPart1",
+      "owner": "dev.octri.showcase.openai.methods.ProjectsServiceAccountsOperations",
       "arguments": {
         "projectId": "project-1",
         "serviceAccountId": "service_account-1"
@@ -17037,7 +17037,7 @@
         "projects"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.ProjectsPart2",
+      "owner": "dev.octri.showcase.openai.methods.ProjectsUsersOperations",
       "arguments": {
         "projectId": "project-1",
         "userId": "user-1"
@@ -17068,7 +17068,7 @@
         "projects"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.ProjectsPart2",
+      "owner": "dev.octri.showcase.openai.methods.ProjectsUsersOperations",
       "arguments": {
         "projectId": "project-1",
         "userId": "user-1"
@@ -17586,7 +17586,7 @@
         "assistants"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AssistantsPart1",
+      "owner": "dev.octri.showcase.openai.methods.AssistantsThreadsOperations",
       "arguments": {
         "threadId": "thread-1"
       },
@@ -18450,7 +18450,7 @@
         "assistants"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AssistantsPart1",
+      "owner": "dev.octri.showcase.openai.methods.AssistantsOperations",
       "arguments": {
         "assistantId": "assistant-1"
       },
@@ -19741,7 +19741,7 @@
         "assistants"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AssistantsPart1",
+      "owner": "dev.octri.showcase.openai.methods.AssistantsThreadsOperations",
       "arguments": {
         "threadId": "thread-1",
         "messageId": "message-1"
@@ -19997,7 +19997,7 @@
         "assistants"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AssistantsPart2",
+      "owner": "dev.octri.showcase.openai.methods.AssistantsThreadsOperations",
       "arguments": {
         "threadId": "thread-1",
         "runId": "run-1"
@@ -20087,7 +20087,7 @@
         "assistants"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AssistantsPart2",
+      "owner": "dev.octri.showcase.openai.methods.AssistantsGetRunStepOperations",
       "arguments": {
         "threadId": "thread-1",
         "runId": "run-1",
@@ -20437,7 +20437,7 @@
         "assistants"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AssistantsPart1",
+      "owner": "dev.octri.showcase.openai.methods.AssistantsThreadsOperations",
       "arguments": {
         "threadId": "thread-1"
       },
@@ -21199,7 +21199,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart1",
+      "owner": "dev.octri.showcase.openai.methods.AgentsEnvironmentsOperations",
       "arguments": {
         "environmentId": "environment-1",
         "path": "path",
@@ -21247,7 +21247,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart1",
+      "owner": "dev.octri.showcase.openai.methods.AgentsEnvironmentsOperations",
       "arguments": {
         "environmentId": "environment-1",
         "path": "path",
@@ -21291,7 +21291,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart1",
+      "owner": "dev.octri.showcase.openai.methods.AgentsEnvironmentsOperations",
       "arguments": {
         "limit": 20,
         "order": "desc",
@@ -21362,7 +21362,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart1",
+      "owner": "dev.octri.showcase.openai.methods.AgentsEnvironmentsOperations",
       "arguments": {
         "limit": 20,
         "order": "desc",
@@ -21403,7 +21403,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart2",
+      "owner": "dev.octri.showcase.openai.methods.AgentsEnvironmentsOperations",
       "arguments": {
         "limit": 20,
         "order": "desc",
@@ -21491,7 +21491,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart2",
+      "owner": "dev.octri.showcase.openai.methods.AgentsEnvironmentsOperations",
       "arguments": {
         "limit": 20,
         "order": "desc",
@@ -21529,7 +21529,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart1",
+      "owner": "dev.octri.showcase.openai.methods.AgentsOperations",
       "arguments": {
         "limit": 20,
         "order": "desc",
@@ -21604,7 +21604,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart1",
+      "owner": "dev.octri.showcase.openai.methods.AgentsOperations",
       "arguments": {
         "limit": 20,
         "order": "desc",
@@ -21642,7 +21642,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart2",
+      "owner": "dev.octri.showcase.openai.methods.AgentsSessionsOperations",
       "arguments": {
         "sessionId": "session-1",
         "limit": 20,
@@ -21695,7 +21695,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart2",
+      "owner": "dev.octri.showcase.openai.methods.AgentsSessionsOperations",
       "arguments": {
         "sessionId": "session-1",
         "limit": 20,
@@ -21739,7 +21739,7 @@
         "agents"
       ],
       "mode": "stream",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart2",
+      "owner": "dev.octri.showcase.openai.methods.AgentsRetrieveAgentSessionArtifactOperations",
       "arguments": {
         "sessionId": "session-1"
       },
@@ -21773,7 +21773,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart3",
+      "owner": "dev.octri.showcase.openai.methods.AgentsRetrieveAgentSessionArtifactOperations",
       "arguments": {
         "sessionId": "session-1",
         "limit": 20,
@@ -21827,7 +21827,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart3",
+      "owner": "dev.octri.showcase.openai.methods.AgentsRetrieveAgentSessionArtifactOperations",
       "arguments": {
         "sessionId": "session-1",
         "limit": 20,
@@ -21868,7 +21868,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart2",
+      "owner": "dev.octri.showcase.openai.methods.AgentsSessionsOperations",
       "arguments": {
         "limit": 20,
         "order": "desc",
@@ -22001,7 +22001,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart2",
+      "owner": "dev.octri.showcase.openai.methods.AgentsSessionsOperations",
       "arguments": {
         "limit": 20,
         "order": "desc",
@@ -22042,7 +22042,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart1",
+      "owner": "dev.octri.showcase.openai.methods.AgentsSessionsOperations",
       "arguments": {
         "sessionId": "session-1",
         "subagentId": "subagent-1",
@@ -22099,7 +22099,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart1",
+      "owner": "dev.octri.showcase.openai.methods.AgentsSessionsOperations",
       "arguments": {
         "sessionId": "session-1",
         "subagentId": "subagent-1",
@@ -22143,7 +22143,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart1",
+      "owner": "dev.octri.showcase.openai.methods.AgentsSessionsOperations",
       "arguments": {
         "sessionId": "session-1",
         "limit": 20,
@@ -22199,7 +22199,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart1",
+      "owner": "dev.octri.showcase.openai.methods.AgentsSessionsOperations",
       "arguments": {
         "sessionId": "session-1",
         "limit": 20,
@@ -22240,7 +22240,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart1",
+      "owner": "dev.octri.showcase.openai.methods.AgentsSessionsOperations",
       "arguments": {
         "sessionId": "session-1",
         "subagentId": "subagent-1",
@@ -22300,7 +22300,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart1",
+      "owner": "dev.octri.showcase.openai.methods.AgentsSessionsOperations",
       "arguments": {
         "sessionId": "session-1",
         "subagentId": "subagent-1",
@@ -22347,7 +22347,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart1",
+      "owner": "dev.octri.showcase.openai.methods.AgentsSessionsOperations",
       "arguments": {
         "sessionId": "session-1",
         "subagentId": "subagent-1",
@@ -22416,7 +22416,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart1",
+      "owner": "dev.octri.showcase.openai.methods.AgentsSessionsOperations",
       "arguments": {
         "sessionId": "session-1",
         "subagentId": "subagent-1",
@@ -22460,7 +22460,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart3",
+      "owner": "dev.octri.showcase.openai.methods.AgentsRetrieveAgentSessionArtifactOperations",
       "arguments": {
         "sessionId": "session-1",
         "limit": 20,
@@ -22509,7 +22509,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart3",
+      "owner": "dev.octri.showcase.openai.methods.AgentsRetrieveAgentSessionArtifactOperations",
       "arguments": {
         "sessionId": "session-1",
         "limit": 20,
@@ -22550,7 +22550,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart3",
+      "owner": "dev.octri.showcase.openai.methods.AgentsRetrieveAgentSessionArtifactOperations",
       "arguments": {
         "sessionId": "session-1",
         "turnId": "turn-1",
@@ -22607,7 +22607,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart3",
+      "owner": "dev.octri.showcase.openai.methods.AgentsRetrieveAgentSessionArtifactOperations",
       "arguments": {
         "sessionId": "session-1",
         "turnId": "turn-1",
@@ -22651,7 +22651,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart3",
+      "owner": "dev.octri.showcase.openai.methods.AgentsRetrieveAgentSessionArtifactOperations",
       "arguments": {
         "sessionId": "session-1",
         "limit": 20,
@@ -22717,7 +22717,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart3",
+      "owner": "dev.octri.showcase.openai.methods.AgentsRetrieveAgentSessionArtifactOperations",
       "arguments": {
         "sessionId": "session-1",
         "limit": 20,
@@ -22758,7 +22758,7 @@
         "assistants"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AssistantsPart1",
+      "owner": "dev.octri.showcase.openai.methods.AssistantsOperations",
       "arguments": {
         "limit": 20,
         "order": "desc",
@@ -25846,7 +25846,7 @@
         "assistants"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AssistantsPart1",
+      "owner": "dev.octri.showcase.openai.methods.AssistantsThreadsOperations",
       "arguments": {
         "threadId": "thread-1",
         "limit": 20,
@@ -26095,7 +26095,7 @@
         "projects"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.ProjectsPart1",
+      "owner": "dev.octri.showcase.openai.methods.ProjectsApiKeysOperations",
       "arguments": {
         "projectId": "project-1",
         "limit": 20,
@@ -26161,7 +26161,7 @@
         "projects"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.ProjectsPart1",
+      "owner": "dev.octri.showcase.openai.methods.ProjectsApiKeysOperations",
       "arguments": {
         "projectId": "project-1",
         "limit": 20,
@@ -26421,7 +26421,7 @@
         "projects"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.ProjectsPart1",
+      "owner": "dev.octri.showcase.openai.methods.ProjectsRateLimitsOperations",
       "arguments": {
         "projectId": "project-1",
         "limit": 100,
@@ -26472,7 +26472,7 @@
         "projects"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.ProjectsPart1",
+      "owner": "dev.octri.showcase.openai.methods.ProjectsRateLimitsOperations",
       "arguments": {
         "projectId": "project-1",
         "limit": 100,
@@ -26521,7 +26521,7 @@
         "projects"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.ProjectsPart1",
+      "owner": "dev.octri.showcase.openai.methods.ProjectsOperations",
       "arguments": {
         "limit": 20,
         "after": "after",
@@ -26568,7 +26568,7 @@
         "projects"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.ProjectsPart1",
+      "owner": "dev.octri.showcase.openai.methods.ProjectsOperations",
       "arguments": {
         "limit": 20,
         "after": "after",
@@ -26614,7 +26614,7 @@
         "projects"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.ProjectsPart1",
+      "owner": "dev.octri.showcase.openai.methods.ProjectsServiceAccountsOperations",
       "arguments": {
         "projectId": "project-1",
         "limit": 20,
@@ -26658,7 +26658,7 @@
         "projects"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.ProjectsPart1",
+      "owner": "dev.octri.showcase.openai.methods.ProjectsServiceAccountsOperations",
       "arguments": {
         "projectId": "project-1",
         "limit": 20,
@@ -26928,7 +26928,7 @@
         "projects"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.ProjectsPart1",
+      "owner": "dev.octri.showcase.openai.methods.ProjectsUsersOperations",
       "arguments": {
         "projectId": "project-1",
         "limit": 20,
@@ -26973,7 +26973,7 @@
         "projects"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.ProjectsPart1",
+      "owner": "dev.octri.showcase.openai.methods.ProjectsUsersOperations",
       "arguments": {
         "projectId": "project-1",
         "limit": 20,
@@ -27211,7 +27211,7 @@
         "assistants"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AssistantsPart1",
+      "owner": "dev.octri.showcase.openai.methods.AssistantsThreadsOperations",
       "arguments": {
         "threadId": "thread-1",
         "limit": 20,
@@ -27318,7 +27318,7 @@
         "assistants"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AssistantsPart2",
+      "owner": "dev.octri.showcase.openai.methods.AssistantsThreadsOperations",
       "arguments": {
         "threadId": "thread-1",
         "runId": "run-1",
@@ -28576,7 +28576,7 @@
         "assistants"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AssistantsPart1",
+      "owner": "dev.octri.showcase.openai.methods.AssistantsOperations",
       "arguments": {
         "assistantId": "assistant-1",
         "model": "gpt-5",
@@ -28754,7 +28754,7 @@
         "assistants"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AssistantsPart1",
+      "owner": "dev.octri.showcase.openai.methods.AssistantsThreadsOperations",
       "arguments": {
         "threadId": "thread-1",
         "messageId": "message-1",
@@ -28822,7 +28822,7 @@
         "projects"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.ProjectsPart1",
+      "owner": "dev.octri.showcase.openai.methods.ProjectsOperations",
       "arguments": {
         "projectId": "project-1",
         "name": "Example Name",
@@ -28864,7 +28864,7 @@
         "projects"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.ProjectsPart1",
+      "owner": "dev.octri.showcase.openai.methods.ProjectsOperations",
       "arguments": {
         "projectId": "project-1",
         "name": "Example Name",
@@ -28913,7 +28913,7 @@
         "projects"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.ProjectsPart2",
+      "owner": "dev.octri.showcase.openai.methods.ProjectsUsersOperations",
       "arguments": {
         "projectId": "project-1",
         "userId": "user-1",
@@ -28950,7 +28950,7 @@
         "projects"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.ProjectsPart2",
+      "owner": "dev.octri.showcase.openai.methods.ProjectsUsersOperations",
       "arguments": {
         "projectId": "project-1",
         "userId": "user-1",
@@ -28996,7 +28996,7 @@
         "assistants"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AssistantsPart2",
+      "owner": "dev.octri.showcase.openai.methods.AssistantsThreadsOperations",
       "arguments": {
         "threadId": "thread-1",
         "runId": "run-1",
@@ -29091,7 +29091,7 @@
         "assistants"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AssistantsPart1",
+      "owner": "dev.octri.showcase.openai.methods.AssistantsThreadsOperations",
       "arguments": {
         "threadId": "thread-1",
         "toolResources": {
@@ -30179,7 +30179,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart1",
+      "owner": "dev.octri.showcase.openai.methods.AgentsOperations",
       "arguments": {
         "agentId": "agent-1"
       },
@@ -30240,7 +30240,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart1",
+      "owner": "dev.octri.showcase.openai.methods.AgentsOperations",
       "arguments": {
         "agentId": "agent-1"
       },
@@ -30272,7 +30272,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart1",
+      "owner": "dev.octri.showcase.openai.methods.AgentsEnvironmentsOperations",
       "arguments": {
         "environmentId": "environment-1"
       },
@@ -30326,7 +30326,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart1",
+      "owner": "dev.octri.showcase.openai.methods.AgentsEnvironmentsOperations",
       "arguments": {
         "environmentId": "environment-1"
       },
@@ -30358,7 +30358,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart2",
+      "owner": "dev.octri.showcase.openai.methods.AgentsEnvironmentsOperations",
       "arguments": {
         "environmentTemplateId": "environment_template-1"
       },
@@ -30432,7 +30432,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart2",
+      "owner": "dev.octri.showcase.openai.methods.AgentsEnvironmentsOperations",
       "arguments": {
         "environmentTemplateId": "environment_template-1"
       },
@@ -30464,7 +30464,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart2",
+      "owner": "dev.octri.showcase.openai.methods.AgentsSessionsOperations",
       "arguments": {
         "sessionId": "session-1"
       },
@@ -30580,7 +30580,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart2",
+      "owner": "dev.octri.showcase.openai.methods.AgentsSessionsOperations",
       "arguments": {
         "sessionId": "session-1"
       },
@@ -30612,7 +30612,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart2",
+      "owner": "dev.octri.showcase.openai.methods.AgentsRetrieveAgentSessionArtifactOperations",
       "arguments": {
         "sessionId": "session-1",
         "artifactId": "artifact-1"
@@ -30648,7 +30648,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart2",
+      "owner": "dev.octri.showcase.openai.methods.AgentsRetrieveAgentSessionArtifactOperations",
       "arguments": {
         "sessionId": "session-1",
         "artifactId": "artifact-1"
@@ -30683,7 +30683,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart2",
+      "owner": "dev.octri.showcase.openai.methods.AgentsRetrieveAgentSessionArtifactOperations",
       "arguments": {
         "sessionId": "session-1",
         "artifactId": "artifact-1"
@@ -30710,7 +30710,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart2",
+      "owner": "dev.octri.showcase.openai.methods.AgentsRetrieveAgentSessionArtifactOperations",
       "arguments": {
         "sessionId": "session-1",
         "artifactId": "artifact-1"
@@ -30745,7 +30745,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart1",
+      "owner": "dev.octri.showcase.openai.methods.AgentsSessionsOperations",
       "arguments": {
         "sessionId": "session-1",
         "subagentId": "subagent-1"
@@ -30787,7 +30787,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart1",
+      "owner": "dev.octri.showcase.openai.methods.AgentsSessionsOperations",
       "arguments": {
         "sessionId": "session-1",
         "subagentId": "subagent-1"
@@ -30822,7 +30822,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart1",
+      "owner": "dev.octri.showcase.openai.methods.AgentsSessionsOperations",
       "arguments": {
         "sessionId": "session-1",
         "subagentId": "subagent-1",
@@ -30877,7 +30877,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart1",
+      "owner": "dev.octri.showcase.openai.methods.AgentsSessionsOperations",
       "arguments": {
         "sessionId": "session-1",
         "subagentId": "subagent-1",
@@ -30915,7 +30915,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart3",
+      "owner": "dev.octri.showcase.openai.methods.AgentsRetrieveAgentSessionArtifactOperations",
       "arguments": {
         "sessionId": "session-1",
         "turnId": "turn-1"
@@ -30967,7 +30967,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart3",
+      "owner": "dev.octri.showcase.openai.methods.AgentsRetrieveAgentSessionArtifactOperations",
       "arguments": {
         "sessionId": "session-1",
         "turnId": "turn-1"
@@ -32232,7 +32232,7 @@
         "projects"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.ProjectsPart1",
+      "owner": "dev.octri.showcase.openai.methods.ProjectsOperations",
       "arguments": {
         "projectId": "project-1"
       },
@@ -32265,7 +32265,7 @@
         "projects"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.ProjectsPart1",
+      "owner": "dev.octri.showcase.openai.methods.ProjectsOperations",
       "arguments": {
         "projectId": "project-1"
       },
@@ -32305,7 +32305,7 @@
         "projects"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.ProjectsPart1",
+      "owner": "dev.octri.showcase.openai.methods.ProjectsApiKeysOperations",
       "arguments": {
         "projectId": "project-1",
         "apiKeyId": "api_key-1"
@@ -32357,7 +32357,7 @@
         "projects"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.ProjectsPart1",
+      "owner": "dev.octri.showcase.openai.methods.ProjectsApiKeysOperations",
       "arguments": {
         "projectId": "project-1",
         "apiKeyId": "api_key-1"
@@ -32726,7 +32726,7 @@
         "projects"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.ProjectsPart1",
+      "owner": "dev.octri.showcase.openai.methods.ProjectsModelPermissionsOperations",
       "arguments": {
         "projectId": "project-1"
       },
@@ -32756,7 +32756,7 @@
         "projects"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.ProjectsPart1",
+      "owner": "dev.octri.showcase.openai.methods.ProjectsModelPermissionsOperations",
       "arguments": {
         "projectId": "project-1"
       },
@@ -32796,7 +32796,7 @@
         "projects"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.ProjectsPart1",
+      "owner": "dev.octri.showcase.openai.methods.ProjectsServiceAccountsOperations",
       "arguments": {
         "projectId": "project-1",
         "serviceAccountId": "service_account-1"
@@ -32829,7 +32829,7 @@
         "projects"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.ProjectsPart1",
+      "owner": "dev.octri.showcase.openai.methods.ProjectsServiceAccountsOperations",
       "arguments": {
         "projectId": "project-1",
         "serviceAccountId": "service_account-1"
@@ -32955,7 +32955,7 @@
         "projects"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.ProjectsPart2",
+      "owner": "dev.octri.showcase.openai.methods.ProjectsUsersOperations",
       "arguments": {
         "projectId": "project-1",
         "userId": "user-1"
@@ -32989,7 +32989,7 @@
         "projects"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.ProjectsPart2",
+      "owner": "dev.octri.showcase.openai.methods.ProjectsUsersOperations",
       "arguments": {
         "projectId": "project-1",
         "userId": "user-1"
@@ -34568,7 +34568,7 @@
         "assistants"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AssistantsPart2",
+      "owner": "dev.octri.showcase.openai.methods.AssistantsGetRunStepOperations",
       "arguments": {
         "threadId": "thread-1",
         "runId": "run-1",
@@ -34669,7 +34669,7 @@
         "assistants"
       ],
       "mode": "stream",
-      "owner": "dev.octri.showcase.openai.methods.AssistantsPart2",
+      "owner": "dev.octri.showcase.openai.methods.AssistantsGetRunStepOperations",
       "arguments": {
         "threadId": "thread-1",
         "runId": "run-1",
@@ -35108,7 +35108,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart2",
+      "owner": "dev.octri.showcase.openai.methods.AgentsOperations",
       "arguments": {
         "agentId": "agent-1",
         "model": "model",
@@ -35219,7 +35219,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart2",
+      "owner": "dev.octri.showcase.openai.methods.AgentsOperations",
       "arguments": {
         "agentId": "agent-1",
         "model": "model",
@@ -35301,7 +35301,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart2",
+      "owner": "dev.octri.showcase.openai.methods.AgentsEnvironmentsOperations",
       "arguments": {
         "environmentTemplateId": "environment_template-1",
         "name": "Example Name",
@@ -35457,7 +35457,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart2",
+      "owner": "dev.octri.showcase.openai.methods.AgentsEnvironmentsOperations",
       "arguments": {
         "environmentTemplateId": "environment_template-1",
         "name": "Example Name",
@@ -35571,7 +35571,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart2",
+      "owner": "dev.octri.showcase.openai.methods.AgentsSessionsOperations",
       "arguments": {
         "sessionId": "session-1",
         "spendControl": {
@@ -35706,7 +35706,7 @@
         "agents"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.AgentsPart2",
+      "owner": "dev.octri.showcase.openai.methods.AgentsSessionsOperations",
       "arguments": {
         "sessionId": "session-1",
         "spendControl": {
@@ -36452,7 +36452,7 @@
         "projects"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.ProjectsPart1",
+      "owner": "dev.octri.showcase.openai.methods.ProjectsApiKeysOperations",
       "arguments": {
         "projectId": "project-1",
         "apiKeyId": "api_key-1",
@@ -36512,7 +36512,7 @@
         "projects"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.ProjectsPart1",
+      "owner": "dev.octri.showcase.openai.methods.ProjectsApiKeysOperations",
       "arguments": {
         "projectId": "project-1",
         "apiKeyId": "api_key-1",
@@ -36766,7 +36766,7 @@
         "projects"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.ProjectsPart1",
+      "owner": "dev.octri.showcase.openai.methods.ProjectsModelPermissionsOperations",
       "arguments": {
         "projectId": "project-1",
         "mode": "allow_list",
@@ -36804,7 +36804,7 @@
         "projects"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.ProjectsPart1",
+      "owner": "dev.octri.showcase.openai.methods.ProjectsModelPermissionsOperations",
       "arguments": {
         "projectId": "project-1",
         "mode": "allow_list",
@@ -36852,7 +36852,7 @@
         "projects"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.ProjectsPart1",
+      "owner": "dev.octri.showcase.openai.methods.ProjectsRateLimitsOperations",
       "arguments": {
         "projectId": "project-1",
         "rateLimitId": "rate_limit-1",
@@ -36907,7 +36907,7 @@
         "projects"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.ProjectsPart1",
+      "owner": "dev.octri.showcase.openai.methods.ProjectsRateLimitsOperations",
       "arguments": {
         "projectId": "project-1",
         "rateLimitId": "rate_limit-1",
@@ -36968,7 +36968,7 @@
         "projects"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.ProjectsPart1",
+      "owner": "dev.octri.showcase.openai.methods.ProjectsServiceAccountsOperations",
       "arguments": {
         "projectId": "project-1",
         "serviceAccountId": "service_account-1",
@@ -37007,7 +37007,7 @@
         "projects"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.ProjectsPart1",
+      "owner": "dev.octri.showcase.openai.methods.ProjectsServiceAccountsOperations",
       "arguments": {
         "projectId": "project-1",
         "serviceAccountId": "service_account-1",
@@ -37144,6 +37144,96 @@
         "currency",
         "interval",
         "notificationChannel"
+      ],
+      "response": {
+        "kind": "error",
+        "status": 400,
+        "expected": {
+          "error": {
+            "code": "code",
+            "message": "example text",
+            "param": "param",
+            "type": "type",
+            "misalignment": {
+              "review_target": "a",
+              "error_type": "error_type",
+              "detailed_explanation": "detailed_explanation",
+              "steer": {
+                "message": "example text"
+              }
+            }
+          }
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "updateProjectSpendLimit:updateProjectSpendLimit",
+      "operationId": "updateProjectSpendLimit",
+      "methodName": "updateProjectSpendLimit",
+      "namespace": [
+        "spendLimits"
+      ],
+      "mode": "normal",
+      "owner": "dev.octri.showcase.openai.methods.SpendLimits",
+      "arguments": {
+        "projectId": "proj_123",
+        "thresholdAmount": 1,
+        "currency": "USD",
+        "interval": "month"
+      },
+      "wireNames": {
+        "projectId": "project_id",
+        "thresholdAmount": "threshold_amount",
+        "currency": "currency",
+        "interval": "interval"
+      },
+      "argumentOrder": [
+        "projectId",
+        "thresholdAmount",
+        "currency",
+        "interval"
+      ],
+      "response": {
+        "kind": "json",
+        "expected": {
+          "object": "project.spend_limit",
+          "threshold_amount": 1,
+          "currency": "USD",
+          "interval": "month",
+          "enforcement": {
+            "status": "active"
+          }
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "updateProjectSpendLimit:updateProjectSpendLimit:400",
+      "operationId": "updateProjectSpendLimit",
+      "methodName": "updateProjectSpendLimit",
+      "namespace": [
+        "spendLimits"
+      ],
+      "mode": "normal",
+      "owner": "dev.octri.showcase.openai.methods.SpendLimits",
+      "arguments": {
+        "projectId": "proj_123",
+        "thresholdAmount": 1,
+        "currency": "USD",
+        "interval": "month"
+      },
+      "wireNames": {
+        "projectId": "project_id",
+        "thresholdAmount": "threshold_amount",
+        "currency": "currency",
+        "interval": "interval"
+      },
+      "argumentOrder": [
+        "projectId",
+        "thresholdAmount",
+        "currency",
+        "interval"
       ],
       "response": {
         "kind": "error",
@@ -37501,96 +37591,6 @@
         "interval": "interval"
       },
       "argumentOrder": [
-        "thresholdAmount",
-        "currency",
-        "interval"
-      ],
-      "response": {
-        "kind": "error",
-        "status": 400,
-        "expected": {
-          "error": {
-            "code": "code",
-            "message": "example text",
-            "param": "param",
-            "type": "type",
-            "misalignment": {
-              "review_target": "a",
-              "error_type": "error_type",
-              "detailed_explanation": "detailed_explanation",
-              "steer": {
-                "message": "example text"
-              }
-            }
-          }
-        },
-        "byteLength": 0
-      }
-    },
-    {
-      "id": "updateSpendLimitsProject:updateSpendLimitsProject",
-      "operationId": "updateSpendLimitsProject",
-      "methodName": "updateSpendLimitsProject",
-      "namespace": [
-        "spendLimits"
-      ],
-      "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.SpendLimits",
-      "arguments": {
-        "projectId": "proj_123",
-        "thresholdAmount": 1,
-        "currency": "USD",
-        "interval": "month"
-      },
-      "wireNames": {
-        "projectId": "project_id",
-        "thresholdAmount": "threshold_amount",
-        "currency": "currency",
-        "interval": "interval"
-      },
-      "argumentOrder": [
-        "projectId",
-        "thresholdAmount",
-        "currency",
-        "interval"
-      ],
-      "response": {
-        "kind": "json",
-        "expected": {
-          "object": "project.spend_limit",
-          "threshold_amount": 1,
-          "currency": "USD",
-          "interval": "month",
-          "enforcement": {
-            "status": "active"
-          }
-        },
-        "byteLength": 0
-      }
-    },
-    {
-      "id": "updateSpendLimitsProject:updateSpendLimitsProject:400",
-      "operationId": "updateSpendLimitsProject",
-      "methodName": "updateSpendLimitsProject",
-      "namespace": [
-        "spendLimits"
-      ],
-      "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.SpendLimits",
-      "arguments": {
-        "projectId": "proj_123",
-        "thresholdAmount": 1,
-        "currency": "USD",
-        "interval": "month"
-      },
-      "wireNames": {
-        "projectId": "project_id",
-        "thresholdAmount": "threshold_amount",
-        "currency": "currency",
-        "interval": "interval"
-      },
-      "argumentOrder": [
-        "projectId",
         "thresholdAmount",
         "currency",
         "interval"
@@ -38060,7 +38060,7 @@
         "usage"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.UsagePart1",
+      "owner": "dev.octri.showcase.openai.methods.UsageAudioSpeechesOperations",
       "arguments": {
         "startTime": 1,
         "endTime": 1,
@@ -38160,7 +38160,7 @@
         "usage"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.UsagePart1",
+      "owner": "dev.octri.showcase.openai.methods.UsageAudioSpeechesOperations",
       "arguments": {
         "startTime": 1,
         "endTime": 1,
@@ -38237,7 +38237,7 @@
         "usage"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.UsagePart1",
+      "owner": "dev.octri.showcase.openai.methods.UsageAudioTranscriptionsOperations",
       "arguments": {
         "startTime": 1,
         "endTime": 1,
@@ -38337,7 +38337,7 @@
         "usage"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.UsagePart1",
+      "owner": "dev.octri.showcase.openai.methods.UsageAudioTranscriptionsOperations",
       "arguments": {
         "startTime": 1,
         "endTime": 1,
@@ -38414,7 +38414,7 @@
         "usage"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.UsagePart1",
+      "owner": "dev.octri.showcase.openai.methods.UsageCodeInterpreterSessionsOperations",
       "arguments": {
         "startTime": 1,
         "endTime": 1,
@@ -38499,7 +38499,7 @@
         "usage"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.UsagePart1",
+      "owner": "dev.octri.showcase.openai.methods.UsageCodeInterpreterSessionsOperations",
       "arguments": {
         "startTime": 1,
         "endTime": 1,
@@ -38561,7 +38561,7 @@
         "usage"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.UsagePart1",
+      "owner": "dev.octri.showcase.openai.methods.UsageCompletionsOperations",
       "arguments": {
         "startTime": 1,
         "endTime": 1,
@@ -38664,7 +38664,7 @@
         "usage"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.UsagePart1",
+      "owner": "dev.octri.showcase.openai.methods.UsageCompletionsOperations",
       "arguments": {
         "startTime": 1,
         "endTime": 1,
@@ -38744,7 +38744,7 @@
         "usage"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.UsagePart1",
+      "owner": "dev.octri.showcase.openai.methods.UsageOrganizationOperations",
       "arguments": {
         "startTime": 1,
         "endTime": 1,
@@ -38839,7 +38839,7 @@
         "usage"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.UsagePart1",
+      "owner": "dev.octri.showcase.openai.methods.UsageOrganizationOperations",
       "arguments": {
         "startTime": 1,
         "endTime": 1,
@@ -38911,7 +38911,7 @@
         "usage"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.UsagePart1",
+      "owner": "dev.octri.showcase.openai.methods.UsageEmbeddingsOperations",
       "arguments": {
         "startTime": 1,
         "endTime": 1,
@@ -39011,7 +39011,7 @@
         "usage"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.UsagePart1",
+      "owner": "dev.octri.showcase.openai.methods.UsageEmbeddingsOperations",
       "arguments": {
         "startTime": 1,
         "endTime": 1,
@@ -39088,7 +39088,7 @@
         "usage"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.UsagePart1",
+      "owner": "dev.octri.showcase.openai.methods.UsageFileSearchCallsOperations",
       "arguments": {
         "startTime": 1,
         "endTime": 1,
@@ -39188,7 +39188,7 @@
         "usage"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.UsagePart1",
+      "owner": "dev.octri.showcase.openai.methods.UsageFileSearchCallsOperations",
       "arguments": {
         "startTime": 1,
         "endTime": 1,
@@ -39265,7 +39265,7 @@
         "usage"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.UsagePart1",
+      "owner": "dev.octri.showcase.openai.methods.UsageImagesOperations",
       "arguments": {
         "startTime": 1,
         "endTime": 1,
@@ -39375,7 +39375,7 @@
         "usage"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.UsagePart1",
+      "owner": "dev.octri.showcase.openai.methods.UsageImagesOperations",
       "arguments": {
         "startTime": 1,
         "endTime": 1,
@@ -39462,7 +39462,7 @@
         "usage"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.UsagePart2",
+      "owner": "dev.octri.showcase.openai.methods.UsageModerationsOperations",
       "arguments": {
         "startTime": 1,
         "endTime": 1,
@@ -39562,7 +39562,7 @@
         "usage"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.UsagePart2",
+      "owner": "dev.octri.showcase.openai.methods.UsageModerationsOperations",
       "arguments": {
         "startTime": 1,
         "endTime": 1,
@@ -39639,7 +39639,7 @@
         "usage"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.UsagePart2",
+      "owner": "dev.octri.showcase.openai.methods.UsageVectorStoresOperations",
       "arguments": {
         "startTime": 1,
         "endTime": 1,
@@ -39724,7 +39724,7 @@
         "usage"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.UsagePart2",
+      "owner": "dev.octri.showcase.openai.methods.UsageVectorStoresOperations",
       "arguments": {
         "startTime": 1,
         "endTime": 1,
@@ -39786,7 +39786,7 @@
         "usage"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.UsagePart2",
+      "owner": "dev.octri.showcase.openai.methods.UsageWebSearchCallsOperations",
       "arguments": {
         "startTime": 1,
         "endTime": 1,
@@ -39891,7 +39891,7 @@
         "usage"
       ],
       "mode": "normal",
-      "owner": "dev.octri.showcase.openai.methods.UsagePart2",
+      "owner": "dev.octri.showcase.openai.methods.UsageWebSearchCallsOperations",
       "arguments": {
         "startTime": 1,
         "endTime": 1,

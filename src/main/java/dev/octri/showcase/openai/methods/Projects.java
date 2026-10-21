@@ -19,7 +19,7 @@ import dev.octri.showcase.openai.models.projects.PublicProjectResidency;
 import dev.octri.showcase.openai.SdkClient;
 import java.util.List;
 
-public class Projects extends ProjectsPart2 {
+public class Projects extends ProjectsUsersOperations {
 
     public static final class ListProjectApiKeysOwnerProjectAccess {
         public static final ListProjectApiKeysOwnerProjectAccess ACTIVE = new ListProjectApiKeysOwnerProjectAccess("active");
