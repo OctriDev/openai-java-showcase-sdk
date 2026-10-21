@@ -13,7 +13,7 @@ import dev.octri.showcase.openai.models.usage.UsageTimeBucket;
 import dev.octri.showcase.openai.SdkClient;
 import java.util.List;
 
-public class Usage extends UsagePart2 {
+public class Usage extends UsageDecisionsOperations {
 
     public static final class UsageCostsBucketWidth {
         public static final UsageCostsBucketWidth _1D = new UsageCostsBucketWidth("1d");

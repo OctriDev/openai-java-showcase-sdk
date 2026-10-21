@@ -180,24 +180,24 @@ public class SpendLimits {
 
 
 
-    public static class UpdateSpendLimitsProjectRequest {
+    public static class UpdateProjectSpendLimitRequest {
 
         private String projectId;
         private Long thresholdAmount;
         private CreateSpendAlertBodyCurrencyEnum currency;
         private CreateSpendAlertBodyIntervalEnum interval;
 
-        private UpdateSpendLimitsProjectRequest() {}
+        private UpdateProjectSpendLimitRequest() {}
 
         public static Builder builder() { return new Builder(); }
 
         public static class Builder {
-            private final UpdateSpendLimitsProjectRequest request = new UpdateSpendLimitsProjectRequest();
+            private final UpdateProjectSpendLimitRequest request = new UpdateProjectSpendLimitRequest();
             public Builder projectId(String val) { request.projectId = val; return this; }
             public Builder thresholdAmount(Long val) { request.thresholdAmount = val; return this; }
             public Builder currency(CreateSpendAlertBodyCurrencyEnum val) { request.currency = val; return this; }
             public Builder interval(CreateSpendAlertBodyIntervalEnum val) { request.interval = val; return this; }
-            public UpdateSpendLimitsProjectRequest build() { return request; }
+            public UpdateProjectSpendLimitRequest build() { return request; }
         }
         public String getProjectId() { return projectId; }
         public Long getThresholdAmount() { return thresholdAmount; }
@@ -210,8 +210,8 @@ public class SpendLimits {
      *
      * Create or replace a project's hard spend limit.
      */
-    public static ProjectSpendLimitResource updateSpendLimitsProject(SdkConfig.ClientConfig clientConfig, UpdateSpendLimitsProjectRequest request) {
-        return updateSpendLimitsProject(clientConfig, request, null);
+    public static ProjectSpendLimitResource updateProjectSpendLimit(SdkConfig.ClientConfig clientConfig, UpdateProjectSpendLimitRequest request) {
+        return updateProjectSpendLimit(clientConfig, request, null);
     }
 
     /**
@@ -219,7 +219,7 @@ public class SpendLimits {
      *
      * Create or replace a project's hard spend limit.
      */
-    public static ProjectSpendLimitResource updateSpendLimitsProject(SdkConfig.ClientConfig clientConfig, UpdateSpendLimitsProjectRequest request, SdkConfig.RequestOptions options) {
+    public static ProjectSpendLimitResource updateProjectSpendLimit(SdkConfig.ClientConfig clientConfig, UpdateProjectSpendLimitRequest request, SdkConfig.RequestOptions options) {
         String projectId = request.getProjectId();
         Long thresholdAmount = request.getThresholdAmount();
         CreateSpendAlertBodyCurrencyEnum currency = request.getCurrency();
@@ -227,7 +227,7 @@ public class SpendLimits {
 
         { Validation.RangeOpts __r = new Validation.RangeOpts(); __r.min = 1d; Validation.validateRange("threshold_amount", thresholdAmount, __r); }
 
-        return SdkClient.request(clientConfig, "POST", "/organization/projects/" + SdkClient.encodePathSegment(projectId) + "/spend_limit", null, SdkClient.q("threshold_amount", thresholdAmount, "currency", currency, "interval", interval), null, new TypeReference<ProjectSpendLimitResource>(){}, "updateSpendLimitsProject", null, SdkClient.ResponseDecoder.JSON, options, java.util.Map.of("400", ErrorResponse.class, "403", PermissionErrorResponse.class, "404", ErrorResponse.class)).data;
+        return SdkClient.request(clientConfig, "POST", "/organization/projects/" + SdkClient.encodePathSegment(projectId) + "/spend_limit", null, SdkClient.q("threshold_amount", thresholdAmount, "currency", currency, "interval", interval), null, new TypeReference<ProjectSpendLimitResource>(){}, "updateProjectSpendLimit", null, SdkClient.ResponseDecoder.JSON, options, java.util.Map.of("400", ErrorResponse.class, "403", PermissionErrorResponse.class, "404", ErrorResponse.class)).data;
     }
 
 
